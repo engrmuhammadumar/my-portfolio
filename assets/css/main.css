@@ -1440,3 +1440,14 @@ main {
     border-radius: 1.5rem;
   }
 }
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+   /* makes dark logo white in dark theme */
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
