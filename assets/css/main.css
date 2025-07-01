@@ -1411,3 +1411,32 @@ main {
     transform: translateY(0);
   }
 }
+
+.hero__image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: var(--box-shadow-soft);
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .hero__image {
+    margin-top: 2rem;
+    order: -1; /* Move image above text if needed */
+  }
+
+  .hero__img {
+    width: 80%;
+    max-width: 280px;
+    border-radius: 1.5rem;
+  }
+}
