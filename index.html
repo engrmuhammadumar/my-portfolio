@@ -838,10 +838,10 @@
     var navMenu = document.getElementById("nav-menu");
     var navToggle = document.getElementById("nav-toggle");
     var navClose = document.getElementById("nav-close");
-    if (navToggle) navToggle.addEventListener("click", function () { navMenu.classList.add("nav__menu--open"); });
-    if (navClose) navClose.addEventListener("click", function () { navMenu.classList.remove("nav__menu--open"); });
+    if (navToggle) navToggle.addEventListener("click", function () { navMenu.classList.add("nav__menu--open"); document.body.classList.add("nav-open"); });
+    if (navClose) navClose.addEventListener("click", function () { navMenu.classList.remove("nav__menu--open"); document.body.classList.remove("nav-open"); });
     document.querySelectorAll(".nav__link").forEach(function (l) {
-      l.addEventListener("click", function () { navMenu.classList.remove("nav__menu--open"); });
+      l.addEventListener("click", function () { navMenu.classList.remove("nav__menu--open"); document.body.classList.remove("nav-open"); });
     });
 
     /* Header shrink + back-to-top */
