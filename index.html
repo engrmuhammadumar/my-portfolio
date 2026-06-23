@@ -5,25 +5,19 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Umar's Portfolio" />
-  <meta name="keywords" content="AI Researcher, Engineer, Fault Diagnosis, Machine Learning, Deep Learning, Signal Processing, Muhammad Umar, University of Ulsan" />
+  <meta name="description" content="Muhammad Umar — AI researcher and ML engineer at the University of Ulsan, specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics." />
+  <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, Muhammad Umar, University of Ulsan" />
   <meta name="author" content="Muhammad Umar" />
 
-  <title>Umar's Portfolio</title>
+  <title>Muhammad Umar — AI Researcher & ML Engineer</title>
 
-  <!-- Favicon -->
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Space Grotesk (display/body) + JetBrains Mono (data/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Remix Icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- SwiperJS CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
   <!-- Main Custom CSS -->
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -33,87 +27,82 @@
 
   <!--=================== Header ====================-->
   <header id="header" class="header">
-    <div class="container">
-      <nav class="nav">
-        <a href="index.html" class="nav__brand">
-          <img class="logo" src="assets/img/logo_n.PNG" alt="Logo">
-        </a>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#hero" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">About</a>
-            </li>
-            <li class="nav__item">
-              <a href="#skills" class="nav__link">Skills</a>
-            </li>
-            <li class="nav__item">
-              <a href="#research" class="nav__link">Research</a>
-            </li>
-            <li class="nav__item">
-              <a href="#publications" class="nav__link">Publications</a>
-            </li>
-            <li class="nav__item">
-              <a href="#qualification" class="nav__link">Qualification</a>
-            </li>
-            <li class="nav__item">
-              <a href="#certificates" class="nav__link">Certificates</a>
-            </li>
-            <li class="nav__item">
-              <a href="#project" class="nav__link">Projects</a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">Contact</a>
-            </li>
-          </ul>
-        </div>
-        <div class="nav__toggle">
-          <i id="nav-toggle" class="ri-menu-3-line"></i>
-        </div>
-      </nav>
-    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav__brand" aria-label="Home">
+        <img class="logo" src="assets/img/logo_n.PNG" alt="Muhammad Umar logo">
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#hero" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+          <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
+          <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
+          <li class="nav__item"><a href="#qualification" class="nav__link">Journey</a></li>
+          <li class="nav__item"><a href="#certificates" class="nav__link">Certificates</a></li>
+          <li class="nav__item"><a href="#project" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <i class="ri-close-line nav__close" id="nav-close" aria-label="Close menu"></i>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+        <i class="ri-menu-3-line"></i>
+      </div>
+    </nav>
   </header>
 
-  <!--=================== Main Content ====================-->
+  <!--=================== Main ====================-->
   <main>
+
     <!--=================== Hero ====================-->
     <section id="hero" class="hero">
+      <canvas class="hero__canvas" id="signal-canvas" aria-hidden="true"></canvas>
       <div class="container">
-        <div class="d-grid hero__wrapper">
+        <div class="hero__wrapper">
           <div class="hero__content">
+            <span class="hero__status">
+              <span class="dot"></span> Open to research collaborations &amp; opportunities
+            </span>
+
             <h1 class="hero__title">
-              Hi, I'm <br><strong>Muhammad Umar</strong>,<br>MS Student & ML Engineer
+              <span class="lead">Hi, I'm</span>
+              <strong>Muhammad Umar</strong>
+              <span class="hero__role" id="typed-role"><span class="cursor">|</span></span>
             </h1>
+
             <p class="hero__description">
-              I'm a passionate researcher and graduate student in Artificial Intelligence and Computer
-              Engineering at the University of Ulsan, South Korea. My work focuses on fault diagnosis, signal processing, deep learning, and Remaining Useful
-              Life (RUL) prediction — using real-world data from industrial systems. I build intelligent and explainable AI solutions to solve complex
-              industrial problems.
+              MS&ndash;PhD researcher in Artificial Intelligence &amp; Computer Engineering at the
+              University of Ulsan, South Korea. I build interpretable, physics-aware deep learning
+              for fault diagnosis, predictive maintenance, and remaining useful life (RUL)
+              estimation &mdash; turning raw industrial signals into reliable decisions.
             </p>
+
+            <div class="hero__buttons">
+              <a href="#contact" class="btn btn--primary">Get in touch <i class="ri-arrow-right-up-line"></i></a>
+              <a href="Umar__CV.pdf" class="btn btn--secondary" download><i class="ri-download-line"></i> Download CV</a>
+              <a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn--secondary"><i class="ri-graduation-cap-line"></i> Google Scholar</a>
+            </div>
+
             <div class="hero__info">
               <div class="hero__info-wrapper">
-                <p class="hero__info-number">12+</p>
-                <h2 class="hero__info-title">Research Papers<br>Published</h2>
+                <p class="hero__info-number"><span data-count="25">0</span><span class="suffix">+</span></p>
+                <h2 class="hero__info-title">Papers published<br>&amp; under review</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number">95%</p>
-                <h2 class="hero__info-title">Best Model<br>Accuracy</h2>
+                <p class="hero__info-number"><span data-count="95">0</span><span class="suffix">%</span></p>
+                <h2 class="hero__info-title">Best model<br>accuracy</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number">02</p>
-                <h2 class="hero__info-title">Years of<br>Experience</h2>
+                <p class="hero__info-number"><span data-count="1">0</span></p>
+                <h2 class="hero__info-title">Best Paper<br>Award (FICTA &rsquo;25)</h2>
               </div>
-            </div>
-            <div class="hero__buttons">
-              <a href="#contact" class="btn btn--primary">Get In Touch</a>
-              <a href="Umar__CV.pdf" class="btn btn--secondary" download>Download CV</a>
-              <a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ" target="_blank" class="btn btn--secondary">Google Scholar</a>
             </div>
           </div>
+
           <div class="hero__image">
-            <img src="assets/img/her.jpg" alt="Muhammad Umar Photo" class="hero__img">
+            <img src="assets/img/her.jpg" alt="Portrait of Muhammad Umar" class="hero__img">
           </div>
         </div>
       </div>
@@ -122,26 +111,45 @@
     <!--=================== About ====================-->
     <section id="about" class="section about">
       <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">About Me</h2>
-          <span class="section__subtitle">Who I Am</span>
+        <div class="section__header reveal">
+          <span class="eyebrow">About me</span>
+          <h2 class="section__title">Bridging research &amp; <span class="accent">real machines</span></h2>
+          <span class="section__subtitle">Who I am and how I work</span>
         </div>
 
         <div class="d-grid about__wrapper">
-          <!-- About Text -->
-          <div class="about__content">
-            <h3 class="about__title">AI Researcher | Deep Learning Engineer | Signal Processing Specialist</h3>
-            <p class="about__description">
-              I'm Muhammad Umar, currently pursuing a Master's in Artificial Intelligence and Computer Engineering at the University of Ulsan, South Korea.
-              <br><br>
-              I specialize in developing intelligent systems for fault diagnosis, predictive maintenance, and Remaining Useful Life (RUL) estimation using signal processing and deep learning. My work bridges academic research and real-world industrial challenges.
-              <br><br>
-              With hands-on experience in Python, MATLAB, PyTorch, and modern neural networks (CNNs, Transformers, Autoencoders), I focus on interpretable AI models that bring actionable insights to industrial systems.
-            </p>
-            <a href="#project" class="btn btn--primary">Explore My Projects</a>
+          <div class="about__media reveal">
+            <img src="assets/img/pro.jpg" alt="Muhammad Umar">
+            <div class="about__badge">
+              <i class="ri-award-fill"></i>
+              <div>
+                <strong>BK21 Fellow</strong>
+                <span>UIAI Lab · Ulsan</span>
+              </div>
+            </div>
           </div>
-          <div class="hero__image">
-            <img src="assets/img/pro.jpg" alt="Muhammad Umar Photo" class="hero__img">
+
+          <div class="about__content reveal" data-delay="1">
+            <h3 class="about__title">AI Researcher · Deep Learning Engineer · Signal Processing Specialist</h3>
+            <p class="about__lead">// Prognostics &amp; Health Management (PHM)</p>
+            <p class="about__description">
+              I'm a combined MS&ndash;PhD researcher in the Ulsan Industrial AI Lab under Prof. Jong-Myon Kim,
+              focused on intelligent fault diagnosis, degradation modeling, and RUL prediction for bearings,
+              milling machines, centrifugal pumps, and pipelines. My work pairs classical signal processing
+              (FFT, STFT, wavelets, acoustic emission) with modern deep learning to produce models that are
+              accurate <em>and</em> explainable.
+            </p>
+            <p class="about__description">
+              I care about research that holds up &mdash; honest evaluation protocols, uncertainty quantification,
+              and methods that transfer across real industrial data rather than overfitting a single benchmark.
+            </p>
+            <ul class="about__highlights">
+              <li><i class="ri-cpu-line"></i> Physics-informed &amp; conformal prediction</li>
+              <li><i class="ri-pulse-line"></i> Acoustic emission signal analysis</li>
+              <li><i class="ri-line-chart-line"></i> RUL &amp; degradation modeling</li>
+              <li><i class="ri-git-merge-line"></i> Domain adaptation &amp; transfer learning</li>
+            </ul>
+            <a href="#project" class="btn btn--primary">Explore my work <i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
       </div>
@@ -150,40 +158,43 @@
     <!--=================== Skills ====================-->
     <section id="skills" class="section skills">
       <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Technical Skills</h2>
-          <span class="section__subtitle">Tools, Frameworks & Expertise</span>
+        <div class="section__header reveal">
+          <span class="eyebrow">Toolbox</span>
+          <h2 class="section__title">Technical <span class="accent">skills</span></h2>
+          <span class="section__subtitle">Tools, frameworks &amp; expertise</span>
         </div>
 
         <div class="skills__wrapper">
-          <!-- AI & Machine Learning -->
-          <div class="skills__card">
-            <h3 class="skills__subtitle">AI & Machine Learning</h3>
+          <div class="skills__card reveal">
+            <span class="skills__icon"><i class="ri-brain-line"></i></span>
+            <h3 class="skills__subtitle">AI &amp; Machine Learning</h3>
             <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> CNNs, RNNs, LSTMs, Transformers</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> Autoencoders, XAI (Grad-CAM, SHAP)</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> PyTorch, TensorFlow, Scikit-learn</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> Few-shot Learning, Meta Learning</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> CNNs, RNNs, LSTMs, Transformers</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Autoencoders &amp; XAI (Grad-CAM, SHAP)</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> PyTorch, TensorFlow, scikit-learn</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Few-shot, meta &amp; self-supervised learning</li>
             </ul>
           </div>
 
-          <!-- Signal Processing -->
-          <div class="skills__card">
-            <h3 class="skills__subtitle">Signal Processing & Data Analysis</h3>
+          <div class="skills__card reveal" data-delay="1">
+            <span class="skills__icon"><i class="ri-pulse-line"></i></span>
+            <h3 class="skills__subtitle">Signal Processing &amp; Analysis</h3>
             <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> FFT, STFT, CWT, AE Analysis</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> MATLAB, Python, Power BI</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> Time-Frequency Feature Extraction</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> FFT, STFT, CWT &amp; AE analysis</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Time-frequency feature extraction</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Koopman &amp; spectral methods</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> MATLAB, Python, Power BI</li>
             </ul>
           </div>
 
-          <!-- Development Tools -->
-          <div class="skills__card">
-            <h3 class="skills__subtitle">Development & Research Tools</h3>
+          <div class="skills__card reveal" data-delay="2">
+            <span class="skills__icon"><i class="ri-tools-line"></i></span>
+            <h3 class="skills__subtitle">Development &amp; Research</h3>
             <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> Git, LaTeX, MLflow, Weights & Biases</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> Google Colab, Jupyter Notebook</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-fill"></i> Research Writing, Model Evaluation</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Git, LaTeX, MLflow, Weights &amp; Biases</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Jupyter, Colab, CUDA / GPU training</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Conformal prediction &amp; uncertainty</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Research writing &amp; model evaluation</li>
             </ul>
           </div>
         </div>
@@ -191,239 +202,257 @@
     </section>
 
     <!--=================== Research Interests ====================-->
-    <!--=================== Research Interests ====================-->
-<section id="research" class="section research">
-  <div class="container">
-    <div class="section__header">
-      <h2 class="section__title">Research Interests</h2>
-      <span class="section__subtitle">My Focus Research Area</span>
-    </div>
+    <section id="research" class="section research">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Focus areas</span>
+          <h2 class="section__title">Research <span class="accent">interests</span></h2>
+          <span class="section__subtitle">Where I spend my curiosity</span>
+        </div>
 
-    <div class="research__grid">
-
-      <div class="research__card">
-        <i class="ri-cpu-line research__icon"></i>
-        <p><strong>Advanced Machine Learning for Intelligent Systems:</strong> Development of robust, data-efficient, and generalizable deep learning models for real-world industrial and healthcare applications.</p>
+        <div class="research__grid">
+          <div class="research__card reveal">
+            <i class="ri-cpu-line research__icon"></i>
+            <p><strong>Advanced ML for intelligent systems.</strong> Robust, data-efficient, generalizable deep learning for industrial and healthcare applications.</p>
+          </div>
+          <div class="research__card reveal" data-delay="1">
+            <i class="ri-bar-chart-box-line research__icon"></i>
+            <p><strong>Signal processing &amp; time-frequency intelligence.</strong> Physics-aware representation learning with FFT, STFT, wavelets and adaptive transforms for machinery health.</p>
+          </div>
+          <div class="research__card reveal" data-delay="2">
+            <i class="ri-settings-3-line research__icon"></i>
+            <p><strong>Fault diagnosis, prognostics &amp; RUL.</strong> Interpretable, domain-adaptive approaches for early detection, degradation modeling and predictive maintenance.</p>
+          </div>
+          <div class="research__card reveal">
+            <i class="ri-shield-check-line research__icon"></i>
+            <p><strong>Explainable &amp; trustworthy AI.</strong> Transparency, reliability assessment, uncertainty quantification and human-centric explainability for safety-critical systems.</p>
+          </div>
+          <div class="research__card reveal" data-delay="1">
+            <i class="ri-focus-2-line research__icon"></i>
+            <p><strong>Transformers &amp; foundation models.</strong> Vision transformers, multimodal models and generative approaches for industrial inspection and biomedical imaging.</p>
+          </div>
+          <div class="research__card reveal" data-delay="2">
+            <i class="ri-node-tree research__icon"></i>
+            <p><strong>Physics-informed &amp; graph-based learning.</strong> Integrating domain knowledge, physics constraints and GNNs for smart sensing and complex systems.</p>
+          </div>
+          <div class="research__card reveal">
+            <i class="ri-stack-line research__icon"></i>
+            <p><strong>Multimodal &amp; low-label learning.</strong> Self-supervised, few-shot and cross-modal learning for scalable monitoring under limited annotations.</p>
+          </div>
+          <div class="research__card reveal" data-delay="1">
+            <i class="ri-cloud-line research__icon"></i>
+            <p><strong>Edge AI &amp; real-time monitoring.</strong> Lightweight models, on-device intelligence and efficient deployment for industrial IoT.</p>
+          </div>
+          <div class="research__card reveal" data-delay="2">
+            <i class="ri-database-2-line research__icon"></i>
+            <p><strong>Digital twins &amp; predictive analytics.</strong> AI-enabled digital twins for health awareness, reliability optimization and lifecycle management.</p>
+          </div>
+        </div>
       </div>
-
-      <div class="research__card">
-        <i class="ri-bar-chart-box-line research__icon"></i>
-        <p><strong>Signal Processing & Time-Frequency Intelligence:</strong> Physics-aware signal representation learning using FFT, STFT, wavelets, and adaptive transforms for machinery health monitoring.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-settings-3-line research__icon"></i>
-        <p><strong>Fault Diagnosis, Prognostics & RUL Prediction:</strong> Interpretable and domain-adaptive approaches for early fault detection, degradation modeling, and predictive maintenance.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-shield-check-line research__icon"></i>
-        <p><strong>Explainable & Trustworthy AI:</strong> Model transparency, reliability assessment, uncertainty quantification, and human-centric explainability for safety-critical systems.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-focus-2-line research__icon"></i>
-        <p><strong>Transformers, Foundation Models & Generative AI:</strong> Vision transformers, multimodal foundation models, and generative approaches for industrial inspection and biomedical imaging.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-node-tree research__icon"></i>
-        <p><strong>Physics-Informed & Graph-Based Learning:</strong> Integration of domain knowledge, physics constraints, and graph neural networks for smart sensing and complex system modeling.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-stack-line research__icon"></i>
-        <p><strong>Multimodal & Low-Label Learning:</strong> Self-supervised, few-shot, and cross-modal learning for scalable condition monitoring under limited annotated data.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-cloud-line research__icon"></i>
-        <p><strong>Edge AI & Real-Time Intelligent Monitoring:</strong> Lightweight deep models, on-device intelligence, and efficient deployment for industrial IoT environments.</p>
-      </div>
-
-      <div class="research__card">
-        <i class="ri-database-2-line research__icon"></i>
-        <p><strong>Digital Twins & Predictive Industrial Analytics:</strong> AI-enabled digital twin frameworks for system health awareness, reliability optimization, and lifecycle management.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <!--=================== Publications ====================-->
     <section id="publications" class="section publications">
       <div class="container">
-        <!-- Journal Publications -->
-        <div class="section__header">
-          <h2 class="section__title">Journal Publications</h2>
-          <span class="section__subtitle">Peer-Reviewed Journals</span>
+        <div class="section__header reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2 class="section__title">Publications &amp; <span class="accent">papers</span></h2>
+          <span class="section__subtitle">Peer-reviewed journals &amp; international conferences</span>
         </div>
 
-        <div class="d-grid publications__wrapper">
-          <div class="publications__card">
+        <!-- Filter tabs -->
+        <div class="pub__tabs reveal" role="tablist">
+          <button class="pub__tab is-active" data-filter="all">All</button>
+          <button class="pub__tab" data-filter="journal">Journals</button>
+          <button class="pub__tab" data-filter="conference">Conferences</button>
+        </div>
+
+        <div class="publications__wrapper" id="pub-grid">
+
+          <!-- ===== Journals ===== -->
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using Acoustic Emission and Transfer Learning</h4>
             <p class="publications__journal">IEEE Access</p>
-            <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">Milling machine fault diagnosis using acoustic emission and hybrid deep learning with feature optimization</h4>
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
+            <h4 class="publications__title">Milling Machine Fault Diagnosis Using Acoustic Emission and Hybrid Deep Learning with Feature Optimization</h4>
             <p class="publications__journal">MDPI Applied Sciences</p>
-            <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">Advanced Bearing-Fault Diagnosis and Classification Using Mel-Scalograms and FOX-Optimized ANN</h4>
             <p class="publications__journal">MDPI Sensors</p>
-            <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">Enhanced Fault Diagnosis in Milling Machines Using CWT Image Augmentation and Ant Colony Optimized AlexNet</h4>
             <p class="publications__journal">MDPI Sensors</p>
-            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized One-Dimensional DenseNet</h4>
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
+            <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized 1D DenseNet</h4>
             <p class="publications__journal">MDPI Sensors</p>
-            <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">A hybrid deep learning approach for bearing fault diagnosis using continuous wavelet transform and attention-enhanced spatiotemporal feature extraction</h4>
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
+            <h4 class="publications__title">A Hybrid Deep Learning Approach for Bearing Fault Diagnosis Using CWT and Attention-Enhanced Spatiotemporal Features</h4>
             <p class="publications__journal">MDPI Sensors</p>
-            <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines</h4>
             <p class="publications__journal">MDPI Sensors</p>
-            <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">An Optimized Few-Shot Learning Framework for Fault Diagnosis in Milling Machines</h4>
             <p class="publications__journal">MDPI Machines</p>
-            <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">Advanced Fault Diagnosis in Milling Cutting Tools Using Vision Transformers with Semi-Supervised Learning and Uncertainty Quantification</h4>
             <p class="publications__journal">Scientific Reports</p>
-            <a href="https://www.nature.com/articles/s41598-024-82567-4" target="_blank" class="publications__link">View Paper</a>
+            <a href="https://www.nature.com/articles/s41598-024-82567-4" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">Burst-Informed Acoustic Emission Framework for Explainable Failure Diagnosis in Milling Machines</h4>
             <p class="publications__journal">Engineering Failure Analysis</p>
-            <a href="#" target="_blank" class="publications__link">View Paper</a>
+            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">Failure-consistent degradation state-space modeling of tool wear evolution and remaining useful life in machining systems</h4>
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
+            <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and RUL in Machining Systems</h4>
             <p class="publications__journal">Engineering Failure Analysis</p>
-            <a href="#" target="_blank" class="publications__link">View Paper</a>
+            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">Wavelet Coherence-Aware Multi-Branch Deep Ensemble for Fault Identification in Centrifugal Pumps</h4>
             <p class="publications__journal">Scientific Reports</p>
-            <a href="#" target="_blank" class="publications__link">View Paper</a>
-          </div>
-          
-<div class="publications__card">
-            <h4 class="publications__title">Physics Guided Fused Image Learning with Enhanced Squeeze Excitation for Failure Analysis of Multistage Centrifugal Pumps</h4>
-            <p class="publications__journal">Scientific Reports</p>
-            <a href="#" target="_blank" class="publications__link">View Paper</a>
+            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
+            <h4 class="publications__title">Physics-Guided Fused Image Learning with Enhanced Squeeze-Excitation for Failure Analysis of Multistage Centrifugal Pumps</h4>
+            <p class="publications__journal">Scientific Reports</p>
+            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--published">Published</span>
             <h4 class="publications__title">A Distribution-Level Statistical Framework for Reliable Pipeline Leak Detection Using Multi-Domain Signal Analysis</h4>
             <p class="publications__journal">Scientific Reports</p>
-            <a href="#" target="_blank" class="publications__link">View Paper</a>
+            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">A transient event-based acoustic emission measurement framework for milling machine fault characterization under variable speeds</h4>
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--review">Under review</span>
+            <h4 class="publications__title">A Transient Event-Based Acoustic Emission Measurement Framework for Milling Machine Fault Characterization Under Variable Speeds</h4>
             <p class="publications__journal">Measurement</p>
-            <a href="#" target="_blank" class="publications__link">Under Review</a>
+            <span class="publications__link disabled">Under review</span>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">Bearing Fault Diagnostics Based on Physics Guided Vision Transformer and Band Aware Attention</h4>
+          <div class="publications__card reveal" data-type="journal">
+            <span class="pub__badge pub__badge--review">Under review</span>
+            <h4 class="publications__title">Bearing Fault Diagnostics Based on Physics-Guided Vision Transformer and Band-Aware Attention</h4>
             <p class="publications__journal">Results in Engineering</p>
-            <a href="#" target="_blank" class="publications__link">Under Review</a>
+            <span class="publications__link disabled">Under review</span>
           </div>
-          
-        </div>
 
-        <!-- Conference Papers -->
-        <div class="section__header" style="margin-top: 3rem;">
-          <h2 class="section__title">Conference Papers</h2>
-          <span class="section__subtitle">International Conferences</span>
-        </div>
-
-        <div class="d-grid publications__wrapper">
-          <div class="publications__card">
+          <!-- ===== Conferences ===== -->
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--award">Best Paper · FICTA &rsquo;25</span>
             <h4 class="publications__title">An Interpretable Lightweight CNN Framework for Fault Diagnosis in Centrifugal Pumps Using Time-Frequency Scalograms</h4>
-            <p class="publications__journal">FICTA 2025 (Best Paper Award) - UK</p>
-            <span class="publications__link disabled">Coming Soon</span>
+            <p class="publications__journal">FICTA 2025 — United Kingdom</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
             <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using CQ-NSGT and Deep Learning</h4>
-            <p class="publications__journal">FICTA 2025 - UK</p>
-            <span class="publications__link disabled">Coming Soon</span>
+            <p class="publications__journal">FICTA 2025 — United Kingdom</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">Local and Global Feature Extraction Using Convolutional Autoencoders and Convolution Neural Networks for Diagnosing Milling Machine Faults</h4>
-            <p class="publications__journal">ISDIA 2025 – Dubai</p>
-            <span class="publications__link disabled">Coming Soon</span>
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
+            <h4 class="publications__title">Local and Global Feature Extraction Using Convolutional Autoencoders and CNNs for Diagnosing Milling Machine Faults</h4>
+            <p class="publications__journal">ISDIA 2025 — Dubai</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
             <h4 class="publications__title">Stockwell Transform and CNN-Based Pipeline Leak Detection Using Sobel-Filtered Acoustic Emission Signals</h4>
-            <p class="publications__journal">ICCIIoT 2024 - UET Pakistan</p>
-            <span class="publications__link disabled">Coming Soon</span>
+            <p class="publications__journal">ICCIIoT 2024 — UET, Pakistan</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-          <div class="publications__card">
-            <h4 class="publications__title">Enhanced Bearing Fault Diagnosis Using Statistical Time Features and Independent Component Analysis: A Comparative Study of Neural and Non-Neural Models</h4>
-            <p class="publications__journal">ICCIIoT 2024 - UET Pakistan</p>
-            <span class="publications__link disabled">Coming Soon</span>
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
+            <h4 class="publications__title">Enhanced Bearing Fault Diagnosis Using Statistical Time Features and ICA: A Comparative Study of Neural and Non-Neural Models</h4>
+            <p class="publications__journal">ICCIIoT 2024 — UET, Pakistan</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-          <div class="publications__card">
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
             <h4 class="publications__title">Attention-Guided Dual Feature Extractor for Bearing Fault Diagnosis from Vibration Data</h4>
-            <p class="publications__journal">CSCI 2025 - US</p>
-            <span class="publications__link disabled">Coming Soon</span>
-          </div>
-          
-<div class="publications__card">
-            <h4 class="publications__title">A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines </h4>
-            <p class="publications__journal">MLMI 2026 - Japan</p>
-            <span class="publications__link disabled">Coming Soon</span>
+            <p class="publications__journal">CSCI 2025 — United States</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-<div class="publications__card">
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
+            <h4 class="publications__title">A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines</h4>
+            <p class="publications__journal">MLMI 2026 — Japan</p>
+            <span class="publications__link disabled">Proceedings soon</span>
+          </div>
+
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
             <h4 class="publications__title">Fault Diagnosis of Centrifugal Pumps Using Adaptive Spectral-Temporal Transformer Learning</h4>
-            <p class="publications__journal">MLMI 2026 - Japan</p>
-            <span class="publications__link disabled">Coming Soon</span>
-          </div>
-<div class="publications__card">
-            <h4 class="publications__title">Selective Kernel Domain Adaptation with LMMD Alignment for Milling Machines Fault Diagnosis</h4>
-            <p class="publications__journal">ICRAI 2026 - NUST Pakistan</p>
-            <span class="publications__link disabled">Coming Soon</span>
-          </div>
-<div class="publications__card">
-            <h4 class="publications__title">Bearing Fault Diagnosis: Class-Conditional Deep Domain Adaptation for Generalization Across Machines</h4>
-            <p class="publications__journal">ICRAI 2026 - NUST Pakistan</p>
-            <span class="publications__link disabled">Coming Soon</span>
+            <p class="publications__journal">MLMI 2026 — Japan</p>
+            <span class="publications__link disabled">Proceedings soon</span>
           </div>
 
-          
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
+            <h4 class="publications__title">Selective Kernel Domain Adaptation with LMMD Alignment for Milling Machine Fault Diagnosis</h4>
+            <p class="publications__journal">ICRAI 2026 — NUST, Pakistan</p>
+            <span class="publications__link disabled">Proceedings soon</span>
+          </div>
+
+          <div class="publications__card reveal" data-type="conference">
+            <span class="pub__badge pub__badge--published">Conference</span>
+            <h4 class="publications__title">Bearing Fault Diagnosis: Class-Conditional Deep Domain Adaptation for Generalization Across Machines</h4>
+            <p class="publications__journal">ICRAI 2026 — NUST, Pakistan</p>
+            <span class="publications__link disabled">Proceedings soon</span>
+          </div>
+
         </div>
       </div>
     </section>
@@ -431,155 +460,134 @@
     <!--=================== Qualification ====================-->
     <section id="qualification" class="section qualification">
       <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Qualification</h2>
-          <span class="section__subtitle">Education & Experience</span>
+        <div class="section__header reveal">
+          <span class="eyebrow">Timeline</span>
+          <h2 class="section__title">Education &amp; <span class="accent">experience</span></h2>
+          <span class="section__subtitle">The path so far</span>
         </div>
 
-        <!--============== Education ============-->
-        <div class="qualification__wrapper">
-          <h3 class="qualification__name">
-            <i class="ri-booklet-fill"></i>
-            Education
-          </h3>
-          <div class="d-grid qualification__content">
-            <div class="qualification__item">
-              <h3 class="qualification__title">MS in Artificial Intelligence & Computer Engineering</h3>
-              <p class="qualification__description">University of Ulsan, South Korea</p>
-              <span class="qualification__date">2024 – Present</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">BS in Computer Systems Engineering</h3>
-              <p class="qualification__description">University of Engineering & Technology, Peshawar</p>
-              <span class="qualification__date">2019 – 2023</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">FSc Pre-Engineering</h3>
-              <p class="qualification__description">Ideal College Peshawar</p>
-              <span class="qualification__date">2017 – 2019</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">Matriculation – Science</h3>
-              <p class="qualification__description">Ummah Children Academy</p>
-              <span class="qualification__date">2010 – 2017</span>
+        <div class="qualification__columns">
+          <!-- Education -->
+          <div class="qualification__wrapper reveal">
+            <h3 class="qualification__name"><i class="ri-booklet-fill"></i> Education</h3>
+            <div class="qualification__timeline">
+              <div class="qualification__item">
+                <span class="qualification__date">2024 — Present</span>
+                <h3 class="qualification__title">MS&ndash;PhD, AI &amp; Computer Engineering</h3>
+                <p class="qualification__place">University of Ulsan, South Korea</p>
+                <p class="qualification__description">BK21 fellow in the Ulsan Industrial AI Lab — PHM, fault diagnosis and RUL prognostics.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">2019 — 2023</span>
+                <h3 class="qualification__title">BS, Computer Systems Engineering</h3>
+                <p class="qualification__place">UET Peshawar, Pakistan</p>
+                <p class="qualification__description">Foundations in systems, signals and machine learning.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">2017 — 2019</span>
+                <h3 class="qualification__title">FSc, Pre-Engineering</h3>
+                <p class="qualification__place">Ideal College, Peshawar</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">2010 — 2017</span>
+                <h3 class="qualification__title">Matriculation — Science</h3>
+                <p class="qualification__place">Ummah Children Academy</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!--============== Professional Experience ============-->
-        <div class="qualification__wrapper">
-          <h3 class="qualification__name">
-            <i class="ri-briefcase-fill"></i>
-            Professional Experience
-          </h3>
-          <div class="d-grid qualification__content">
-            <div class="qualification__item">
-              <h3 class="qualification__title">Research Student – Ulsan Industrial AI Lab</h3>
-              <p class="qualification__description">
-                Conducting cutting-edge research on intelligent systems, fault diagnosis, and predictive
-                maintenance using AI, ML, and signal processing.
-              </p>
-              <span class="qualification__date">Mar 2024 – Present</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">Machine Learning Engineer – Ayass BioScience</h3>
-              <p class="qualification__description">
-                Developed machine learning models for disease prediction using image segmentation (UNet)
-                and deep learning for clinical decision support.
-              </p>
-              <span class="qualification__date">Sep 2023 – Apr 2024</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">Teaching Assistant – UET Peshawar</h3>
-              <p class="qualification__description">
-                Assisted in teaching, grading, and mentoring undergraduate students in engineering
-                subjects with hands-on support in labs and tutorials.
-              </p>
-              <span class="qualification__date">Feb 2022 – Feb 2023</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">AI Intern – Artificial Intelligence in Healthcare</h3>
-              <p class="qualification__description">
-                Worked on RBC detection and disease prediction using deep learning architectures
-                including UNet and Fast R-CNN.
-              </p>
-              <span class="qualification__date">Dec 2022 – Jan 2023</span>
-            </div>
-
-            <div class="qualification__item">
-              <h3 class="qualification__title">Software Developer – ERISP Company</h3>
-              <p class="qualification__description">
-                Customized ERP modules using Python and XML in the Odoo framework; involved in debugging
-                and module testing.
-              </p>
-              <span class="qualification__date">Jul 2022 – Oct 2022</span>
+          <!-- Experience -->
+          <div class="qualification__wrapper reveal" data-delay="1">
+            <h3 class="qualification__name"><i class="ri-briefcase-fill"></i> Experience</h3>
+            <div class="qualification__timeline">
+              <div class="qualification__item">
+                <span class="qualification__date">Mar 2024 — Present</span>
+                <h3 class="qualification__title">Research Student — Ulsan Industrial AI Lab</h3>
+                <p class="qualification__description">Research on intelligent systems, fault diagnosis and predictive maintenance using AI, ML and signal processing.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Sep 2023 — Apr 2024</span>
+                <h3 class="qualification__title">ML Engineer — Ayass BioScience</h3>
+                <p class="qualification__description">Disease-prediction models using image segmentation (U-Net) and deep learning for clinical decision support.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Feb 2022 — Feb 2023</span>
+                <h3 class="qualification__title">Teaching Assistant — UET Peshawar</h3>
+                <p class="qualification__description">Teaching, grading and mentoring undergraduates with hands-on lab and tutorial support.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Dec 2022 — Jan 2023</span>
+                <h3 class="qualification__title">AI Intern — AI in Healthcare</h3>
+                <p class="qualification__description">RBC detection and disease prediction using U-Net and Fast R-CNN architectures.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Jul 2022 — Oct 2022</span>
+                <h3 class="qualification__title">Software Developer — ERISP</h3>
+                <p class="qualification__description">Customized ERP modules in the Odoo framework using Python &amp; XML; debugging and module testing.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!--=================== Certificates Section ====================-->
-    <section id="certificates" class="certificates section">
+    <!--=================== Certificates ====================-->
+    <section id="certificates" class="section certificates">
       <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Certificates</h2>
-          <span class="section__subtitle">Professional Certifications</span>
+        <div class="section__header reveal">
+          <span class="eyebrow">Credentials</span>
+          <h2 class="section__title">Certificates &amp; <span class="accent">courses</span></h2>
+          <span class="section__subtitle">Professional certifications</span>
         </div>
-        <div class="certificates__wrapper d-grid">
-          <!-- Certificate Card -->
-          <div class="card">
-            <h3 class="card__title">Deep Learning A-Z 2024</h3>
-            <p class="card__desc">Neural Networks, AI & ChatGPT Prize</p>
-            <a href="https://www.udemy.com/certificate/UC-3ba4b85a-c854-4e8c-84a1-8ddf29600126/" class="card__link" target="_blank">View Certificate</a>
-          </div>
 
-          <div class="card">
-            <h3 class="card__title">Math for ML & Data Science</h3>
+        <div class="certificates__wrapper">
+          <div class="card reveal">
+            <i class="ri-award-line card__icon"></i>
+            <h3 class="card__title">Deep Learning A&ndash;Z 2024</h3>
+            <p class="card__desc">Neural Networks, AI &amp; ChatGPT</p>
+            <a href="https://www.udemy.com/certificate/UC-3ba4b85a-c854-4e8c-84a1-8ddf29600126/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <i class="ri-functions card__icon"></i>
+            <h3 class="card__title">Math for ML &amp; Data Science</h3>
             <p class="card__desc">Coursera Specialization</p>
-            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/23TGHMGJPWYJ" class="card__link" target="_blank">View Certificate</a>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/23TGHMGJPWYJ" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
-
-          <div class="card">
+          <div class="card reveal" data-delay="2">
+            <i class="ri-pulse-line card__icon"></i>
             <h3 class="card__title">Signal Processing Onramp</h3>
-            <p class="card__desc">By MathWorks</p>
-            <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=f9afc0f6-edb7-4cf4-9f5b-f6a828ad5872" class="card__link" target="_blank">View Certificate</a>
+            <p class="card__desc">MathWorks</p>
+            <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=f9afc0f6-edb7-4cf4-9f5b-f6a828ad5872" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
-
-          <div class="card">
-            <h3 class="card__title">Computer Vision & OpenCV</h3>
+          <div class="card reveal">
+            <i class="ri-camera-lens-line card__icon"></i>
+            <h3 class="card__title">Computer Vision &amp; OpenCV</h3>
             <p class="card__desc">Python, DL, OpenCV</p>
-            <a href="https://www.udemy.com/certificate/UC-1a97125b-4e54-4a9f-ae54-7072c820070b/" class="card__link" target="_blank">View Certificate</a>
+            <a href="https://www.udemy.com/certificate/UC-1a97125b-4e54-4a9f-ae54-7072c820070b/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
-
-          <div class="card">
+          <div class="card reveal" data-delay="1">
+            <i class="ri-line-chart-line card__icon"></i>
             <h3 class="card__title">Supervised ML: Regression</h3>
-            <p class="card__desc">From Coursera</p>
-            <a href="https://www.coursera.org/account/accomplishments/certificate/FLAP6PFWWPEL" class="card__link" target="_blank">View Certificate</a>
+            <p class="card__desc">Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/FLAP6PFWWPEL" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
-
-          <div class="card">
-            <h3 class="card__title">Python for DS, AI & Dev</h3>
-            <p class="card__desc">IBM Certification</p>
-            <a href="https://www.coursera.org/account/accomplishments/certificate/JT2S426REPL9" class="card__link" target="_blank">View Certificate</a>
+          <div class="card reveal" data-delay="2">
+            <i class="ri-terminal-box-line card__icon"></i>
+            <h3 class="card__title">Python for DS, AI &amp; Dev</h3>
+            <p class="card__desc">IBM</p>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/JT2S426REPL9" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
-
-          <div class="card">
+          <div class="card reveal">
+            <i class="ri-code-s-slash-line card__icon"></i>
             <h3 class="card__title">Programming with Python</h3>
-            <p class="card__desc">By University of Michigan</p>
-            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank">View Certificate</a>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">Programming for Everybody (Getting Started with Python)</h3>
             <p class="card__desc">University of Michigan</p>
-            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank">View Certificate</a>
+            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <i class="ri-graduation-cap-line card__icon"></i>
+            <h3 class="card__title">Programming for Everybody</h3>
+            <p class="card__desc">University of Michigan</p>
+            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
         </div>
       </div>
@@ -588,66 +596,72 @@
     <!--=================== Projects ====================-->
     <section id="project" class="section project">
       <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Projects</h2>
-          <span class="section__subtitle">My Recent Work</span>
+        <div class="section__header reveal">
+          <span class="eyebrow">Hands-on</span>
+          <h2 class="section__title">Featured <span class="accent">projects</span></h2>
+          <span class="section__subtitle">Recent work in research &amp; engineering</span>
         </div>
-        <div class="d-grid project__wrapper">
 
-          <!-- Project 1: AE-Based Fault Diagnosis -->
-          <div class="project__content">
-            <img src="assets/img/p2.jpg" alt="AE Fault Diagnosis" class="project__img">
-            <h3 class="project__title">Acoustic Emission Fault Diagnosis</h3>
-            <p class="project__description">Developed an advanced fault diagnosis system using CWT/STFT and
-              deep learning (EfficientNet, InceptionV3) for rotating machinery.</p>
-            <a href="#" class="project__link">View Project <i class="ri-arrow-right-line"></i></a>
+        <div class="project__wrapper">
+          <div class="project__content reveal">
+            <div class="project__media"><img src="assets/img/p2.jpg" alt="Acoustic emission fault diagnosis" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">Signal Processing · DL</span>
+              <h3 class="project__title">Acoustic Emission Fault Diagnosis</h3>
+              <p class="project__description">Fault diagnosis system using CWT/STFT and deep models (EfficientNet, InceptionV3) for rotating machinery.</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
           </div>
 
-          <!-- Project 2: Pipeline Leak Detection -->
-          <div class="project__content">
-            <img src="assets/img/p1.png" alt="Pipeline" class="project__img">
-            <h3 class="project__title">Pipeline Leak Detection (1D-CNN)</h3>
-            <p class="project__description">Implemented a vulnerability index with 1D CNNs to classify
-              pipeline leak sizes with Leave-One-Dataset-Out validation.</p>
-            <a href="#" class="project__link">View Project <i class="ri-arrow-right-line"></i></a>
+          <div class="project__content reveal" data-delay="1">
+            <div class="project__media"><img src="assets/img/p1.png" alt="Pipeline leak detection" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">1D-CNN · Prognostics</span>
+              <h3 class="project__title">Pipeline Leak Detection</h3>
+              <p class="project__description">A vulnerability index with 1D CNNs to classify pipeline leak sizes under Leave-One-Dataset-Out validation.</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
           </div>
 
-          <!-- Project 3: Research Publishing System -->
-          <div class="project__content">
-            <img src="assets/img/p3.png" alt="Research System" class="project__img">
-            <h3 class="project__title">Research Automation & Publication</h3>
-            <p class="project__description">Designed templates and pipelines for automatic research
-              documentation, analysis, and explainability visualization (Grad-CAM++, SHAP).</p>
-            <a href="#" class="project__link">View Project <i class="ri-arrow-right-line"></i></a>
+          <div class="project__content reveal" data-delay="2">
+            <div class="project__media"><img src="assets/img/p3.png" alt="Research automation" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">XAI · Tooling</span>
+              <h3 class="project__title">Research Automation &amp; XAI</h3>
+              <p class="project__description">Templates and pipelines for automated documentation, analysis and explainability (Grad-CAM++, SHAP).</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
           </div>
 
-          <!-- Project 4: 3D Terrain Game -->
-          <div class="project__content">
-            <img src="assets/img/3.png" alt="3D Terrain" class="project__img">
-            <h3 class="project__title">3D Game View Terrain</h3>
-            <p class="project__description">Built a 3D environment in Unity with terrain sculpting,
-              lighting, and interactive camera views.</p>
-            <a href="#" class="project__link">View Project <i class="ri-arrow-right-line"></i></a>
+          <div class="project__content reveal">
+            <div class="project__media"><img src="assets/img/3.png" alt="3D terrain game" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">Unity · 3D</span>
+              <h3 class="project__title">3D Terrain Environment</h3>
+              <p class="project__description">A 3D environment in Unity with terrain sculpting, lighting and interactive camera views.</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
           </div>
 
-          <!-- Project 5: City Character Game -->
-          <div class="project__content">
-            <img src="assets/img/3.jpeg" alt="City Game" class="project__img">
-            <h3 class="project__title">City Character Game Unity3D</h3>
-            <p class="project__description">Developed a character movement system with AI behavior trees in
-              an urban simulation using Unity3D.</p>
-            <a href="#" class="project__link">View Project <i class="ri-arrow-right-line"></i></a>
+          <div class="project__content reveal" data-delay="1">
+            <div class="project__media"><img src="assets/img/3.jpeg" alt="City character game" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">Unity3D · Game AI</span>
+              <h3 class="project__title">City Character Game</h3>
+              <p class="project__description">Character movement with AI behavior trees in an urban simulation built in Unity3D.</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
           </div>
 
-          <!-- Project 6: Smart Chatbot for University -->
-          <div class="project__content">
-            <img src="assets/img/p4.webp" alt="Chatbot" class="project__img">
-            <h3 class="project__title">Smart AI Chatbot for Universities</h3>
-            <p class="project__description">Built a Dialogflow-based chatbot to assist students using data
-              extracted from prospectus and university websites.</p>
-            <a href="#" class="project__link">View Project <i class="ri-arrow-right-line"></i></a>
+          <div class="project__content reveal" data-delay="2">
+            <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">NLP · Dialogflow</span>
+              <h3 class="project__title">Smart University Chatbot</h3>
+              <p class="project__description">A Dialogflow chatbot assisting students using data extracted from prospectus and university sites.</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -655,17 +669,18 @@
     <!--=================== Contact ====================-->
     <section id="contact" class="section contact">
       <div class="container">
-        <div class="d-grid contact__wrapper">
+        <div class="contact__wrapper reveal">
           <div class="contact__content">
-            <h2 class="contact__title">Let's Collaborate</h2>
+            <span class="eyebrow">Get in touch</span>
+            <h2 class="contact__title">Let's collaborate</h2>
             <p class="contact__description">
-              Whether you have a question, want to start a project, or just want to connect — I'm always
-              open to opportunities.
-              Feel free to reach out, and I'll get back to you as soon as possible.
+              Have a research idea, a dataset, or a problem in fault diagnosis and prognostics?
+              I'm always open to collaborations and opportunities — reach out and I'll get back to you soon.
             </p>
           </div>
           <div class="contact__btn">
-            <a href="mailto:mmumar1758@gmail.com" class="btn btn--secondary">📧 Get in Touch</a>
+            <a href="mailto:mmumar1758@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Email me</a>
+            <a href="https://www.linkedin.com/in/engineermuhammadumar/" target="_blank" rel="noopener" class="btn btn--secondary"><i class="ri-linkedin-box-line"></i> Connect on LinkedIn</a>
           </div>
         </div>
       </div>
@@ -674,57 +689,207 @@
 
   <!--=================== Footer ====================-->
   <footer id="footer" class="footer">
-    <div class="container footer__container">
+    <div class="container">
       <div class="footer__top">
-        <!-- Social Links -->
         <div class="footer__column">
-          <h4 class="footer__title">Follow Me</h4>
+          <h4 class="footer__brand-title">Muhammad Umar</h4>
+          <p class="footer__brand-text">
+            AI researcher &amp; ML engineer working on fault diagnosis, signal processing and RUL
+            prognostics at the University of Ulsan.
+          </p>
           <ul class="footer__social-list">
-            <li><a href="https://www.facebook.com/umarrunited" target="_blank"><i class="ri-facebook-fill"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/muhammad-umar-01a059196/" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
-            <li><a href="https://x.com/MuhammadUmar_58" target="_blank"><i class="ri-twitter-fill"></i></a></li>
-            <li><a href="https://github.com/engrmuhammadumar" target="_blank"><i class="ri-github-fill"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&hl=en&authuser=1" target="_blank" title="Google Scholar"><i class="ri-graduation-cap-fill"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Muhammad-Umar-150?ev=hdr_xprf" target="_blank" title="ResearchGate"><i class="ri-file-search-line"></i></a></li>
-            <li><a href="https://orcid.org/my-orcid?orcid=0009-0009-1060-9104" target="_blank" title="ORCID"><i class="ri-user-star-fill"></i></a></li>
+            <li><a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="ri-graduation-cap-fill"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/engineermuhammadumar/" target="_blank" rel="noopener" title="LinkedIn"><i class="ri-linkedin-fill"></i></a></li>
+            <li><a href="https://www.researchgate.net/profile/Muhammad-Umar-150" target="_blank" rel="noopener" title="ResearchGate"><i class="ri-flask-line"></i></a></li>
+            <li><a href="https://github.com/engrmuhammadumar" target="_blank" rel="noopener" title="GitHub"><i class="ri-github-fill"></i></a></li>
+            <li><a href="https://x.com/MuhammadUmar_58" target="_blank" rel="noopener" title="X (Twitter)"><i class="ri-twitter-x-fill"></i></a></li>
+            <li><a href="https://www.facebook.com/umarrunited" target="_blank" rel="noopener" title="Facebook"><i class="ri-facebook-fill"></i></a></li>
+            <li><a href="https://orcid.org/0009-0009-1060-9104" target="_blank" rel="noopener" title="ORCID"><i class="ri-user-star-fill"></i></a></li>
           </ul>
         </div>
 
-        <!-- Email -->
         <div class="footer__column">
-          <h4 class="footer__title">Email Me</h4>
+          <h4 class="footer__title">Email</h4>
           <a href="mailto:mmumar1758@gmail.com" class="footer__contact">mmumar1758@gmail.com</a>
         </div>
 
-        <!-- Phone -->
         <div class="footer__column">
-          <h4 class="footer__title">Call Me</h4>
+          <h4 class="footer__title">Phone</h4>
           <a href="tel:+821099316639" class="footer__contact">+82-10-9931-6639</a>
         </div>
       </div>
 
       <div class="footer__bottom">
         <p>Made with <i class="ri-heart-fill"></i> by Umar</p>
-        <p>&copy; <span id="currentYear"></span> All Rights Reserved</p>
+        <p>&copy; <span id="currentYear"></span> Muhammad Umar — All rights reserved</p>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Back to top -->
+  <a href="#hero" class="scroll-top" id="scroll-top" aria-label="Back to top"><i class="ri-arrow-up-line"></i></a>
+
+  <!--=================== Scripts ====================-->
   <script>
-    // Set current year dynamically
     document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
 
-  <style>
-    .skills__wrapper {
-      display: flex !important;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- Mobile nav ---------- */
+    const navMenu = document.getElementById("nav-menu");
+    const navToggle = document.getElementById("nav-toggle");
+    const navClose = document.getElementById("nav-close");
+    const openMenu = () => navMenu.classList.add("nav__menu--open");
+    const closeMenu = () => navMenu.classList.remove("nav__menu--open");
+    navToggle?.addEventListener("click", openMenu);
+    navClose?.addEventListener("click", closeMenu);
+    document.querySelectorAll(".nav__link").forEach(l => l.addEventListener("click", closeMenu));
+
+    /* ---------- Header shrink on scroll ---------- */
+    const header = document.getElementById("header");
+    const scrollTop = document.getElementById("scroll-top");
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      header.classList.toggle("header--scroll", y > 60);
+      scrollTop.classList.toggle("scroll-top--show", y > 500);
+    });
+
+    /* ---------- Scroll-spy: active nav link ---------- */
+    const sections = document.querySelectorAll("section[id]");
+    window.addEventListener("scroll", () => {
+      const pos = window.scrollY + 120;
+      sections.forEach(sec => {
+        const top = sec.offsetTop, h = sec.offsetHeight, id = sec.getAttribute("id");
+        const link = document.querySelector('.nav__link[href="#' + id + '"]');
+        if (!link) return;
+        if (pos >= top && pos < top + h) link.classList.add("active-link");
+        else link.classList.remove("active-link");
+      });
+    });
+
+    /* ---------- Scroll reveal ---------- */
+    const revealEls = document.querySelectorAll(".reveal");
+    if (reduceMotion) {
+      revealEls.forEach(el => el.classList.add("is-visible"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      revealEls.forEach(el => io.observe(el));
     }
-  </style>
 
+    /* ---------- Animated counters ---------- */
+    const counters = document.querySelectorAll("[data-count]");
+    const runCounter = (el) => {
+      const target = +el.dataset.count;
+      const dur = 1400, start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    if (reduceMotion) {
+      counters.forEach(el => el.textContent = el.dataset.count);
+    } else {
+      const co = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { runCounter(e.target); co.unobserve(e.target); } });
+      }, { threshold: 0.6 });
+      counters.forEach(el => co.observe(el));
+    }
+
+    /* ---------- Typing role ---------- */
+    (function () {
+      const el = document.getElementById("typed-role");
+      if (!el) return;
+      const roles = [
+        "PHM & Fault Diagnosis Researcher",
+        "Acoustic Emission Signal Specialist",
+        "RUL & Prognostics Engineer",
+        "Deep Learning Engineer"
+      ];
+      const cursor = '<span class="cursor">|</span>';
+      if (reduceMotion) { el.innerHTML = roles[0] + cursor; return; }
+      let r = 0, c = 0, deleting = false;
+      const type = () => {
+        const word = roles[r];
+        c += deleting ? -1 : 1;
+        el.innerHTML = word.slice(0, c) + cursor;
+        let delay = deleting ? 45 : 90;
+        if (!deleting && c === word.length) { delay = 1700; deleting = true; }
+        else if (deleting && c === 0) { deleting = false; r = (r + 1) % roles.length; delay = 350; }
+        setTimeout(type, delay);
+      };
+      setTimeout(type, 600);
+    })();
+
+    /* ---------- Publication filter ---------- */
+    const tabs = document.querySelectorAll(".pub__tab");
+    const cards = document.querySelectorAll("#pub-grid .publications__card");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("is-active"));
+        tab.classList.add("is-active");
+        const f = tab.dataset.filter;
+        cards.forEach(card => {
+          const show = f === "all" || card.dataset.type === f;
+          card.style.display = show ? "flex" : "none";
+        });
+      });
+    });
+
+    /* ---------- Hero signal canvas (AE waveform) ---------- */
+    (function () {
+      const canvas = document.getElementById("signal-canvas");
+      if (!canvas || reduceMotion) return;
+      const ctx = canvas.getContext("2d");
+      let w, h, t = 0;
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = canvas.clientWidth; h = canvas.clientHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+      // burst envelope to mimic acoustic emission events
+      const bursts = Array.from({ length: 5 }, () => ({
+        x: Math.random(), amp: 0.4 + Math.random() * 0.6, freq: 18 + Math.random() * 22, phase: Math.random() * 6.28
+      }));
+      const draw = () => {
+        ctx.clearRect(0, 0, w, h);
+        const lines = [
+          { color: "rgba(32,201,151,0.55)", off: 0,    width: 1.6 },
+          { color: "rgba(56,189,248,0.35)", off: 0.5,  width: 1.2 }
+        ];
+        lines.forEach(line => {
+          ctx.beginPath();
+          ctx.lineWidth = line.width;
+          ctx.strokeStyle = line.color;
+          for (let px = 0; px <= w; px += 2) {
+            const nx = px / w;
+            let y = 0;
+            bursts.forEach(b => {
+              const d = nx - ((b.x + (t * 0.04 + line.off) % 1) % 1);
+              const env = Math.exp(-Math.pow(d * 9, 2));   // gaussian burst
+              y += env * b.amp * Math.sin((nx * b.freq * 6.28) + b.phase + t * 0.6);
+            });
+            const yy = h / 2 + y * h * 0.16;
+            px === 0 ? ctx.moveTo(px, yy) : ctx.lineTo(px, yy);
+          }
+          ctx.stroke();
+        });
+        t += 0.016;
+        requestAnimationFrame(draw);
+      };
+      const ro = new ResizeObserver(resize);
+      ro.observe(canvas);
+      resize();
+      draw();
+    })();
+  </script>
 </body>
 
 </html>
