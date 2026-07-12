@@ -5,25 +5,619 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Muhammad Umar — AI researcher and ML engineer (MS–PhD, University of Ulsan) specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics. 25+ peer-reviewed papers." />
-  <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, Postdoc, Muhammad Umar, University of Ulsan" />
+  <meta name="description" content="Muhammad Umar — PhD student & ML engineer (University of Ulsan) specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics. 25+ peer-reviewed papers." />
+  <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, PhD Student, Postdoc, Muhammad Umar, University of Ulsan" />
   <meta name="author" content="Muhammad Umar" />
-
   <title>Muhammad Umar — AI Researcher & ML Engineer</title>
 
-  <!-- Fonts: Space Grotesk (display/body) + JetBrains Mono (data/labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Remix Icons (v4 — full icon set incl. brand icons) -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-
-  <!-- Font Awesome 6 (reliable brand icons for socials) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  <!-- Main Custom CSS -->
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /*==============================================================
+      Muhammad Umar — Portfolio (v2)
+      Theme: "Signal & Degradation" — deep midnight base, teal/cyan
+    ==============================================================*/
+
+    :root {
+      --c-bg: #121212;
+      --c-bg-2: #161616;
+      --c-surface: #1a1a1a;
+      --c-surface-2: #222222;
+      --c-footer: #0c0c0c;
+
+      --c-primary: #20c997;
+      --c-primary-dark: #198754;
+      --c-accent: #3db4f2;
+      --c-accent-2: #818cf8;
+      --c-warning: #f39c12;
+      --c-danger: #e74c3c;
+
+      --c-white: #ffffff;
+      --c-text: #d1d1d1;
+      --c-subtext: #9a9a9a;
+      --c-faint: #5a5a5a;
+      --c-border: #2e2e2e;
+      --c-border-soft: #242424;
+
+      --grad-signal: linear-gradient(135deg, #20c997 0%, #3db4f2 100%);
+      --grad-text: linear-gradient(120deg, #20c997 0%, #3db4f2 100%);
+      --glow-primary: 0 0 30px rgba(32, 201, 151, 0.22);
+
+      --ff-body: "Space Grotesk", system-ui, sans-serif;
+      --ff-display: "Space Grotesk", system-ui, sans-serif;
+      --ff-mono: "JetBrains Mono", "Space Mono", ui-monospace, monospace;
+
+      --fs-xs: clamp(1.1rem, 0.4vw + 1rem, 1.2rem);
+      --fs-sm: clamp(1.3rem, 0.4vw + 1.15rem, 1.4rem);
+      --fs-md: clamp(1.45rem, 0.5vw + 1.25rem, 1.6rem);
+      --fs-lg: clamp(1.7rem, 1vw + 1.4rem, 2rem);
+      --fs-xl: clamp(2.1rem, 1.4vw + 1.6rem, 2.6rem);
+      --fs-xxl: clamp(2.6rem, 3vw + 1.6rem, 3.8rem);
+      --fs-hero: clamp(3rem, 5vw + 1.6rem, 6rem);
+
+      --fw-regular: 400;
+      --fw-medium: 500;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+
+      --z-menu: 1000;
+      --z-fixed: 1100;
+      --width-container: min(92%, 122rem);
+      --h-header: 8.5rem;
+      --h-header-scroll: 6.8rem;
+      --radius: 1.4rem;
+      --radius-sm: 0.9rem;
+
+      --transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+      --transition-fast: all 0.2s ease;
+      --shadow-soft: 0 4px 18px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--h-header);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--c-bg);
+      font-family: var(--ff-body);
+      font-size: var(--fs-md);
+      color: var(--c-text);
+      line-height: 1.65;
+      margin-top: var(--h-header);
+      overflow-x: hidden;
+      text-align: left;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(60rem 60rem at 80% -10%, rgba(61, 180, 242, 0.08), transparent 60%),
+        radial-gradient(50rem 50rem at 10% 10%, rgba(32, 201, 151, 0.08), transparent 55%);
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--c-white);
+      font-family: var(--ff-display);
+      font-weight: var(--fw-bold);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; height: auto; }
+
+    a { text-decoration: none; color: var(--c-text); transition: var(--transition-fast); }
+    a:hover { color: var(--c-primary); }
+
+    main { overflow: hidden; }
+    ::selection { background: rgba(32, 201, 151, 0.3); color: var(--c-white); }
+
+    .container { width: 92%; max-width: var(--width-container); margin-inline: auto; }
+    .section { padding: 9rem 0; position: relative; }
+
+    .section__header {
+      margin-bottom: 5.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-primary);
+      margin-bottom: 1.4rem;
+    }
+    .eyebrow::before { content: ""; width: 2.4rem; height: 1px; background: var(--c-primary); }
+
+    .section__title { font-size: var(--fs-xxl); color: var(--c-white); letter-spacing: -0.03em; text-align: center; }
+    .section__title .accent {
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section__subtitle { display: block; margin-top: 1rem; font-size: var(--fs-md); color: var(--c-subtext); text-align: center; }
+
+    .d-grid { display: grid; gap: 3rem; }
+
+    /*================ Buttons ================*/
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.4rem 2.8rem;
+      font-family: var(--ff-body);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .btn--primary { background: var(--grad-signal); color: #04110d; box-shadow: var(--glow-primary); }
+    .btn--primary:hover { color: #04110d; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(32, 201, 151, 0.4); }
+    .btn--secondary { background: transparent; color: var(--c-white); border-color: var(--c-border); }
+    .btn--secondary:hover { color: var(--c-primary); border-color: var(--c-primary); transform: translateY(-3px); }
+
+    /*================ Header / Nav ================*/
+    .header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--h-header);
+      display: flex;
+      align-items: center;
+      z-index: var(--z-menu);
+      background: rgba(10, 14, 20, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+    }
+    .header--scroll {
+      height: var(--h-header-scroll);
+      background: rgba(9, 12, 18, 0.9);
+      border-bottom: 1px solid var(--c-border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: var(--width-container); margin-inline: auto; }
+    .nav__brand { display: flex; align-items: center; gap: 1rem; }
+    .nav__brand .logo { height: 4.2rem; width: auto; object-fit: contain; transition: var(--transition); }
+    .nav__brand:hover .logo { transform: scale(1.06); }
+    .nav__list { display: flex; gap: 2.6rem; flex-wrap: wrap; }
+
+    .nav__link { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--c-text); position: relative; padding-bottom: 0.4rem; }
+    .nav__link::after {
+      content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
+      background: var(--grad-signal); border-radius: 2px; transition: width 0.3s ease;
+    }
+    .nav__link:hover, .nav__link.active-link { color: var(--c-white); }
+    .nav__link:hover::after, .nav__link.active-link::after { width: 100%; }
+
+    .nav__toggle, .nav__close { display: none; font-size: var(--fs-xl); color: var(--c-white); cursor: pointer; }
+
+    @media screen and (max-width: 1080px) {
+      .nav__menu {
+        position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh;
+        background: rgba(18, 18, 18, 0.98); backdrop-filter: blur(8px);
+        display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+        padding: 9rem 2rem 4rem; overflow-y: auto; -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain; transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); z-index: var(--z-fixed);
+      }
+      .nav__menu--open { transform: translateY(0); }
+      .nav__list { flex-direction: column; gap: 2.4rem; text-align: center; margin: auto 0; }
+      .nav__link { font-size: var(--fs-lg); }
+      .nav__toggle { display: block; }
+      .nav__close { display: block; position: fixed; top: 2.4rem; right: 2.4rem; z-index: calc(var(--z-fixed) + 1); }
+      body.nav-open { overflow: hidden; }
+    }
+    @media screen and (max-width: 1080px) and (max-height: 640px) {
+      .nav__list { gap: 1.6rem; }
+      .nav__link { font-size: var(--fs-md); }
+    }
+
+    /*================ Hero ================*/
+    .hero { position: relative; }
+    .hero__glow {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(42rem 30rem at 15% 25%, rgba(32,201,151,0.14), transparent 60%),
+        radial-gradient(38rem 32rem at 85% 15%, rgba(61,180,242,0.13), transparent 60%);
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(1.5%, -1.5%) scale(1.04); }
+    }
+
+    .hero__wrapper {
+      position: relative; z-index: 1;
+      min-height: calc(100vh - var(--h-header));
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      align-items: center; gap: 4rem; padding: 6rem 0;
+    }
+
+    .hero__status {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.1em;
+      color: var(--c-subtext); background: var(--c-surface); border: 1px solid var(--c-border);
+      padding: 0.7rem 1.4rem; border-radius: 5rem; margin-bottom: 2.4rem; text-align: left;
+    }
+    .hero__status .dot { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--c-primary); animation: pulse 2s infinite; flex-shrink: 0; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.55); }
+      70% { box-shadow: 0 0 0 0.9rem rgba(32, 201, 151, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(32, 201, 151, 0); }
+    }
+
+    .hero__title { font-size: var(--fs-hero); line-height: 1.05; margin-bottom: 2rem; text-align: left; }
+    .hero__title .lead { color: var(--c-subtext); font-weight: var(--fw-medium); display: block; font-size: 0.42em; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
+    .hero__title strong {
+      background: var(--grad-text); background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    .hero__role { font-family: var(--ff-mono); font-size: clamp(1.4rem, 1.4vw + 1rem, 1.9rem); color: var(--c-accent); display: block; margin-top: 1rem; min-height: 1.4em; }
+    .hero__role .cursor { color: var(--c-primary); animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero__description { font-size: var(--fs-md); color: var(--c-text); max-width: 56ch; margin: 2.4rem 0 3rem; line-height: 1.8; text-align: left; }
+    .hero__buttons { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-bottom: 4rem; }
+
+    .hero__info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .hero__info-wrapper {
+      background: linear-gradient(160deg, var(--c-surface), var(--c-bg-2)); border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm); padding: 1.8rem 2rem; transition: var(--transition); text-align: left;
+    }
+    .hero__info-wrapper:hover { border-color: var(--c-primary); transform: translateY(-4px); }
+    .hero__info-number { font-family: var(--ff-display); font-size: clamp(2.2rem, 1.4vw + 1.6rem, 3rem); font-weight: var(--fw-bold); color: var(--c-white); line-height: 1; }
+    .hero__info-number .suffix { color: var(--c-primary); }
+    .hero__info-title { font-size: var(--fs-xs); font-weight: var(--fw-regular); color: var(--c-subtext); margin-top: 0.6rem; line-height: 1.4; }
+
+    .hero__image { display: flex; justify-content: center; position: relative; }
+    .hero__image::before {
+      content: ""; position: absolute; inset: -1.5rem; background: var(--grad-signal);
+      border-radius: calc(var(--radius) + 1rem); opacity: 0.25; filter: blur(2.2rem); z-index: -1;
+    }
+    .hero__img {
+      width: 100%; max-width: 38rem; height: 46rem; object-fit: cover; border-radius: var(--radius);
+      border: 1px solid var(--c-border); box-shadow: var(--shadow-lg); animation: float 7s ease-in-out infinite;
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.2rem); } }
+
+    @media screen and (max-width: 992px) {
+      .hero__wrapper { grid-template-columns: 1fr; text-align: center; padding: 4rem 0; }
+      .hero__status, .hero__buttons, .hero__info { justify-content: center; }
+      .hero__title, .hero__description { text-align: center; margin-inline: auto; }
+      .hero__status { text-align: center; }
+      .hero__image { order: -1; }
+      .hero__img { max-width: 28rem; height: 34rem; }
+    }
+    @media screen and (max-width: 520px) { .hero__info { grid-template-columns: 1fr; } }
+
+    /*================ About ================*/
+    .about__wrapper { align-items: center; }
+    .about__media { position: relative; }
+    .about__media img { border-radius: var(--radius); border: 1px solid var(--c-border); box-shadow: var(--shadow-lg); width: 100%; object-fit: cover; }
+    .about__badge {
+      position: absolute; bottom: 1.6rem; left: 1.6rem; right: 1.6rem;
+      background: rgba(18, 26, 38, 0.92); backdrop-filter: blur(6px); border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm); padding: 1.4rem 1.8rem; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 1.2rem;
+    }
+    .about__badge i { font-size: 2.8rem; color: var(--c-warning); }
+    .about__badge strong { display: block; color: var(--c-white); font-size: var(--fs-md); }
+    .about__badge span { font-size: var(--fs-xs); color: var(--c-subtext); font-family: var(--ff-mono); }
+
+    .about__content { text-align: left; }
+    .about__title { font-size: var(--fs-xl); margin-bottom: 1.6rem; }
+    .about__lead { font-family: var(--ff-mono); font-size: var(--fs-sm); color: var(--c-primary); margin-bottom: 2rem; letter-spacing: 0.02em; }
+    .about__description { margin-bottom: 2rem; line-height: 1.85; }
+    .about__signature { font-family: var(--ff-mono); font-size: var(--fs-sm); color: var(--c-subtext); margin-bottom: 2.6rem; }
+    .about__highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-bottom: 3rem; }
+    .about__highlights li { display: flex; align-items: center; gap: 1rem; font-size: var(--fs-sm); color: var(--c-text); }
+    .about__highlights i { color: var(--c-primary); font-size: var(--fs-lg); flex-shrink: 0; }
+
+    @media screen and (min-width: 992px) { .about__wrapper { grid-template-columns: 0.85fr 1.15fr; gap: 5rem; } }
+    @media screen and (max-width: 600px) { .about__highlights { grid-template-columns: 1fr; } .about__content { text-align: center; } .about__highlights li { justify-content: center; } }
+
+    /* Metrics strip */
+    .metrics-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.6rem; margin-top: 4rem; }
+    .metric-card { text-align: center; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 2.4rem 1.6rem; transition: var(--transition); }
+    .metric-card:hover { border-color: var(--c-primary); transform: translateY(-4px); }
+    .metric-card .num { font-size: clamp(2.4rem, 2vw + 1.6rem, 3.4rem); font-weight: var(--fw-bold); color: var(--c-white); line-height: 1; }
+    .metric-card .num .suffix { color: var(--c-primary); }
+    .metric-card .lbl { font-size: var(--fs-xs); color: var(--c-subtext); margin-top: 0.8rem; font-family: var(--ff-mono); }
+
+    /*================ Skills ================*/
+    .skills__wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); gap: 2.4rem; }
+    .skills__card {
+      background: linear-gradient(160deg, var(--c-surface), var(--c-bg-2)); border: 1px solid var(--c-border);
+      border-radius: var(--radius); padding: 3.2rem 2.8rem; position: relative; overflow: hidden;
+      transition: var(--transition); text-align: left;
+    }
+    .skills__card::before {
+      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+      background: var(--grad-signal); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+    }
+    .skills__card:hover { transform: translateY(-6px); border-color: var(--c-primary); box-shadow: var(--shadow-lg); }
+    .skills__card:hover::before { transform: scaleX(1); }
+    .skills__icon {
+      display: inline-flex; width: 5rem; height: 5rem; align-items: center; justify-content: center;
+      font-size: 2.4rem; color: var(--c-primary); background: rgba(32, 201, 151, 0.1);
+      border-radius: var(--radius-sm); margin-bottom: 2rem;
+    }
+    .skills__subtitle { font-size: var(--fs-lg); color: var(--c-white); margin-bottom: 1.8rem; }
+    .skills__list { display: grid; gap: 1.1rem; }
+    .skills__item { display: flex; align-items: flex-start; gap: 0.9rem; font-size: var(--fs-sm); color: var(--c-text); }
+    .skills__item i { color: var(--c-primary); font-size: 1.8rem; flex-shrink: 0; margin-top: 0.2rem; }
+
+    /*================ Research ================*/
+    .research__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); gap: 2rem; }
+    .research__card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 2.6rem; transition: var(--transition); position: relative; text-align: left; }
+    .research__card:hover { transform: translateY(-6px); border-color: rgba(32, 201, 151, 0.45); box-shadow: var(--glow-primary); }
+    .research__icon {
+      font-size: 3rem; margin-bottom: 1.4rem; background: var(--grad-signal);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      display: inline-block; transition: var(--transition);
+    }
+    .research__card:hover .research__icon { transform: scale(1.15) rotate(-4deg); }
+    .research__card h4 { font-size: var(--fs-md); color: var(--c-white); margin-bottom: 0.8rem; }
+    .research__card p { font-size: var(--fs-sm); line-height: 1.7; color: var(--c-text); }
+
+    /*================ Publications ================*/
+    .pub__group { margin-bottom: 6rem; }
+    .pub__group:last-child { margin-bottom: 0; }
+    .pub__group-title {
+      display: flex; align-items: center; gap: 1.2rem; font-size: var(--fs-lg); color: var(--c-white);
+      margin-bottom: 3rem;
+    }
+    .pub__group-title i { color: var(--c-primary); font-size: 2.2rem; }
+    .pub__group-title .count { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-subtext); font-weight: var(--fw-regular); }
+
+    .publications__wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); gap: 2rem; }
+    .publications__card {
+      display: flex; flex-direction: column; background: var(--c-surface); border: 1px solid var(--c-border);
+      border-radius: var(--radius); padding: 2.4rem; transition: var(--transition); position: relative; overflow: hidden; text-align: left;
+    }
+    .publications__card::after {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--grad-signal);
+      transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease;
+    }
+    .publications__card:hover { transform: translateY(-6px); border-color: rgba(32, 201, 151, 0.4); box-shadow: var(--shadow-lg); }
+    .publications__card:hover::after { transform: scaleY(1); }
+
+    .pub__badge { align-self: flex-start; font-family: var(--ff-mono); font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 4rem; margin-bottom: 1.4rem; }
+    .pub__badge--published { color: var(--c-primary); background: rgba(32, 201, 151, 0.12); }
+    .pub__badge--review { color: var(--c-warning); background: rgba(251, 191, 36, 0.12); }
+    .pub__badge--bestpaper { color: var(--c-warning); background: rgba(243, 156, 18, 0.14); }
+
+    .publications__title { font-size: var(--fs-md); line-height: 1.4; color: var(--c-white); margin-bottom: 1rem; }
+    .pub__authors { font-size: var(--fs-xs); line-height: 1.6; color: var(--c-subtext); margin-bottom: 1.2rem; }
+    .pub__authors .me { color: var(--c-white); font-weight: var(--fw-bold); }
+    .pub__venue { margin-top: auto; margin-bottom: 1.6rem; }
+    .publications__journal { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-subtext); }
+    .publications__link { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--c-primary); }
+    .publications__link i { transition: transform 0.25s ease; }
+    .publications__link:hover i { transform: translateX(4px); }
+    .publications__link.disabled { color: var(--c-faint); pointer-events: none; }
+
+    /*================ Qualification ================*/
+    .qualification__wrapper { margin-bottom: 6rem; }
+    .qualification__wrapper:last-child { margin-bottom: 0; }
+    .qualification__name { display: flex; align-items: center; gap: 1.2rem; font-size: var(--fs-lg); color: var(--c-white); margin-bottom: 3.2rem; }
+    .qualification__name i { color: var(--c-primary); }
+
+    .qualification__timeline { display: grid; gap: 0; position: relative; border-left: 2px solid var(--c-border); margin-left: 1rem; padding-left: 3rem; text-align: left; }
+    .qualification__item { position: relative; padding-bottom: 3.4rem; }
+    .qualification__item:last-child { padding-bottom: 0; }
+    .qualification__item::before {
+      content: ""; position: absolute; left: -3.85rem; top: 0.4rem; width: 1.4rem; height: 1.4rem;
+      border-radius: 50%; background: var(--c-bg); border: 2px solid var(--c-primary); box-shadow: 0 0 0 0.4rem rgba(32, 201, 151, 0.12);
+    }
+    .qualification__date { display: inline-block; font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-accent); margin-bottom: 0.6rem; }
+    .qualification__title { font-size: var(--fs-md); color: var(--c-white); margin-bottom: 0.4rem; }
+    .qualification__place { font-size: var(--fs-sm); color: var(--c-primary); margin-bottom: 0.6rem; font-weight: var(--fw-medium); }
+    .qualification__description { font-size: var(--fs-sm); color: var(--c-subtext); line-height: 1.65; max-width: 60ch; }
+
+    @media screen and (min-width: 850px) { .qualification__columns { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; } }
+
+    /*================ Certificates ================*/
+    .certificates__wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr)); gap: 2rem; }
+    .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 2.6rem; transition: var(--transition); text-align: left; }
+    .card:hover { transform: translateY(-6px); border-color: var(--c-primary); box-shadow: var(--shadow-lg); }
+    .card__icon { font-size: 2.4rem; color: var(--c-primary); margin-bottom: 1.2rem; }
+    .card__title { font-size: var(--fs-md); color: var(--c-white); margin-bottom: 0.6rem; line-height: 1.4; }
+    .card__desc { font-size: var(--fs-sm); color: var(--c-subtext); margin-bottom: 1.6rem; }
+    .card__link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--c-primary); }
+    .card__link i { transition: transform 0.25s ease; }
+    .card__link:hover i { transform: translateX(4px); }
+
+    /*================ Gallery ================*/
+    .gallery__wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); gap: 1.8rem; grid-auto-rows: 22rem; }
+    .gallery__item { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-border); }
+    .gallery__item:nth-child(3n+1) { grid-row: span 2; }
+    .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery__item:hover img { transform: scale(1.08); }
+    .gallery__caption {
+      position: absolute; inset: auto 0 0 0; padding: 1.6rem;
+      background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent);
+      opacity: 0; transform: translateY(0.6rem); transition: var(--transition);
+    }
+    .gallery__item:hover .gallery__caption { opacity: 1; transform: translateY(0); }
+    .gallery__caption span { font-size: var(--fs-xs); font-family: var(--ff-mono); color: var(--c-white); }
+
+    @media screen and (max-width: 700px) { .gallery__item:nth-child(3n+1) { grid-row: span 1; } .gallery__wrapper { grid-auto-rows: 20rem; } }
+
+    /*================ Projects ================*/
+    .project__wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr)); gap: 2.4rem; }
+    .project__content { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
+    .project__content:hover { transform: translateY(-8px); border-color: var(--c-primary); box-shadow: var(--shadow-lg); }
+    .project__media { overflow: hidden; aspect-ratio: 16 / 10; }
+    .project__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .project__content:hover .project__img { transform: scale(1.07); }
+    .project__body { padding: 2.4rem; display: flex; flex-direction: column; flex: 1; text-align: left; }
+    .project__tag { font-family: var(--ff-mono); font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-accent); margin-bottom: 1rem; }
+    .project__title { font-size: var(--fs-lg); color: var(--c-white); margin-bottom: 1rem; }
+    .project__description { font-size: var(--fs-sm); color: var(--c-subtext); line-height: 1.65; margin-bottom: 2rem; }
+    .project__link { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--c-primary); text-transform: uppercase; letter-spacing: 0.04em; }
+    .project__link i { transition: transform 0.25s ease; }
+    .project__link:hover i { transform: translateX(5px); }
+
+    /*================ Contact ================*/
+    .contact__wrapper {
+      background: linear-gradient(160deg, var(--c-surface), var(--c-bg-2)); border: 1px solid var(--c-border);
+      border-radius: var(--radius); padding: 5rem; display: grid; grid-template-columns: 1.3fr 0.7fr;
+      align-items: center; gap: 3rem; position: relative; overflow: hidden;
+    }
+    .contact__wrapper::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(40rem 30rem at 100% 0%, rgba(56, 189, 248, 0.12), transparent 60%);
+      pointer-events: none;
+    }
+    .contact__content { text-align: left; }
+    .contact__title { font-size: var(--fs-xxl); margin-bottom: 1.4rem; }
+    .contact__description { font-size: var(--fs-md); color: var(--c-text); line-height: 1.8; max-width: 52ch; }
+    .contact__btn { display: flex; flex-direction: column; gap: 1.2rem; position: relative; z-index: 1; }
+    .contact__btn .btn { width: 100%; }
+
+    @media screen and (max-width: 850px) {
+      .contact__wrapper { grid-template-columns: 1fr; padding: 3.4rem; text-align: center; }
+      .contact__content { text-align: center; }
+      .contact__description { margin-inline: auto; }
+    }
+
+    /*================ Footer ================*/
+    .footer { background: var(--c-footer); border-top: 1px solid var(--c-border); padding: 0 0 3rem; position: relative; overflow: hidden; }
+    .footer::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad-signal);
+      background-size: 200% auto; animation: shimmer 5s linear infinite;
+    }
+    .footer__cta {
+      text-align: center; padding: 6rem 2rem 5rem; border-bottom: 1px solid var(--c-border); margin-bottom: 4rem;
+      background: radial-gradient(50rem 24rem at 50% 0%, rgba(32,201,151,0.08), transparent 70%);
+    }
+    .footer__cta h3 { font-size: var(--fs-xxl); margin-bottom: 1.4rem; }
+    .footer__cta p { font-size: var(--fs-md); color: var(--c-subtext); max-width: 60ch; margin: 0 auto 2.6rem; }
+
+    .footer__top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: start; gap: 3rem; margin-bottom: 4rem; }
+    .footer__brand-title { font-size: var(--fs-lg); color: var(--c-white); margin-bottom: 1rem; }
+    .footer__brand-text { font-size: var(--fs-sm); color: var(--c-subtext); max-width: 38ch; line-height: 1.7; }
+    .footer__title { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-subtext); margin-bottom: 1.6rem; }
+    .footer__links { display: grid; gap: 1.1rem; }
+    .footer__links a { font-size: var(--fs-sm); color: var(--c-text); }
+    .footer__links a:hover { color: var(--c-primary); padding-left: 0.4rem; }
+    .footer__contact { color: var(--c-primary); font-weight: var(--fw-medium); font-size: var(--fs-sm); display: block; margin-bottom: 1rem; }
+    .footer__contact:hover { text-decoration: underline; }
+
+    .footer__social-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.4rem; }
+    .footer__social-list a {
+      width: 4rem; height: 4rem; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; color: var(--c-text); background: var(--c-surface); border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm); transition: var(--transition);
+    }
+    .footer__social-list a:hover { color: #04110d; background: var(--c-primary); border-color: var(--c-primary); transform: translateY(-4px) rotate(-4deg); }
+
+    .footer__bottom {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--c-border);
+      padding-top: 2.4rem; font-size: var(--fs-sm); color: var(--c-subtext);
+      width: 92%; max-width: var(--width-container); margin-inline: auto;
+    }
+    .footer__bottom i { color: var(--c-danger); }
+
+    @media screen and (max-width: 768px) {
+      .footer__top { grid-template-columns: 1fr; gap: 2.4rem; text-align: center; }
+      .footer__links { justify-items: center; }
+      .footer__social-list { justify-content: center; }
+      .footer__bottom { justify-content: center; text-align: center; }
+    }
+
+    /*================ Back to top ================*/
+    .scroll-top {
+      position: fixed; right: 2.4rem; bottom: 2.4rem; width: 4.8rem; height: 4.8rem;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; color: #04110d;
+      background: var(--grad-signal); border-radius: var(--radius-sm); box-shadow: var(--glow-primary);
+      opacity: 0; visibility: hidden; transform: translateY(1.5rem); transition: var(--transition); z-index: var(--z-menu);
+    }
+    .scroll-top--show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-top:hover { color: #04110d; transform: translateY(-3px); }
+
+    /*================ Scroll reveal ================*/
+    .reveal { opacity: 0; transform: translateY(2.4rem); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal[data-delay="1"] { transition-delay: 0.08s; }
+    .reveal[data-delay="2"] { transition-delay: 0.16s; }
+    .reveal[data-delay="3"] { transition-delay: 0.24s; }
+    .reveal[data-delay="4"] { transition-delay: 0.32s; }
+
+    ::-webkit-scrollbar { width: 1rem; background: var(--c-bg-2); }
+    ::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 1rem; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--c-primary); }
+
+    :focus-visible { outline: 2px solid var(--c-primary); outline-offset: 3px; border-radius: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /*================ Responsive ================*/
+    @media screen and (max-width: 992px) {
+      .section { padding: 7rem 0; }
+    }
+    @media screen and (max-width: 768px) {
+      .section { padding: 6.5rem 0; }
+      .section__header { margin-bottom: 4rem; }
+      .contact__wrapper { padding: 3rem 2rem; }
+    }
+    @media screen and (max-width: 480px) {
+      :root { --h-header: 7rem; }
+      .section { padding: 5rem 0; }
+      .container { width: 90%; }
+      .hero__buttons .btn { flex: 1 1 100%; }
+      .hero__info-wrapper { padding: 1.4rem 1.6rem; }
+      .skills__card, .research__card, .publications__card, .card { padding: 2rem 1.8rem; }
+      .about__title { font-size: var(--fs-lg); }
+      .contact__title { font-size: var(--fs-xl); }
+      .footer__social-list a { width: 3.6rem; height: 3.6rem; font-size: 1.6rem; }
+      .scroll-top { right: 1.6rem; bottom: 1.6rem; width: 4.2rem; height: 4.2rem; }
+      .footer__cta { padding: 4.5rem 1.6rem 3.5rem; }
+    }
+    @media screen and (max-width: 360px) {
+      .hero__title { font-size: clamp(2.6rem, 9vw, 3.4rem); }
+      .nav__brand .logo { height: 3.6rem; }
+    }
+  </style>
 </head>
 
 <body>
@@ -44,6 +638,7 @@
           <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
           <li class="nav__item"><a href="#qualification" class="nav__link">Journey</a></li>
           <li class="nav__item"><a href="#certificates" class="nav__link">Certificates</a></li>
+          <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
           <li class="nav__item"><a href="#project" class="nav__link">Projects</a></li>
           <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
@@ -61,12 +656,12 @@
 
     <!--=================== Hero ====================-->
     <section id="hero" class="hero">
-      <canvas class="hero__canvas" id="signal-canvas" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__wrapper">
           <div class="hero__content">
             <span class="hero__status">
-              <span class="dot"></span> Seeking postdoctoral research opportunities
+              <span class="dot"></span> Open to Postdoctoral Research &amp; Collaborations
             </span>
 
             <h1 class="hero__title">
@@ -76,9 +671,9 @@
             </h1>
 
             <p class="hero__description">
-              Combined MS&ndash;PhD researcher in Artificial Intelligence &amp; Computer Engineering at the
+              Combined MS&ndash;PhD student in Artificial Intelligence &amp; Computer Engineering at the
               University of Ulsan, South Korea. I build interpretable, physics-aware deep learning for
-              fault diagnosis, predictive maintenance, and remaining useful life (RUL) estimation 
+              fault diagnosis, predictive maintenance, and remaining useful life (RUL) estimation —
               turning raw industrial signals into reliable decisions.
             </p>
 
@@ -136,21 +731,36 @@
             <h3 class="about__title">AI Researcher · Deep Learning Engineer · Signal Processing Specialist</h3>
             <p class="about__lead">// Prognostics &amp; Health Management (PHM)</p>
             <p class="about__description">
-              I'm a combined MS&ndash;PhD researcher in the Ulsan Industrial Artificial Intelligence (UIAI) Lab
-              at the University of Ulsan, South Korea, working under Prof. Jong-Myon Kim. After earning my BS in
-              Computer Systems Engineering from UET Peshawar (2023), I joined UIAI in March 2024 as a BK21
-              research fellow. My work develops interpretable, physics-aware deep learning for fault diagnosis,
-              degradation modeling, and remaining useful life (RUL) prediction across bearings, milling machines,
-              centrifugal pumps, and pipelines.
+              I didn't start out chasing bearings, pipelines, and milling cutters — I started out curious
+              about why machines fail quietly before they fail loudly, and whether the right signal, read
+              the right way, could give an engineer enough warning to act. That question is still what gets
+              me into the lab every morning.
             </p>
             <p class="about__description">
-              I work at the intersection of classical signal processing &mdash; acoustic emission, FFT/STFT/wavelets,
-              Koopman and spectral methods &mdash; and modern machine learning, including Vision Transformers,
-              conformal prediction, and domain adaptation. I've authored 25+ peer-reviewed papers in venues such as
-              IEEE Access, Scientific Reports, Engineering Failure Analysis, Measurement, and MDPI Sensors, and
-              received the Best Paper Award at FICTA 2025 (UK). I'm now seeking postdoctoral opportunities to extend
-              trustworthy, deployable prognostics for safety-critical industrial systems.
+              Today I'm a combined MS&ndash;PhD student and BK21 research fellow in the Ulsan Industrial
+              Artificial Intelligence (UIAI) Lab at the University of Ulsan, South Korea, working under
+              Prof. Jong-Myon Kim. I earned my bachelor's in Computer Systems Engineering from UET Peshawar
+              in 2023, and since joining UIAI in March 2024 I've spent my time listening to machines —
+              literally. I work with acoustic emission signals, vibration data, and time-frequency
+              representations to catch degradation early, model how it evolves, and predict how much useful
+              life a component has left.
             </p>
+            <p class="about__description">
+              What I enjoy most is the meeting point between classical signal processing — FFT, STFT,
+              wavelets, Koopman and spectral methods — and modern deep learning, including Vision
+              Transformers, conformal prediction, and domain adaptation. I care less about chasing the
+              flashiest architecture and more about building models that an engineer on a factory floor
+              could actually trust. That mindset has led to 25+ peer-reviewed papers in venues like IEEE
+              Access, Scientific Reports, Engineering Failure Analysis, Measurement, and MDPI Sensors, plus
+              two Best Paper Awards, including one at FICTA 2025 in the UK.
+            </p>
+            <p class="about__description">
+              I'm now looking for my next challenge: a postdoctoral position, industry role, or research
+              collaboration — in Saudi Arabia, Europe, or elsewhere — where I can push trustworthy,
+              deployable prognostics for safety-critical industrial systems out of the lab and into the
+              real world.
+            </p>
+            <p class="about__signature">— Muhammad Umar, Ulsan, South Korea</p>
             <ul class="about__highlights">
               <li><i class="ri-cpu-line"></i> Physics-informed &amp; conformal prediction</li>
               <li><i class="ri-pulse-line"></i> Acoustic emission signal analysis</li>
@@ -161,7 +771,6 @@
           </div>
         </div>
 
-        <!-- Metrics strip -->
         <div class="metrics-strip reveal">
           <div class="metric-card">
             <p class="num"><span data-count="25">0</span><span class="suffix">+</span></p>
@@ -189,7 +798,7 @@
         <div class="section__header reveal">
           <span class="eyebrow">Toolbox</span>
           <h2 class="section__title">Technical <span class="accent">skills</span></h2>
-          <span class="section__subtitle">Tools, frameworks &amp; expertise</span>
+          <span class="section__subtitle">Tools, frameworks &amp; expertise — from research to real deployment</span>
         </div>
 
         <div class="skills__wrapper">
@@ -201,6 +810,7 @@
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Autoencoders &amp; XAI (Grad-CAM, SHAP)</li>
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> PyTorch, TensorFlow, scikit-learn, Hugging Face</li>
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Few-shot, meta &amp; self-supervised learning</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Graph Neural Networks &amp; physics-informed models</li>
             </ul>
           </div>
 
@@ -212,6 +822,7 @@
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Time-frequency feature extraction</li>
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Koopman &amp; spectral methods</li>
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> MATLAB, Python, Power BI</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Sensor fusion &amp; multi-domain analysis</li>
             </ul>
           </div>
 
@@ -221,8 +832,20 @@
             <ul class="skills__list">
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Git, LaTeX, MLflow, Weights &amp; Biases</li>
               <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Jupyter, Colab, CUDA / GPU training</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Conformal prediction &amp; uncertainty</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Research writing &amp; model evaluation</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Conformal prediction &amp; uncertainty quantification</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Research writing, peer review &amp; grant proposals</li>
+            </ul>
+          </div>
+
+          <div class="skills__card reveal" data-delay="1">
+            <span class="skills__icon"><i class="ri-cloud-line"></i></span>
+            <h3 class="skills__subtitle">Deployment, Industry &amp; Collaboration</h3>
+            <ul class="skills__list">
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Docker &amp; cloud compute (AWS / GCP) for scalable pipelines</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Edge AI &amp; on-device deployment for industrial IoT</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Digital twins &amp; predictive-maintenance systems design</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Cross-disciplinary project management &amp; team collaboration</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Technical documentation &amp; stakeholder communication</li>
             </ul>
           </div>
         </div>
@@ -235,45 +858,53 @@
         <div class="section__header reveal">
           <span class="eyebrow">Focus areas</span>
           <h2 class="section__title">Research <span class="accent">interests</span></h2>
-          <span class="section__subtitle">Where I spend my curiosity</span>
+          <span class="section__subtitle">Where curiosity meets industrial impact</span>
         </div>
 
         <div class="research__grid">
           <div class="research__card reveal">
             <i class="ri-cpu-line research__icon"></i>
-            <p><strong>Advanced ML for intelligent systems.</strong> Robust, data-efficient, generalizable deep learning for industrial and healthcare applications.</p>
+            <h4>Intelligent systems that don't need perfect data</h4>
+            <p>Robust, data-efficient, generalizable deep learning for industrial and healthcare applications — built to work in the messy conditions of the real world, not just the lab.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-bar-chart-box-line research__icon"></i>
-            <p><strong>Signal processing &amp; time-frequency intelligence.</strong> Physics-aware representation learning with FFT, STFT, wavelets and adaptive transforms for machinery health.</p>
+            <h4>Listening to machines in every domain</h4>
+            <p>Physics-aware representation learning with FFT, STFT, wavelets and adaptive transforms — turning raw vibration and acoustic signals into machinery-health intelligence.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-settings-3-line research__icon"></i>
-            <p><strong>Fault diagnosis, prognostics &amp; RUL.</strong> Interpretable, domain-adaptive approaches for early detection, degradation modeling and predictive maintenance.</p>
+            <p><strong>Catching failure before it happens.</strong> Interpretable, domain-adaptive approaches for early fault detection, degradation modeling and predictive maintenance across critical machinery.</p>
           </div>
           <div class="research__card reveal">
             <i class="ri-shield-check-line research__icon"></i>
-            <p><strong>Explainable &amp; trustworthy AI.</strong> Transparency, reliability assessment, uncertainty quantification and human-centric explainability for safety-critical systems.</p>
+            <h4>AI an engineer can actually trust</h4>
+            <p>Transparency, reliability assessment, uncertainty quantification and human-centric explainability for AI deployed in safety-critical environments.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-focus-2-line research__icon"></i>
-            <p><strong>Transformers &amp; foundation models.</strong> Vision transformers, multimodal models and generative approaches for industrial inspection and biomedical imaging.</p>
+            <h4>Beyond CNNs: the next generation of models</h4>
+            <p>Vision transformers, multimodal models and generative approaches applied to industrial inspection and biomedical imaging.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-node-tree research__icon"></i>
-            <p><strong>Physics-informed &amp; graph-based learning.</strong> Integrating domain knowledge, physics constraints and GNNs for smart sensing and complex systems.</p>
+            <h4>Teaching models the physics they're missing</h4>
+            <p>Integrating domain knowledge, physical constraints and graph neural networks for smarter sensing in complex, interconnected systems.</p>
           </div>
           <div class="research__card reveal">
             <i class="ri-stack-line research__icon"></i>
-            <p><strong>Multimodal &amp; low-label learning.</strong> Self-supervised, few-shot and cross-modal learning for scalable monitoring under limited annotations.</p>
+            <h4>Learning more from less</h4>
+            <p>Self-supervised, few-shot and cross-modal learning that keeps monitoring systems scalable even when labeled data is scarce.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-cloud-line research__icon"></i>
-            <p><strong>Edge AI &amp; real-time monitoring.</strong> Lightweight models, on-device intelligence and efficient deployment for industrial IoT.</p>
+            <h4>Intelligence that fits on the factory floor</h4>
+            <p>Lightweight models, on-device intelligence and efficient deployment strategies built for real industrial IoT constraints.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-database-2-line research__icon"></i>
-            <p><strong>Digital twins &amp; predictive analytics.</strong> AI-enabled digital twins for health awareness, reliability optimization and lifecycle management.</p>
+            <h4>A living model of every machine</h4>
+            <p>AI-enabled digital twins for continuous health awareness, reliability optimization and lifecycle management at scale.</p>
           </div>
         </div>
       </div>
@@ -288,273 +919,230 @@
           <span class="section__subtitle">Peer-reviewed journals &amp; international conferences</span>
         </div>
 
-        <div class="pub__tabs reveal" role="tablist">
-          <button class="pub__tab is-active" data-filter="all">All</button>
-          <button class="pub__tab" data-filter="journal">Journals</button>
-          <button class="pub__tab" data-filter="conference">Conferences</button>
+        <!-- ===== JOURNAL ARTICLES ===== -->
+        <div class="pub__group">
+          <h3 class="pub__group-title reveal"><i class="ri-book-open-line"></i> Journal Articles <span class="count">(16)</span></h3>
+          <div class="publications__wrapper">
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using Acoustic Emission and Transfer Learning</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Zahoor Ahmad, Saif Ullah, Faisal Saleem, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">IEEE Access</span></div>
+              <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Milling Machine Fault Diagnosis Using Acoustic Emission and Hybrid Deep Learning with Feature Optimization</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Niamat Ullah, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Applied Sciences (MDPI)</span></div>
+              <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Advanced Bearing-Fault Diagnosis and Classification Using Mel-Scalograms and FOX-Optimized ANN</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, Saif Ullah, <span class="me">Muhammad Umar</span>, Faisal Saleem, Dongkoo Shon, Tae Hyun Yoon, Dae-Seung Yoo, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Enhanced Fault Diagnosis in Milling Machines Using CWT Image Augmentation and Ant Colony Optimized AlexNet</h4>
+              <p class="pub__authors">Niamat Ullah, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized 1D DenseNet</h4>
+              <p class="pub__authors">Faisal Saleem, Zahoor Ahmad, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">A Hybrid Deep Learning Approach for Bearing Fault Diagnosis Using CWT and Attention-Enhanced Spatiotemporal Feature Extraction</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Faisal Saleem, <span class="me">Muhammad Umar</span>, Cheol Hong Kim, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">An Optimized Few-Shot Learning Framework for Fault Diagnosis in Milling Machines</h4>
+              <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span></div>
+              <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Cutting Tools Using Vision Transformers with Semi-Supervised Learning and Uncertainty Quantification</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Wasim Ahmad, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <a href="https://www.nature.com/articles/s41598-025-26550-8" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Burst-Informed Acoustic Emission Framework for Explainable Failure Diagnosis in Milling Machines</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span></div>
+              <a href="https://doi.org/10.1016/j.engfailanal.2025.110373" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and Remaining Useful Life in Machining Systems</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span></div>
+              <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Wavelet Coherence-Aware Multi-Branch Deep Ensemble for Fault Identification in Centrifugal Pumps</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Physics-Guided Fused Image Learning with Enhanced Squeeze-Excitation for Failure Analysis of Multistage Centrifugal Pumps</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">A Distribution-Level Statistical Framework for Reliable Pipeline Leak Detection Using Multi-Domain Signal Analysis</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--review">Under review</span>
+              <h4 class="publications__title">A Transient Event-Based Acoustic Emission Measurement Framework for Milling Machine Fault Characterization Under Variable Speeds</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Measurement</span></div>
+              <span class="publications__link disabled">Under review</span>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--review">Under review</span>
+              <h4 class="publications__title">Bearing Fault Diagnostics Based on Physics-Guided Vision Transformer and Band-Aware Attention</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Results in Engineering</span></div>
+              <span class="publications__link disabled">Under review</span>
+            </div>
+
+          </div>
         </div>
 
-        <div class="publications__wrapper" id="pub-grid">
+        <!-- ===== CONFERENCE PAPERS ===== -->
+        <div class="pub__group">
+          <h3 class="pub__group-title reveal"><i class="ri-mic-line"></i> Conference Papers <span class="count">(10)</span></h3>
+          <div class="publications__wrapper">
 
-          <!-- ===== JOURNALS ===== -->
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using Acoustic Emission and Transfer Learning</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Zahoor Ahmad, Saif Ullah, Faisal Saleem, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">IEEE Access</span>
-              <span class="pub__metric">IF 3.6 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--bestpaper"><i class="ri-trophy-line"></i> Best Paper · FICTA &rsquo;25</span>
+              <h4 class="publications__title">An Interpretable Lightweight CNN Framework for Fault Diagnosis in Centrifugal Pumps Using Time-Frequency Scalograms</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">FICTA 2025 — United Kingdom</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Milling Machine Fault Diagnosis Using Acoustic Emission and Hybrid Deep Learning with Feature Optimization</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Niamat Ullah, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Applied Sciences (MDPI)</span>
-              <span class="pub__metric">IF 2.5 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using CQ-NSGT and Deep Learning</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">FICTA 2025 — United Kingdom</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Advanced Bearing-Fault Diagnosis and Classification Using Mel-Scalograms and FOX-Optimized ANN</h4>
-            <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, Saif Ullah, <span class="me">Muhammad Umar</span>, Faisal Saleem, Dongkoo Shon, Tae Hyun Yoon, Dae-Seung Yoo, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Sensors (MDPI)</span>
-              <span class="pub__metric">IF 3.5 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Local and Global Feature Extraction Using Convolutional Autoencoders and CNNs for Diagnosing Milling Machine Faults</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">ISDIA 2025 — Dubai</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Enhanced Fault Diagnosis in Milling Machines Using CWT Image Augmentation and Ant Colony Optimized AlexNet</h4>
-            <p class="pub__authors">Niamat Ullah, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Sensors (MDPI)</span>
-              <span class="pub__metric">IF 3.5 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Stockwell Transform and CNN-Based Pipeline Leak Detection Using Sobel-Filtered Acoustic Emission Signals</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">ICCIIoT 2024 — UET, Pakistan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized 1D DenseNet</h4>
-            <p class="pub__authors">Faisal Saleem, Zahoor Ahmad, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Sensors (MDPI)</span>
-              <span class="pub__metric">IF 3.5 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Enhanced Bearing Fault Diagnosis Using Statistical Time Features and ICA: A Comparative Study of Neural and Non-Neural Models</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">ICCIIoT 2024 — UET, Pakistan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">A Hybrid Deep Learning Approach for Bearing Fault Diagnosis Using CWT and Attention-Enhanced Spatiotemporal Feature Extraction</h4>
-            <p class="pub__authors">Muhammad Farooq Siddique, Faisal Saleem, <span class="me">Muhammad Umar</span>, Cheol Hong Kim, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Sensors (MDPI)</span>
-              <span class="pub__metric">IF 3.5 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Attention-Guided Dual Feature Extractor for Bearing Fault Diagnosis from Vibration Data</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">CSCI 2025 — United States</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines</h4>
-            <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Sensors (MDPI)</span>
-              <span class="pub__metric">IF 3.5 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">An Optimized Few-Shot Learning Framework for Fault Diagnosis in Milling Machines</h4>
-            <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Machines (MDPI)</span>
-              <span class="pub__metric">IF 2.1 · Q2</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Fault Diagnosis of Centrifugal Pumps Using Adaptive Spectral-Temporal Transformer Learning</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Advanced Fault Diagnosis in Milling Cutting Tools Using Vision Transformers with Semi-Supervised Learning and Uncertainty Quantification</h4>
-            <p class="pub__authors">Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Wasim Ahmad, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Scientific Reports</span>
-              <span class="pub__metric">IF 3.9 · Q1</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--bestpaper"><i class="ri-trophy-line"></i> Best Paper · ICRAI &rsquo;26</span>
+              <h4 class="publications__title">Selective Kernel Domain Adaptation with LMMD Alignment for Milling Machine Fault Diagnosis</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://www.nature.com/articles/s41598-025-26550-8" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Burst-Informed Acoustic Emission Framework for Explainable Failure Diagnosis in Milling Machines</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Engineering Failure Analysis</span>
-              <span class="pub__metric">IF 4.4 · Q1</span>
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Bearing Fault Diagnosis: Class-Conditional Deep Domain Adaptation for Generalization Across Machines</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
             </div>
-            <a href="https://doi.org/10.1016/j.engfailanal.2025.110373" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
 
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and Remaining Useful Life in Machining Systems</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Engineering Failure Analysis</span>
-              <span class="pub__metric">IF 4.4 · Q1</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
           </div>
-
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Wavelet Coherence-Aware Multi-Branch Deep Ensemble for Fault Identification in Centrifugal Pumps</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Scientific Reports</span>
-              <span class="pub__metric">IF 3.9 · Q1</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">Physics-Guided Fused Image Learning with Enhanced Squeeze-Excitation for Failure Analysis of Multistage Centrifugal Pumps</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Scientific Reports</span>
-              <span class="pub__metric">IF 3.9 · Q1</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--published">Published</span>
-            <h4 class="publications__title">A Distribution-Level Statistical Framework for Reliable Pipeline Leak Detection Using Multi-Domain Signal Analysis</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Scientific Reports</span>
-              <span class="pub__metric">IF 3.9 · Q1</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--review">Under review</span>
-            <h4 class="publications__title">A Transient Event-Based Acoustic Emission Measurement Framework for Milling Machine Fault Characterization Under Variable Speeds</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Measurement</span>
-              <span class="pub__metric">IF 5.2 · Q1</span>
-            </div>
-            <span class="publications__link disabled">Under review</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="journal">
-            <span class="pub__badge pub__badge--review">Under review</span>
-            <h4 class="publications__title">Bearing Fault Diagnostics Based on Physics-Guided Vision Transformer and Band-Aware Attention</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-            <div class="pub__venue">
-              <span class="publications__journal">Results in Engineering</span>
-              <span class="pub__metric">IF 8.3 · Q1</span>
-            </div>
-            <span class="publications__link disabled">Under review</span>
-          </div>
-
-          <!-- ===== CONFERENCES ===== -->
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--bestpaper"><i class="ri-trophy-line"></i> Best Paper · FICTA &rsquo;25</span>
-            <h4 class="publications__title">An Interpretable Lightweight CNN Framework for Fault Diagnosis in Centrifugal Pumps Using Time-Frequency Scalograms</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">FICTA 2025 — United Kingdom</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using CQ-NSGT and Deep Learning</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">FICTA 2025 — United Kingdom</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Local and Global Feature Extraction Using Convolutional Autoencoders and CNNs for Diagnosing Milling Machine Faults</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">ISDIA 2025 — Dubai</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Stockwell Transform and CNN-Based Pipeline Leak Detection Using Sobel-Filtered Acoustic Emission Signals</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">ICCIIoT 2024 — UET, Pakistan</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Enhanced Bearing Fault Diagnosis Using Statistical Time Features and ICA: A Comparative Study of Neural and Non-Neural Models</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">ICCIIoT 2024 — UET, Pakistan</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Attention-Guided Dual Feature Extractor for Bearing Fault Diagnosis from Vibration Data</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">CSCI 2025 — United States</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Fault Diagnosis of Centrifugal Pumps Using Adaptive Spectral-Temporal Transformer Learning</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--bestpaper"><i class="ri-trophy-line"></i> Best Paper · ICRAI &rsquo;26</span>
-            <h4 class="publications__title">Selective Kernel Domain Adaptation with LMMD Alignment for Milling Machine Fault Diagnosis</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
-          <div class="publications__card reveal" data-type="conference">
-            <span class="pub__badge pub__badge--published">Conference</span>
-            <h4 class="publications__title">Bearing Fault Diagnosis: Class-Conditional Deep Domain Adaptation for Generalization Across Machines</h4>
-            <p class="pub__authors"><span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-            <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
-            <span class="publications__link disabled">Proceedings soon</span>
-          </div>
-
         </div>
+
       </div>
     </section>
 
@@ -688,6 +1276,68 @@
             <p class="card__desc">University of Michigan</p>
             <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
+          <div class="card reveal" data-delay="2">
+            <i class="ri-gamepad-line card__icon"></i>
+            <h3 class="card__title">Complete C# for Unity Game Development</h3>
+            <p class="card__desc">Unity C# Scripting</p>
+            <a href="#" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal">
+            <i class="ri-briefcase-4-line card__icon"></i>
+            <h3 class="card__title">Foundations of Project Management</h3>
+            <p class="card__desc">Google / Coursera</p>
+            <a href="#" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <i class="ri-javascript-line card__icon"></i>
+            <h3 class="card__title">Programming with JavaScript</h3>
+            <p class="card__desc">Meta / Coursera</p>
+            <a href="#" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <i class="ri-trophy-line card__icon"></i>
+            <h3 class="card__title">Best Paper Award</h3>
+            <p class="card__desc">FICTA 2025, United Kingdom</p>
+            <a href="#" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=================== Gallery ====================-->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Behind the research</span>
+          <h2 class="section__title">A quick <span class="accent">gallery</span></h2>
+          <span class="section__subtitle">Lab work, conferences &amp; life in Ulsan — replace with your own photos</span>
+        </div>
+
+        <div class="gallery__wrapper">
+          <div class="gallery__item reveal">
+            <img src="assets/img/gallery-1.jpg" alt="UIAI Lab workspace">
+            <div class="gallery__caption"><span>UIAI Lab — Ulsan</span></div>
+          </div>
+          <div class="gallery__item reveal" data-delay="1">
+            <img src="assets/img/gallery-2.jpg" alt="Conference presentation">
+            <div class="gallery__caption"><span>Presenting at FICTA 2025 — UK</span></div>
+          </div>
+          <div class="gallery__item reveal" data-delay="2">
+            <img src="assets/img/gallery-3.jpg" alt="Lab equipment and sensors">
+            <div class="gallery__caption"><span>Acoustic emission sensor setup</span></div>
+          </div>
+          <div class="gallery__item reveal">
+            <img src="assets/img/gallery-4.jpg" alt="Best paper award ceremony">
+            <div class="gallery__caption"><span>Best Paper Award ceremony</span></div>
+          </div>
+          <div class="gallery__item reveal" data-delay="1">
+            <img src="assets/img/gallery-5.jpg" alt="Research team at Ulsan campus">
+            <div class="gallery__caption"><span>With the UIAI research team</span></div>
+          </div>
+          <div class="gallery__item reveal" data-delay="2">
+            <img src="assets/img/gallery-6.jpg" alt="University of Ulsan campus">
+            <div class="gallery__caption"><span>University of Ulsan campus</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -733,6 +1383,16 @@
           </div>
 
           <div class="project__content reveal">
+            <div class="project__media"><img src="assets/img/p5.jpg" alt="RBC detection using U-Net and Fast R-CNN" class="project__img"></div>
+            <div class="project__body">
+              <span class="project__tag">Healthcare AI · Segmentation</span>
+              <h3 class="project__title">RBC Detection for Disease Prediction</h3>
+              <p class="project__description">Image segmentation pipeline using U-Net and Fast R-CNN to detect and classify blood-related diseases from RBC imagery.</p>
+              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+
+          <div class="project__content reveal" data-delay="1">
             <div class="project__media"><img src="assets/img/3.png" alt="3D terrain game" class="project__img"></div>
             <div class="project__body">
               <span class="project__tag">Unity · 3D</span>
@@ -742,7 +1402,7 @@
             </div>
           </div>
 
-          <div class="project__content reveal" data-delay="1">
+          <div class="project__content reveal" data-delay="2">
             <div class="project__media"><img src="assets/img/3.jpeg" alt="City character game" class="project__img"></div>
             <div class="project__body">
               <span class="project__tag">Unity3D · Game AI</span>
@@ -752,7 +1412,7 @@
             </div>
           </div>
 
-          <div class="project__content reveal" data-delay="2">
+          <div class="project__content reveal">
             <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img"></div>
             <div class="project__body">
               <span class="project__tag">NLP · Dialogflow</span>
@@ -773,8 +1433,9 @@
             <span class="eyebrow">Get in touch</span>
             <h2 class="contact__title">Let's collaborate</h2>
             <p class="contact__description">
-              Have a research idea, a dataset, or a postdoc opportunity in fault diagnosis and prognostics?
-              I'm always open to collaborations — reach out and I'll get back to you soon.
+              Have a research idea, a dataset, or a postdoctoral / research-collaboration opportunity in
+              fault diagnosis and prognostics? I'm always open to collaborations — reach out and I'll get
+              back to you soon.
             </p>
           </div>
           <div class="contact__btn">
@@ -788,12 +1449,18 @@
 
   <!--=================== Footer ====================-->
   <footer id="footer" class="footer">
+    <div class="footer__cta reveal">
+      <h3>Let's build something reliable together</h3>
+      <p>Whether it's a postdoctoral position, a research collaboration, or an industry project in fault diagnosis and predictive maintenance — I'd love to hear from you.</p>
+      <a href="mailto:mmumar1758@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Start a conversation</a>
+    </div>
+
     <div class="container">
       <div class="footer__top">
         <div class="footer__column">
           <h4 class="footer__brand-title">Muhammad Umar</h4>
           <p class="footer__brand-text">
-            AI researcher &amp; ML engineer working on fault diagnosis, signal processing and RUL
+            PhD student &amp; ML engineer working on fault diagnosis, signal processing and RUL
             prognostics at the University of Ulsan.
           </p>
           <ul class="footer__social-list">
@@ -809,12 +1476,19 @@
         </div>
 
         <div class="footer__column">
-          <h4 class="footer__title">Email</h4>
-          <a href="mailto:mmumar1758@gmail.com" class="footer__contact">mmumar1758@gmail.com</a>
+          <h4 class="footer__title">Quick links</h4>
+          <div class="footer__links">
+            <a href="#about">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#project">Projects</a>
+            <a href="#contact">Contact</a>
+          </div>
         </div>
 
         <div class="footer__column">
-          <h4 class="footer__title">Phone</h4>
+          <h4 class="footer__title">Get in touch</h4>
+          <a href="mailto:mmumar1758@gmail.com" class="footer__contact">mmumar1758@gmail.com</a>
           <a href="tel:+821099316639" class="footer__contact">+82-10-9931-6639</a>
         </div>
       </div>
@@ -919,56 +1593,8 @@
       setTimeout(type, 600);
     })();
 
-    /* Publication filter */
-    var tabs = document.querySelectorAll(".pub__tab");
-    var cards = document.querySelectorAll("#pub-grid .publications__card");
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        tabs.forEach(function (t) { t.classList.remove("is-active"); });
-        tab.classList.add("is-active");
-        var f = tab.dataset.filter;
-        cards.forEach(function (card) {
-          card.style.display = (f === "all" || card.dataset.type === f) ? "flex" : "none";
-        });
-      });
-    });
-
-    /* Hero acoustic-emission signal canvas */
-    (function () {
-      var canvas = document.getElementById("signal-canvas");
-      if (!canvas || reduceMotion) return;
-      var ctx = canvas.getContext("2d"), w, h, t = 0;
-      function resize() {
-        var dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = canvas.clientWidth; h = canvas.clientHeight;
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      var bursts = [];
-      for (var i = 0; i < 5; i++) bursts.push({ x: Math.random(), amp: 0.4 + Math.random() * 0.6, freq: 18 + Math.random() * 22, phase: Math.random() * 6.28 });
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        var lines = [{ color: "rgba(32,201,151,0.5)", off: 0, width: 1.6 }, { color: "rgba(61,180,242,0.32)", off: 0.5, width: 1.2 }];
-        lines.forEach(function (line) {
-          ctx.beginPath(); ctx.lineWidth = line.width; ctx.strokeStyle = line.color;
-          for (var px = 0; px <= w; px += 2) {
-            var nx = px / w, y = 0;
-            bursts.forEach(function (b) {
-              var d = nx - ((b.x + (t * 0.04 + line.off) % 1) % 1);
-              var env = Math.exp(-Math.pow(d * 9, 2));
-              y += env * b.amp * Math.sin((nx * b.freq * 6.28) + b.phase + t * 0.6);
-            });
-            var yy = h / 2 + y * h * 0.16;
-            px === 0 ? ctx.moveTo(px, yy) : ctx.lineTo(px, yy);
-          }
-          ctx.stroke();
-        });
-        t += 0.016;
-        requestAnimationFrame(draw);
-      }
-      new ResizeObserver(resize).observe(canvas);
-      resize(); draw();
-    })();
+    /* Publication filter (kept for future use, not shown in UI) */
+    var cards = document.querySelectorAll(".publications__card");
   </script>
 </body>
 
