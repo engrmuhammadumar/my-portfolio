@@ -429,6 +429,168 @@
     .publications__link:hover i { transform: translateX(4px); }
     .publications__link.disabled { color: var(--c-faint); pointer-events: none; }
 
+
+    /*================ Awards & Honors ================*/
+    .awards__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      gap: 2.4rem;
+    }
+
+    .award-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--c-surface), var(--c-bg-2));
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      text-align: left;
+    }
+
+    .award-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--c-warning), var(--c-primary), var(--c-accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+
+    .award-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(243, 156, 18, 0.65);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .award-card:hover::before { transform: scaleX(1); }
+
+    .award-card__media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--c-surface-2);
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .award-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .award-card:hover .award-card__media img { transform: scale(1.045); }
+
+    .award-card__placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      text-align: center;
+      background:
+        radial-gradient(circle at top right, rgba(61, 180, 242, 0.13), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(243, 156, 18, 0.12), transparent 45%),
+        var(--c-surface-2);
+    }
+
+    .award-card__placeholder i {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 5rem;
+      color: var(--c-warning);
+    }
+
+    .award-card__placeholder span {
+      display: block;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      color: var(--c-subtext);
+    }
+
+    .award-card__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 2.5rem;
+    }
+
+    .award-card__topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .award-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 1rem;
+      border-radius: 4rem;
+      color: var(--c-warning);
+      background: rgba(243, 156, 18, 0.13);
+      font-family: var(--ff-mono);
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .award-card__date {
+      flex-shrink: 0;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      color: var(--c-accent);
+    }
+
+    .award-card__title {
+      margin-bottom: 0.8rem;
+      color: var(--c-white);
+      font-size: var(--fs-lg);
+      line-height: 1.35;
+    }
+
+    .award-card__issuer {
+      margin-bottom: 1.2rem;
+      color: var(--c-primary);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+    }
+
+    .award-card__description {
+      margin-bottom: 2rem;
+      color: var(--c-subtext);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+    }
+
+    .award-card__link {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: auto;
+      color: var(--c-primary);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+    }
+
+    .award-card__link i { transition: transform 0.25s ease; }
+    .award-card__link:hover i { transform: translateX(4px); }
+
+    @media screen and (max-width: 480px) {
+      .awards__wrapper { grid-template-columns: 1fr; }
+      .award-card__topline { align-items: flex-start; flex-direction: column; }
+      .award-card__body { padding: 2rem 1.8rem; }
+    }
+
     /*================ Qualification ================*/
     .qualification__wrapper { margin-bottom: 6rem; }
     .qualification__wrapper:last-child { margin-bottom: 0; }
@@ -636,6 +798,7 @@
           <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
           <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
           <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
+          <li class="nav__item"><a href="#awards" class="nav__link">Awards</a></li>
           <li class="nav__item"><a href="#qualification" class="nav__link">Journey</a></li>
           <li class="nav__item"><a href="#certificates" class="nav__link">Certificates</a></li>
           <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
@@ -686,15 +849,15 @@
             <div class="hero__info">
               <div class="hero__info-wrapper">
                 <p class="hero__info-number"><span data-count="25">0</span><span class="suffix">+</span></p>
-                <h2 class="hero__info-title">Papers published<br>&amp; under review</h2>
+                <h2 class="hero__info-title">Publications<br>&amp; papers</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number"><span data-count="2">0</span></p>
-                <h2 class="hero__info-title">Best Paper<br>Awards</h2>
+                <p class="hero__info-number"><span data-count="5">0</span></p>
+                <h2 class="hero__info-title">Research awards<br>&amp; honors</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number"><span data-count="6">0</span></p>
-                <h2 class="hero__info-title">Q1 / Q2<br>journals</h2>
+                <p class="hero__info-number"><span data-count="3">0</span></p>
+                <h2 class="hero__info-title">International<br>conference awards</h2>
               </div>
             </div>
           </div>
@@ -751,8 +914,9 @@
               Transformers, conformal prediction, and domain adaptation. I care less about chasing the
               flashiest architecture and more about building models that an engineer on a factory floor
               could actually trust. That mindset has led to 25+ peer-reviewed papers in venues like IEEE
-              Access, Scientific Reports, Engineering Failure Analysis, and MDPI Sensors, plus
-              two Best Paper Awards, including one at FICTA 2025 in the UK and one in ICRAI 2026 Pakistan.
+              Access, Scientific Reports, Engineering Failure Analysis, and MDPI Sensors. My work has
+              received two Best Paper Awards, a Best Presentation Award, and two Editor's Choice
+              recognitions from MDPI Sensors.
             </p>
             <p class="about__description">
               I'm now looking for my next challenge: a postdoctoral position, industry role, or research
@@ -781,8 +945,8 @@
             <p class="lbl">Journal articles</p>
           </div>
           <div class="metric-card">
-            <p class="num"><span data-count="2">0</span></p>
-            <p class="lbl">Best Paper Awards</p>
+            <p class="num"><span data-count="5">0</span></p>
+            <p class="lbl">Research awards &amp; honors</p>
           </div>
           <div class="metric-card">
             <p class="num"><span data-count="10">0</span><span class="suffix">+</span></p>
@@ -1146,6 +1310,147 @@
       </div>
     </section>
 
+
+    <!--=================== Awards & Honors ====================-->
+    <section id="awards" class="section awards">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Recognition</span>
+          <h2 class="section__title">Awards &amp; <span class="accent">honors</span></h2>
+          <span class="section__subtitle">International conference awards and editorial recognition for research excellence</span>
+        </div>
+
+        <div class="awards__wrapper">
+
+          <article class="award-card reveal">
+            <div class="award-card__media">
+              <div class="award-card__placeholder">
+                <div>
+                  <i class="ri-presentation-fill"></i>
+                  <span>Add certificate image:<br>assets/awards/mlmi-best-presentation-2026.jpg</span>
+                </div>
+              </div>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__topline">
+                <span class="award-card__badge"><i class="ri-award-fill"></i> Best Presentation</span>
+                <span class="award-card__date">July 2026</span>
+              </div>
+              <h3 class="award-card__title">Best Presentation Award — MLMI 2026</h3>
+              <p class="award-card__issuer">International Conference on Machine Learning and Machine Intelligence · Tokyo, Japan</p>
+              <p class="award-card__description">
+                Recognized for presenting a self-supervised event-based learning framework for acoustic-emission-based fault identification in milling machines.
+              </p>
+              <a href="assets/awards/mlmi-best-presentation-2026.jpg" target="_blank" rel="noopener" class="award-card__link">
+                View certificate <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-card reveal" data-delay="1">
+            <div class="award-card__media">
+              <div class="award-card__placeholder">
+                <div>
+                  <i class="ri-medal-fill"></i>
+                  <span>Add certificate image:<br>assets/awards/sensors-editors-choice-2026.jpg</span>
+                </div>
+              </div>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__topline">
+                <span class="award-card__badge"><i class="ri-star-fill"></i> Editor's Choice</span>
+                <span class="award-card__date">June 2026</span>
+              </div>
+              <h3 class="award-card__title">Editor's Choice Article — MDPI Sensors</h3>
+              <p class="award-card__issuer">Sensors · MDPI</p>
+              <p class="award-card__description">
+                Editorial recognition for “A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines.”
+              </p>
+              <a href="assets/awards/sensors-editors-choice-2026.jpg" target="_blank" rel="noopener" class="award-card__link">
+                View recognition <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-card reveal" data-delay="2">
+            <div class="award-card__media">
+              <div class="award-card__placeholder">
+                <div>
+                  <i class="ri-trophy-fill"></i>
+                  <span>Add certificate image:<br>assets/awards/icrai-best-paper-2026.jpg</span>
+                </div>
+              </div>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__topline">
+                <span class="award-card__badge"><i class="ri-trophy-fill"></i> Best Paper</span>
+                <span class="award-card__date">May 2026</span>
+              </div>
+              <h3 class="award-card__title">Best Paper Award — ICRAI 2026</h3>
+              <p class="award-card__issuer">International Conference on Robotics and Artificial Intelligence · NUST, Islamabad, Pakistan</p>
+              <p class="award-card__description">
+                Awarded for research on selective-kernel domain adaptation with LMMD alignment for milling-machine fault diagnosis.
+              </p>
+              <a href="assets/awards/icrai-best-paper-2026.jpg" target="_blank" rel="noopener" class="award-card__link">
+                View certificate <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-card reveal">
+            <div class="award-card__media">
+              <div class="award-card__placeholder">
+                <div>
+                  <i class="ri-medal-fill"></i>
+                  <span>Add certificate image:<br>assets/awards/sensors-editors-choice-2025.jpg</span>
+                </div>
+              </div>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__topline">
+                <span class="award-card__badge"><i class="ri-star-fill"></i> Editor's Choice</span>
+                <span class="award-card__date">December 2025</span>
+              </div>
+              <h3 class="award-card__title">Editor's Choice Article — MDPI Sensors</h3>
+              <p class="award-card__issuer">Sensors · MDPI</p>
+              <p class="award-card__description">
+                Editorial recognition for “Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized One-Dimensional DenseNet.”
+              </p>
+              <a href="assets/awards/sensors-editors-choice-2025.jpg" target="_blank" rel="noopener" class="award-card__link">
+                View recognition <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="award-card reveal" data-delay="1">
+            <div class="award-card__media">
+              <div class="award-card__placeholder">
+                <div>
+                  <i class="ri-trophy-fill"></i>
+                  <span>Add certificate image:<br>assets/awards/ficta-best-paper-2025.jpg</span>
+                </div>
+              </div>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__topline">
+                <span class="award-card__badge"><i class="ri-trophy-fill"></i> Best Paper</span>
+                <span class="award-card__date">June 2025</span>
+              </div>
+              <h3 class="award-card__title">Best Paper Award — FICTA 2025</h3>
+              <p class="award-card__issuer">International Conference on Frontiers of Intelligent Computing: Theory and Applications · London Metropolitan University, United Kingdom</p>
+              <p class="award-card__description">
+                Awarded for an interpretable lightweight CNN framework for centrifugal-pump fault diagnosis using time-frequency scalograms.
+              </p>
+              <a href="assets/awards/ficta-best-paper-2025.jpg" target="_blank" rel="noopener" class="award-card__link">
+                View certificate <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <!--=================== Qualification ====================-->
     <section id="qualification" class="section qualification">
       <div class="container">
@@ -1470,6 +1775,7 @@
           <div class="footer__links">
             <a href="#about">About</a>
             <a href="#publications">Publications</a>
+            <a href="#awards">Awards &amp; Honors</a>
             <a href="#gallery">Gallery</a>
             <a href="#project">Projects</a>
             <a href="#contact">Contact</a>
