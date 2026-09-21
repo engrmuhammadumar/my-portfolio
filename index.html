@@ -5,14 +5,16 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Muhammad Umar - PhD student & ML engineer (University of Ulsan) specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics. 25+ peer-reviewed papers." />
+  <meta name="description" content="Muhammad Umar - PhD student &amp; ML engineer (University of Ulsan) specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics. 25+ peer-reviewed papers." />
   <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, PhD Student, Postdoc, Muhammad Umar, University of Ulsan" />
   <meta name="author" content="Muhammad Umar" />
-  <title>Muhammad Umar AI Researcher & ML Engineer</title>
+  <title>Muhammad Umar | AI Researcher &amp; ML Engineer</title>
+
+  <script>document.documentElement.classList.add("js");</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
@@ -218,10 +220,20 @@
     .nav__link:hover, .nav__link.active-link { color: var(--c-white); }
     .nav__link:hover::after, .nav__link.active-link::after { width: 100%; }
 
-    .nav__toggle, .nav__close { display: none; font-size: var(--fs-xl); color: var(--c-white); cursor: pointer; }
+    .nav__toggle, .nav__close {
+      display: none;
+      padding: 0.4rem;
+      color: var(--c-white);
+      background: transparent;
+      border: 0;
+      font: inherit;
+      font-size: var(--fs-xl);
+      line-height: 1;
+      cursor: pointer;
+    }
 
     @media screen and (max-width: 1080px) {
-      .nav__menu {
+      .js .nav__menu {
         position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh;
         background: rgba(18, 18, 18, 0.98); backdrop-filter: blur(8px);
         display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
@@ -229,16 +241,22 @@
         overscroll-behavior: contain; transform: translateY(-100%);
         transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); z-index: var(--z-fixed);
       }
-      .nav__menu--open { transform: translateY(0); }
-      .nav__list { flex-direction: column; gap: 2.4rem; text-align: center; margin: auto 0; }
-      .nav__link { font-size: var(--fs-lg); }
-      .nav__toggle { display: block; }
-      .nav__close { display: block; position: fixed; top: 2.4rem; right: 2.4rem; z-index: calc(var(--z-fixed) + 1); }
+      .js .nav__menu--open { transform: translateY(0); }
+      .js .nav__list { flex-direction: column; gap: 2.4rem; text-align: center; margin: auto 0; }
+      .js .nav__link { font-size: var(--fs-lg); }
+      .js .nav__toggle { display: block; }
+      .js .nav__close { display: block; position: fixed; top: 2.4rem; right: 2.4rem; z-index: calc(var(--z-fixed) + 1); }
       body.nav-open { overflow: hidden; }
+
+      html:not(.js) body { margin-top: 0; }
+      html:not(.js) .header { position: static; height: auto; padding: 1.2rem 0; }
+      html:not(.js) .nav { align-items: flex-start; gap: 1.5rem; }
+      html:not(.js) .nav__list { justify-content: flex-end; gap: 1rem 1.4rem; }
+      html:not(.js) .nav__link { font-size: var(--fs-xs); }
     }
     @media screen and (max-width: 1080px) and (max-height: 640px) {
-      .nav__list { gap: 1.6rem; }
-      .nav__link { font-size: var(--fs-md); }
+      .js .nav__list { gap: 1.6rem; }
+      .js .nav__link { font-size: var(--fs-md); }
     }
 
     /*================ Hero ================*/
@@ -390,7 +408,7 @@
       display: inline-block; transition: var(--transition);
     }
     .research__card:hover .research__icon { transform: scale(1.15) rotate(-4deg); }
-    .research__card h4 { font-size: var(--fs-md); color: var(--c-white); margin-bottom: 0.8rem; }
+    .research__card h3 { font-size: var(--fs-md); color: var(--c-white); margin-bottom: 0.8rem; }
     .research__card p { font-size: var(--fs-sm); line-height: 1.7; color: var(--c-text); }
 
     /*================ Publications ================*/
@@ -741,12 +759,13 @@
     .scroll-top:hover { color: #04110d; transform: translateY(-3px); }
 
     /*================ Scroll reveal ================*/
-    .reveal { opacity: 0; transform: translateY(2.4rem); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .reveal[data-delay="1"] { transition-delay: 0.08s; }
-    .reveal[data-delay="2"] { transition-delay: 0.16s; }
-    .reveal[data-delay="3"] { transition-delay: 0.24s; }
-    .reveal[data-delay="4"] { transition-delay: 0.32s; }
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(2.4rem); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .js .reveal[data-delay="1"] { transition-delay: 0.08s; }
+    .js .reveal[data-delay="2"] { transition-delay: 0.16s; }
+    .js .reveal[data-delay="3"] { transition-delay: 0.24s; }
+    .js .reveal[data-delay="4"] { transition-delay: 0.32s; }
 
     ::-webkit-scrollbar { width: 1rem; background: var(--c-bg-2); }
     ::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 1rem; }
@@ -759,7 +778,7 @@
         animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important; scroll-behavior: auto !important;
       }
-      .reveal { opacity: 1; transform: none; }
+      .js .reveal { opacity: 1; transform: none; }
     }
 
     /*================ Responsive ================*/
@@ -795,8 +814,8 @@
 
   <!--=================== Header ====================-->
   <header id="header" class="header">
-    <nav class="nav">
-      <a href="index.html" class="nav__brand" aria-label="Home">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#hero" class="nav__brand" aria-label="Muhammad Umar — home">
         <img class="logo" src="assets/img/logo_n.PNG" alt="Muhammad Umar logo">
       </a>
 
@@ -814,17 +833,19 @@
           <li class="nav__item"><a href="#project" class="nav__link">Projects</a></li>
           <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
-        <i class="ri-close-line nav__close" id="nav-close" aria-label="Close menu"></i>
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu" aria-controls="nav-menu">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
       </div>
 
-      <div class="nav__toggle" id="nav-toggle" aria-label="Open menu">
-        <i class="ri-menu-3-line"></i>
-      </div>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-controls="nav-menu" aria-expanded="false">
+        <i class="ri-menu-3-line" aria-hidden="true"></i>
+      </button>
     </nav>
   </header>
 
   <!--=================== Main ====================-->
-  <main>
+  <main id="main-content">
 
     <!--=================== Hero ====================-->
     <section id="hero" class="hero">
@@ -852,7 +873,7 @@
             <div class="hero__buttons">
               <a href="#contact" class="btn btn--primary">Get in touch <i class="ri-arrow-right-up-line"></i></a>
               <a href="Umar__CV.pdf" class="btn btn--secondary" download><i class="ri-download-line"></i> Download CV</a>
-              <a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn--secondary"><i class="ri-graduation-cap-line"></i> Google Scholar</a>
+              <a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="btn btn--secondary"><i class="ri-graduation-cap-line"></i> Google Scholar</a>
             </div>
 
             <div class="hero__info">
@@ -889,7 +910,7 @@
 
         <div class="d-grid about__wrapper">
           <div class="about__media reveal">
-            <img src="assets/img/pro.jpg" alt="Muhammad Umar">
+            <img src="assets/img/pro.jpg" alt="Muhammad Umar" loading="lazy">
             <div class="about__badge">
               <i class="ri-award-fill"></i>
               <div>
@@ -900,7 +921,7 @@
           </div>
 
           <div class="about__content reveal" data-delay="1">
-            <h3 class="about__title">AI Researcher | Machine Learning Engineer | Advance Signal Processing </h3>
+            <h3 class="about__title">AI Researcher | Machine Learning Engineer | Advanced Signal Processing</h3>
             <p class="about__lead">// Prognostics &amp; Health Management (PHM)</p>
             <p class="about__description">
               I didn't start out chasing bearings, pipelines, and milling cutters — I started out curious
@@ -950,8 +971,8 @@
             <p class="lbl">Peer-reviewed papers</p>
           </div>
           <div class="metric-card">
-            <p class="num"><span data-count="14">0</span><span class="suffix">+</span></p>
-            <p class="lbl">Journal articles</p>
+            <p class="num"><span data-count="15">0</span><span class="suffix">+</span></p>
+            <p class="lbl">Published journal articles</p>
           </div>
           <div class="metric-card">
             <p class="num"><span data-count="5">0</span></p>
@@ -1037,46 +1058,47 @@
         <div class="research__grid">
           <div class="research__card reveal">
             <i class="ri-cpu-line research__icon"></i>
-            <h4>Intelligent systems that don't need perfect data</h4>
+            <h3>Intelligent systems that don't need perfect data</h3>
             <p>Robust, data-efficient, generalizable deep learning for industrial and healthcare applications — built to work in the messy conditions of the real world, not just the lab.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-bar-chart-box-line research__icon"></i>
-            <h4>Listening to machines in every domain</h4>
+            <h3>Listening to machines in every domain</h3>
             <p>Physics-aware representation learning with FFT, STFT, wavelets and adaptive transforms — turning raw vibration and acoustic signals into machinery-health intelligence.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-settings-3-line research__icon"></i>
-            <p><strong>Catching failure before it happens.</strong> Interpretable, domain-adaptive approaches for early fault detection, degradation modeling and predictive maintenance across critical machinery.</p>
+            <h3>Catching failure before it happens</h3>
+            <p>Interpretable, domain-adaptive approaches for early fault detection, degradation modeling and predictive maintenance across critical machinery.</p>
           </div>
           <div class="research__card reveal">
             <i class="ri-shield-check-line research__icon"></i>
-            <h4>AI an engineer can actually trust</h4>
+            <h3>AI an engineer can actually trust</h3>
             <p>Transparency, reliability assessment, uncertainty quantification and human-centric explainability for AI deployed in safety-critical environments.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-focus-2-line research__icon"></i>
-            <h4>Beyond CNNs: the next generation of models</h4>
+            <h3>Beyond CNNs: the next generation of models</h3>
             <p>Vision transformers, multimodal models and generative approaches applied to industrial inspection and biomedical imaging.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-node-tree research__icon"></i>
-            <h4>Teaching models the physics they're missing</h4>
+            <h3>Teaching models the physics they're missing</h3>
             <p>Integrating domain knowledge, physical constraints and graph neural networks for smarter sensing in complex, interconnected systems.</p>
           </div>
           <div class="research__card reveal">
             <i class="ri-stack-line research__icon"></i>
-            <h4>Learning more from less</h4>
+            <h3>Learning more from less</h3>
             <p>Self-supervised, few-shot and cross-modal learning that keeps monitoring systems scalable even when labeled data is scarce.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-cloud-line research__icon"></i>
-            <h4>Intelligence that fits on the factory floor</h4>
+            <h3>Intelligence that fits on the factory floor</h3>
             <p>Lightweight models, on-device intelligence and efficient deployment strategies built for real industrial IoT constraints.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-database-2-line research__icon"></i>
-            <h4>A living model of every machine</h4>
+            <h3>A living model of every machine</h3>
             <p>AI-enabled digital twins for continuous health awareness, reliability optimization and lifecycle management at scale.</p>
           </div>
         </div>
@@ -1228,7 +1250,7 @@
             <div class="publications__card reveal">
               <span class="pub__badge pub__badge--review">Under review</span>
               <h4 class="publications__title">Bearing Fault Diagnostics Based on Physics-Guided Vision Transformer and Band-Aware Attention</h4>
-              <p class="pub__authors"> Muhammad Farooq Siddique, Abdrabbi Bourezg, Muhammad Wisal, Saad Ali, <span class="me">Muhammad Umar</span> Muhammad Mansoor Janjua </p>
+              <p class="pub__authors">Muhammad Farooq Siddique, Abdrabbi Bourezg, Muhammad Wisal, Saad Ali, <span class="me">Muhammad Umar</span>, Muhammad Mansoor Janjua</p>
               <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
               <span class="publications__link disabled">Under review</span>
             </div>
@@ -1236,7 +1258,7 @@
             <div class="publications__card reveal">
               <span class="pub__badge pub__badge--review">Under review</span>
               <h4 class="publications__title">Physics-informed neural differential modelling of continuous tool wear degradation and uncertainty-aware remaining useful life prediction</h4>
-              <p class="pub__authors">Muhammad Wisal, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span> Muhammad Mansoor Janjua </p>
+              <p class="pub__authors">Muhammad Wisal, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Muhammad Mansoor Janjua</p>
               <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
               <span class="publications__link disabled">Under review</span>
             </div>
@@ -1251,8 +1273,6 @@
 
           </div>
         </div>
-      </div>
-  
 
         <!-- ===== CONFERENCE PAPERS ===== -->
         <div class="pub__group">
@@ -1390,7 +1410,7 @@
       <!-- Editor's Choice 2026 -->
       <article class="award-card reveal" data-delay="1">
         <div class="award-card__media">
-          <iframe src="assets/awards/Editor%20Choice%20Article.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          <iframe src="assets/awards/Editor%20Choice%20Article.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
                   title="Editor's Choice Article recognition — MDPI Sensors, June 2026"
                   loading="lazy">
           </iframe>
@@ -1417,7 +1437,7 @@
       <!-- Best Paper 2026 -->
       <article class="award-card reveal" data-delay="2">
         <div class="award-card__media">
-          <iframe src="assets/awards/Best%20Paper%20Award.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          <iframe src="assets/awards/Best%20Paper%20Award.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
                   title="Best Paper Award certificate — ICRAI 2026"
                   loading="lazy">
           </iframe>
@@ -1446,7 +1466,7 @@
       <!-- Editor's Choice 2025 -->
       <article class="award-card reveal">
         <div class="award-card__media">
-          <iframe src="assets/awards/Editor%20Choice%20Article_i.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          <iframe src="assets/awards/Editor%20Choice%20Article_i.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
                   title="Editor's Choice Article recognition — MDPI Sensors, December 2025"
                   loading="lazy">
           </iframe>
@@ -1473,7 +1493,7 @@
       <!-- Best Paper 2025 -->
       <article class="award-card reveal" data-delay="1">
         <div class="award-card__media">
-          <iframe src="assets/awards/BPA_138.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          <iframe src="assets/awards/BPA_138.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
                   title="Best Paper Award certificate — FICTA 2025"
                   loading="lazy">
           </iframe>
@@ -1667,32 +1687,32 @@
         <div class="section__header reveal">
           <span class="eyebrow">Behind the research</span>
           <h2 class="section__title">A quick <span class="accent">gallery</span></h2>
-          <span class="section__subtitle">Lab work, conferences &amp; life in Ulsan — replace with your own photos</span>
+          <span class="section__subtitle">Lab work, conferences &amp; life in Ulsan</span>
         </div>
 
         <div class="gallery__wrapper">
           <div class="gallery__item reveal">
-            <img src="assets/img/g (1).jpg" alt="">
+            <img src="assets/img/g%20(1).jpg" alt="Research and conference gallery photo 1" loading="lazy">
             <div class="gallery__caption"><span></span></div>
           </div>
           <div class="gallery__item reveal" data-delay="1">
-            <img src="assets/img/g (2).jpg" alt="">
+            <img src="assets/img/g%20(2).jpg" alt="Research and conference gallery photo 2" loading="lazy">
             <div class="gallery__caption"><span></span></div>
           </div>
           <div class="gallery__item reveal" data-delay="2">
-            <img src="assets/img/g (3).jpg" alt="">
+            <img src="assets/img/g%20(3).jpg" alt="Research and conference gallery photo 3" loading="lazy">
             <div class="gallery__caption"><span></span></div>
           </div>
           <div class="gallery__item reveal">
-            <img src="assets/img/g (4).jpg" alt="">
+            <img src="assets/img/g%20(4).jpg" alt="Research and conference gallery photo 4" loading="lazy">
             <div class="gallery__caption"><span></span></div>
           </div>
           <div class="gallery__item reveal" data-delay="1">
-            <img src="assets/img/g (1).jfif" alt="">
+            <img src="assets/img/g%20(1).jfif" alt="Research and conference gallery photo 5" loading="lazy">
             <div class="gallery__caption"><span></span></div>
           </div>
           <div class="gallery__item reveal" data-delay="2">
-            <img src="assets/img/g (5).jpg" alt="">
+            <img src="assets/img/g%20(5).jpg" alt="Research and conference gallery photo 6" loading="lazy">
             <div class="gallery__caption"><span></span></div>
           </div>
         </div>
@@ -1710,62 +1730,62 @@
 
         <div class="project__wrapper">
           <div class="project__content reveal">
-            <div class="project__media"><img src="assets/img/p2.jpg" alt="Acoustic emission fault diagnosis" class="project__img"></div>
+            <div class="project__media"><img src="assets/img/p2.jpg" alt="Acoustic emission fault diagnosis" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Signal Processing · DL</span>
               <h3 class="project__title">Acoustic Emission Fault Diagnosis</h3>
               <p class="project__description">Fault diagnosis system using CWT/STFT and deep models (EfficientNet, InceptionV3) for rotating machinery.</p>
-              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
 
           <div class="project__content reveal" data-delay="1">
-            <div class="project__media"><img src="assets/img/p1.png" alt="Pipeline leak detection" class="project__img"></div>
+            <div class="project__media"><img src="assets/img/p1.png" alt="Pipeline leak detection" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">1D-CNN · Prognostics</span>
               <h3 class="project__title">Pipeline Leak Detection</h3>
               <p class="project__description">A vulnerability index with 1D CNNs to classify pipeline leak sizes under Leave-One-Dataset-Out validation.</p>
-              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
 
           <div class="project__content reveal" data-delay="2">
-            <div class="project__media"><img src="assets/img/p3.png" alt="Research automation" class="project__img"></div>
+            <div class="project__media"><img src="assets/img/p3.png" alt="Research automation" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">XAI · Tooling</span>
               <h3 class="project__title">Research Automation &amp; XAI</h3>
               <p class="project__description">Templates and pipelines for automated documentation, analysis and explainability (Grad-CAM++, SHAP).</p>
-              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
 
           <div class="project__content reveal" data-delay="1">
-            <div class="project__media"><img src="assets/img/3.png" alt="3D terrain game" class="project__img"></div>
+            <div class="project__media"><img src="assets/img/3.png" alt="3D terrain game" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Unity · 3D</span>
               <h3 class="project__title">3D Terrain Environment</h3>
               <p class="project__description">A 3D environment in Unity with terrain sculpting, lighting and interactive camera views.</p>
-              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
 
           <div class="project__content reveal" data-delay="2">
-            <div class="project__media"><img src="assets/img/3.jpeg" alt="City character game" class="project__img"></div>
+            <div class="project__media"><img src="assets/img/3.jpeg" alt="City character game" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Unity3D · Game AI</span>
               <h3 class="project__title">City Character Game</h3>
               <p class="project__description">Character movement with AI behavior trees in an urban simulation built in Unity3D.</p>
-              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
 
           <div class="project__content reveal">
-            <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img"></div>
+            <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">NLP · Dialogflow</span>
               <h3 class="project__title">Smart University Chatbot</h3>
               <p class="project__description">A Dialogflow chatbot assisting students using data extracted from prospectus and university sites.</p>
-              <a href="#" class="project__link">View project <i class="ri-arrow-right-line"></i></a>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
         </div>
@@ -1811,14 +1831,14 @@
             prognostics at the University of Ulsan.
           </p>
           <ul class="footer__social-list">
-            <li><a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="ri-graduation-cap-fill"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/engineermuhammadumar/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Muhammad-Umar-150" target="_blank" rel="noopener" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a></li>
-            <li><a href="https://github.com/engrmuhammadumar" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
-            <li><a href="https://x.com/MuhammadUmar_58" target="_blank" rel="noopener" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li><a href="https://www.facebook.com/umarrunited" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
-            <li><a href="https://medium.com/@engineerumar" target="_blank" rel="noopener" title="Medium"><i class="fa-brands fa-medium"></i></a></li>
-            <li><a href="https://orcid.org/0009-0009-1060-9104" target="_blank" rel="noopener" title="ORCID"><i class="fa-brands fa-orcid"></i></a></li>
+            <li><a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><i class="ri-graduation-cap-fill" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/engineermuhammadumar/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.researchgate.net/profile/Muhammad-Umar-150" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate"><i class="fa-brands fa-researchgate" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/engrmuhammadumar" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://x.com/MuhammadUmar_58" target="_blank" rel="noopener" title="X (Twitter)" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/umarrunited" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="https://medium.com/@engineerumar" target="_blank" rel="noopener" title="Medium" aria-label="Medium"><i class="fa-brands fa-medium" aria-hidden="true"></i></a></li>
+            <li><a href="https://orcid.org/0009-0009-1060-9104" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
           </ul>
         </div>
 
@@ -1853,32 +1873,41 @@
 
   <!--=================== Scripts ====================-->
   <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    var currentYear = document.getElementById("currentYear");
+    if (currentYear) currentYear.textContent = new Date().getFullYear();
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     /* Mobile nav */
     var navMenu = document.getElementById("nav-menu");
     var navToggle = document.getElementById("nav-toggle");
     var navClose = document.getElementById("nav-close");
-    if (navToggle) navToggle.addEventListener("click", function () { navMenu.classList.add("nav__menu--open"); document.body.classList.add("nav-open"); });
-    if (navClose) navClose.addEventListener("click", function () { navMenu.classList.remove("nav__menu--open"); document.body.classList.remove("nav-open"); });
+    function setNavOpen(isOpen) {
+      if (!navMenu) return;
+      navMenu.classList.toggle("nav__menu--open", isOpen);
+      document.body.classList.toggle("nav-open", isOpen);
+      if (navToggle) navToggle.setAttribute("aria-expanded", String(isOpen));
+    }
+    if (navToggle) navToggle.addEventListener("click", function () { setNavOpen(true); });
+    if (navClose) navClose.addEventListener("click", function () { setNavOpen(false); });
     document.querySelectorAll(".nav__link").forEach(function (l) {
-      l.addEventListener("click", function () { navMenu.classList.remove("nav__menu--open"); document.body.classList.remove("nav-open"); });
+      l.addEventListener("click", function () { setNavOpen(false); });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navMenu && navMenu.classList.contains("nav__menu--open")) {
+        setNavOpen(false);
+        if (navToggle) navToggle.focus();
+      }
     });
 
-    /* Header shrink + back-to-top */
+    /* Header shrink, back-to-top, and scroll-spy */
     var header = document.getElementById("header");
     var scrollTopBtn = document.getElementById("scroll-top");
-    window.addEventListener("scroll", function () {
-      var y = window.scrollY;
-      header.classList.toggle("header--scroll", y > 60);
-      scrollTopBtn.classList.toggle("scroll-top--show", y > 500);
-    });
-
-    /* Scroll-spy */
     var sections = document.querySelectorAll("section[id]");
-    window.addEventListener("scroll", function () {
-      var pos = window.scrollY + 120;
+    function updateScrollState() {
+      var y = window.scrollY;
+      if (header) header.classList.toggle("header--scroll", y > 60);
+      if (scrollTopBtn) scrollTopBtn.classList.toggle("scroll-top--show", y > 500);
+      var pos = y + 120;
       sections.forEach(function (sec) {
         var id = sec.getAttribute("id");
         var link = document.querySelector('.nav__link[href="#' + id + '"]');
@@ -1886,11 +1915,13 @@
         if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) link.classList.add("active-link");
         else link.classList.remove("active-link");
       });
-    });
+    }
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
 
     /* Scroll reveal */
     var revealEls = document.querySelectorAll(".reveal");
-    if (reduceMotion) {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
       revealEls.forEach(function (el) { el.classList.add("is-visible"); });
     } else {
       var io = new IntersectionObserver(function (entries) {
@@ -1912,7 +1943,7 @@
       }
       requestAnimationFrame(tick);
     }
-    if (reduceMotion) {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
       counters.forEach(function (el) { el.textContent = el.dataset.count; });
     } else {
       var co = new IntersectionObserver(function (entries) {
@@ -1940,9 +1971,6 @@
       }
       setTimeout(type, 600);
     })();
-
-    /* Publication filter (kept for future use, not shown in UI) */
-    var cards = document.querySelectorAll(".publications__card");
   </script>
 </body>
 
