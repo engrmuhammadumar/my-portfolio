@@ -210,7 +210,7 @@
     .nav__brand { display: flex; align-items: center; gap: 1rem; }
     .nav__brand .logo { height: 4.2rem; width: auto; object-fit: contain; transition: var(--transition); }
     .nav__brand:hover .logo { transform: scale(1.06); }
-    .nav__list { display: flex; gap: 2.6rem; flex-wrap: wrap; }
+    .nav__list { display: flex; gap: 1.6rem; flex-wrap: nowrap; }
 
     .nav__link { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--c-text); position: relative; padding-bottom: 0.4rem; }
     .nav__link::after {
@@ -232,7 +232,7 @@
       cursor: pointer;
     }
 
-    @media screen and (max-width: 1080px) {
+    @media screen and (max-width: 1280px) {
       .js .nav__menu {
         position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh;
         background: rgba(18, 18, 18, 0.98); backdrop-filter: blur(8px);
@@ -251,10 +251,10 @@
       html:not(.js) body { margin-top: 0; }
       html:not(.js) .header { position: static; height: auto; padding: 1.2rem 0; }
       html:not(.js) .nav { align-items: flex-start; gap: 1.5rem; }
-      html:not(.js) .nav__list { justify-content: flex-end; gap: 1rem 1.4rem; }
+      html:not(.js) .nav__list { justify-content: flex-end; gap: 1rem 1.4rem; flex-wrap: wrap; }
       html:not(.js) .nav__link { font-size: var(--fs-xs); }
     }
-    @media screen and (max-width: 1080px) and (max-height: 640px) {
+    @media screen and (max-width: 1280px) and (max-height: 640px) {
       .js .nav__list { gap: 1.6rem; }
       .js .nav__link { font-size: var(--fs-md); }
     }
@@ -463,6 +463,72 @@
       .publications__wrapper { grid-template-columns: minmax(0, 1fr); }
     }
 
+
+
+    /*================ Journal metrics ================*/
+    .pub__metrics { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1rem; }
+    .pub__metric {
+      display: inline-flex; align-items: center; min-height: 2.8rem; padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(61, 180, 242, 0.28); border-radius: 0.7rem;
+      background: rgba(61, 180, 242, 0.09); color: #b8e6ff;
+      font-family: var(--ff-mono); font-size: 1.2rem; font-weight: 600; line-height: 1.35;
+    }
+    .pub__metric--quartile { border-color: rgba(32, 201, 151, 0.3); background: rgba(32, 201, 151, 0.1); color: #86efc7; }
+    .js .publications__card.is-visible .pub__metric { animation: metric-appear 0.55s both; animation-delay: 0.15s; }
+    .js .publications__card.is-visible .pub__metric:nth-child(2) { animation-delay: 0.25s; }
+    @keyframes metric-appear {
+      from { opacity: 0; transform: translateY(0.6rem) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .pub__sources {
+      margin-top: 2.6rem; padding: 1.6rem 2rem; background: var(--c-surface);
+      border: 1px solid var(--c-border); border-radius: var(--radius-sm);
+      color: var(--c-subtext); font-size: var(--fs-sm);
+    }
+    .pub__sources summary { color: var(--c-primary); font-weight: var(--fw-semibold); cursor: pointer; }
+    .pub__sources p { margin: 1.2rem 0; }
+    .pub__sources ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem 2rem; }
+    .pub__sources li { line-height: 1.6; }
+    .pub__sources a { color: var(--c-accent); text-decoration: underline; text-decoration-color: rgba(61, 180, 242, 0.4); text-underline-offset: 0.2em; }
+    .pub__sources a:hover { color: var(--c-white); }
+    @media screen and (max-width: 700px) { .pub__sources ul { grid-template-columns: 1fr; } }
+
+    /*================ Academic service ================*/
+    .service { background: linear-gradient(180deg, var(--c-bg), var(--c-bg-2) 55%, var(--c-bg)); }
+    .service__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; }
+    .service__card {
+      display: flex; flex-direction: column; position: relative; isolation: isolate; overflow: hidden;
+      min-width: 0; padding: 3.2rem; background: linear-gradient(145deg, var(--c-surface), var(--c-bg-2));
+      border: 1px solid var(--c-border); border-radius: var(--radius); box-shadow: var(--shadow-soft);
+    }
+    .service__card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--grad-signal); transform-origin: left; transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .js .service__card::before { transform: scaleX(0); }
+    .js .service__card.is-visible::before { transform: scaleX(1); }
+    .service__card::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: radial-gradient(30rem 24rem at 90% 0, rgba(32, 201, 151, 0.11), transparent 70%);
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .service__card:hover::after, .service__card:focus-within::after { opacity: 1; }
+    .service__top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
+    .service__icon {
+      display: grid; place-items: center; width: 4.8rem; height: 4.8rem; flex: none;
+      border-radius: 1rem; background: rgba(32, 201, 151, 0.12); color: var(--c-primary);
+      font-size: 2.3rem; transition: transform 0.35s ease, background 0.35s ease;
+    }
+    .service__card:hover .service__icon { transform: rotate(-7deg) scale(1.07); background: rgba(32, 201, 151, 0.2); }
+    .service__year { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-subtext); }
+    .service__role { font-family: var(--ff-mono); color: var(--c-primary); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.9rem; }
+    .service__title { font-size: var(--fs-xl); line-height: 1.35; margin-bottom: 1.6rem; text-wrap: balance; }
+    .service__meta { color: var(--c-subtext); font-size: var(--fs-sm); margin-bottom: 2.8rem; }
+    .service__link { display: inline-flex; align-items: center; gap: 0.7rem; align-self: flex-start; margin-top: auto; color: var(--c-accent); font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+    .service__link i { transition: transform 0.25s ease; }
+    .service__link:hover i { transform: translate(0.25rem, -0.25rem); }
+    @media screen and (max-width: 760px) { .service__grid { grid-template-columns: 1fr; } }
+    @media screen and (max-width: 480px) { .service__card { padding: 2.2rem; } }
 
     /*================ Awards & Honors ================*/
     .awards__wrapper {
@@ -841,6 +907,7 @@
           <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
           <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
           <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
+          <li class="nav__item"><a href="#service" class="nav__link">Service</a></li>
           <li class="nav__item"><a href="#awards" class="nav__link">Awards</a></li>
           <li class="nav__item"><a href="#qualification" class="nav__link">Journey</a></li>
           <li class="nav__item"><a href="#certificates" class="nav__link">Certificates</a></li>
@@ -1131,14 +1198,14 @@
 
         <!-- ===== JOURNAL ARTICLES ===== -->
         <div class="pub__group">
-          <h3 class="pub__group-title reveal"><i class="ri-book-open-line"></i> Journal Articles <span class="count">(19)</span></h3>
+          <h3 class="pub__group-title reveal"><i class="ri-book-open-line"></i> Journal Articles <span class="count">(15 published · 4 under review)</span></h3>
           <div class="publications__wrapper">
 
             <div class="publications__card reveal">
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using Acoustic Emission and Transfer Learning</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Zahoor Ahmad, Saif Ullah, Faisal Saleem, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">IEEE Access</span></div>
+              <div class="pub__venue"><span class="publications__journal">IEEE Access</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Electrical &amp; Electronic">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.2</span></div></div>
               <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1146,7 +1213,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Milling Machine Fault Diagnosis Using Acoustic Emission and Hybrid Deep Learning with Feature Optimization</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Niamat Ullah, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Applied Sciences (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Applied Sciences (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Multidisciplinary">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 2.9</span></div></div>
               <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1154,7 +1221,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Advanced Bearing-Fault Diagnosis and Classification Using Mel-Scalograms and FOX-Optimized ANN</h4>
               <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, Saif Ullah, <span class="me">Muhammad Umar</span>, Faisal Saleem, Dongkoo Shon, Tae Hyun Yoon, Dae-Seung Yoo, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
               <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1162,7 +1229,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Enhanced Fault Diagnosis in Milling Machines Using CWT Image Augmentation and Ant Colony Optimized AlexNet</h4>
               <p class="pub__authors">Niamat Ullah, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
               <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1170,7 +1237,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized 1D DenseNet</h4>
               <p class="pub__authors">Faisal Saleem, Zahoor Ahmad, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
               <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1178,7 +1245,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">A Hybrid Deep Learning Approach for Bearing Fault Diagnosis Using CWT and Attention-Enhanced Spatiotemporal Feature Extraction</h4>
               <p class="pub__authors">Muhammad Farooq Siddique, Faisal Saleem, <span class="me">Muhammad Umar</span>, Cheol Hong Kim, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
               <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1186,7 +1253,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines</h4>
               <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
               <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1194,7 +1261,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">An Optimized Few-Shot Learning Framework for Fault Diagnosis in Milling Machines</h4>
               <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 3.0</span></div></div>
               <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1202,7 +1269,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Advanced Fault Diagnosis in Milling Cutting Tools Using Vision Transformers with Semi-Supervised Learning and Uncertainty Quantification</h4>
               <p class="pub__authors">Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Wasim Ahmad, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Multidisciplinary Sciences">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.9</span></div></div>
               <a href="https://www.nature.com/articles/s41598-025-26550-8" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1210,7 +1277,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Burst-Informed Acoustic Emission Framework for Explainable Failure Diagnosis in Milling Machines</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span></div>
+              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
               <a href="https://doi.org/10.1016/j.engfailanal.2025.110373" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1218,7 +1285,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and Remaining Useful Life in Machining Systems</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span></div>
+              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
               <a href="https://www.sciencedirect.com/science/article/abs/pii/S1350630726002268" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1226,7 +1293,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Wavelet Coherence-Aware Multi-Branch Deep Ensemble for Fault Identification in Centrifugal Pumps</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Multidisciplinary Sciences">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.9</span></div></div>
               <a href="https://www.nature.com/articles/s41598-026-62260-5" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1234,7 +1301,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Physics-Guided Fused Image Learning with Enhanced Squeeze-Excitation for Failure Analysis of Multistage Centrifugal Pumps</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Multidisciplinary Sciences">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.9</span></div></div>
               <a href="https://www.nature.com/articles/s41598-026-47809-8" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1242,7 +1309,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">A Distribution-Level Statistical Framework for Reliable Pipeline Leak Detection Using Multi-Domain Signal Analysis</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span></div>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Multidisciplinary Sciences">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.9</span></div></div>
               <a href="https://www.nature.com/articles/s41598-026-56335-6" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1250,7 +1317,7 @@
               <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Uncertainty-Calibrated Residual Conformal Monitoring of Wind Turbine SCADA Data for Cross-Asset Anomaly Detection Under Distribution Shift</h4>
               <p class="pub__authors">Zalan Haneef, <span class="me">Muhammad Umar</span>, Faisal Saleem, Ikram Ullah, Kamran Aqeel, Muhammad Farooq Siddique</p>
-              <div class="pub__venue"><span class="publications__journal">Information (MDPI)</span></div>
+              <div class="pub__venue"><span class="publications__journal">Information (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Computer Science, Information Systems">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.3</span></div></div>
               <a href="https://www.mdpi.com/2078-2489/17/9/930" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
@@ -1287,6 +1354,20 @@
             </div>
 
           </div>
+
+          <details class="pub__sources reveal">
+            <summary>About these 2025 journal metrics and sources</summary>
+            <p>IF is the journal's 2025 Journal Impact Factor, published in 2026. Q1/Q2 is its 2025 JCR quartile in the category listed here. These are journal-level metrics; conference papers and manuscripts under review have no journal metric displayed.</p>
+            <ul>
+              <li>IEEE Access — Engineering, Electrical &amp; Electronic: <a href="https://ieeeaccess.ieee.org/about/bibliometrics/" target="_blank" rel="noopener">IF</a> · <a href="https://www.iit.comillas.edu/publicacion/info_revista/en/457/IEEE_Access" target="_blank" rel="noopener">quartile</a></li>
+              <li>Applied Sciences — Engineering, Multidisciplinary: <a href="https://www.mdpi.com/journal/applsci" target="_blank" rel="noopener">journal metrics</a></li>
+              <li>Sensors — Instruments &amp; Instrumentation: <a href="https://www.mdpi.com/journal/sensors" target="_blank" rel="noopener">journal metrics</a></li>
+              <li>Machines — Engineering, Mechanical: <a href="https://www.mdpi.com/journal/machines" target="_blank" rel="noopener">journal metrics</a></li>
+              <li>Scientific Reports — Multidisciplinary Sciences: <a href="https://www.nature.com/srep/about" target="_blank" rel="noopener">IF</a> · <a href="https://www.iit.comillas.edu/publicacion/info_revista/en/379/Scientific_Reports" target="_blank" rel="noopener">quartile</a></li>
+              <li>Engineering Failure Analysis — Engineering, Mechanical: <a href="https://www.sciencedirect.com/journal/engineering-failure-analysis" target="_blank" rel="noopener">IF</a> · <a href="https://scholar.pusan.ac.kr/journals/11940/" target="_blank" rel="noopener">quartile</a></li>
+              <li>Information — Computer Science, Information Systems: <a href="https://www.mdpi.com/journal/information" target="_blank" rel="noopener">journal metrics</a></li>
+            </ul>
+          </details>
         </div>
 
         <!-- ===== CONFERENCE PAPERS ===== -->
@@ -1380,6 +1461,40 @@
       </div>
     </section>
 
+
+
+    <!--=================== Academic Service ====================-->
+    <section id="service" class="section service" aria-labelledby="service-title">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Community contributions</span>
+          <h2 id="service-title" class="section__title">Academic <span class="accent">service</span></h2>
+          <span class="section__subtitle">Conference committee work and peer review</span>
+        </div>
+        <div class="service__grid">
+          <article class="service__card reveal" data-delay="1">
+            <div class="service__top">
+              <span class="service__icon" aria-hidden="true"><i class="ri-team-line"></i></span>
+              <span class="service__year">2025</span>
+            </div>
+            <p class="service__role">Technical Program Committee member</p>
+            <h3 class="service__title">IEEE Annual Congress on Artificial Intelligence of Things (IEEE AIoT)</h3>
+            <p class="service__meta">3–5 December 2025 · Osaka, Japan</p>
+            <a class="service__link" href="https://www.ieee-aiot.org/2025/" target="_blank" rel="noopener">Conference website <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+          </article>
+          <article class="service__card reveal" data-delay="2">
+            <div class="service__top">
+              <span class="service__icon" aria-hidden="true"><i class="ri-file-search-line"></i></span>
+              <span class="service__year">2026</span>
+            </div>
+            <p class="service__role">Reviewer</p>
+            <h3 class="service__title">NeurIPS 2026 Workshop on Foundation Models for Temporal Systems (FMTS)</h3>
+            <p class="service__meta">NeurIPS 2026 workshop · Sydney, Australia</p>
+            <a class="service__link" href="https://fmts-workshop.github.io/" target="_blank" rel="noopener">Workshop website <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
 
 <!--=================== Awards & Honors ====================-->
 <section id="awards" class="section awards">
@@ -1862,6 +1977,7 @@
           <div class="footer__links">
             <a href="#about">About</a>
             <a href="#publications">Publications</a>
+            <a href="#service">Academic Service</a>
             <a href="#awards">Awards &amp; Honors</a>
             <a href="#gallery">Gallery</a>
             <a href="#project">Projects</a>
