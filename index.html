@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Complete updated portfolio: academic service, 2025 journal metrics, PEC registration, university and lab links, supervisors, and BS thesis. -->
+<!-- Complete updated portfolio: academic service, 2025 journal metrics, PEC registration, university and lab links, supervisors, and university email. -->
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Muhammad Umar - PhD student &amp; ML engineer (University of Ulsan) specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics. 25+ peer-reviewed papers." />
-  <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, Deepfake Detection, PEC Registered Engineer, PhD Student, Muhammad Umar, University of Ulsan, UET Peshawar" />
+  <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, PEC Registered Engineer, PhD Student, Muhammad Umar, University of Ulsan, UET Peshawar" />
   <meta name="author" content="Muhammad Umar" />
   <title>Muhammad Umar | AI Researcher &amp; ML Engineer</title>
 
@@ -344,20 +344,12 @@
 
     /*================ Credentials & mentorship ================*/
     .hero__credential {
-      display: inline-flex; align-items: center; gap: 0.8rem; margin: -0.5rem 0 0.9rem;
+      display: inline-flex; align-items: center; gap: 0.8rem; margin: -0.5rem 0 2.4rem;
       padding: 0.75rem 1.3rem; border: 1px solid rgba(32, 201, 151, 0.32);
       border-radius: 5rem; background: rgba(32, 201, 151, 0.1);
       color: #a4f4d7; font-family: var(--ff-mono); font-size: var(--fs-xs); font-weight: 600;
     }
     .hero__credential i { font-size: 1.7rem; color: var(--c-primary); }
-    .hero__affiliations { display: flex; flex-wrap: wrap; gap: 0.7rem 1.5rem; margin-bottom: 2.4rem; }
-    .hero__affiliations a {
-      display: inline-flex; align-items: center; gap: 0.2rem;
-      color: var(--c-accent); font-family: var(--ff-mono); font-size: var(--fs-xs);
-      text-decoration: underline; text-decoration-color: rgba(61, 180, 242, 0.42); text-underline-offset: 0.25em;
-    }
-    .hero__affiliations a:hover { color: var(--c-white); }
-    @media screen and (max-width: 992px) { .hero__affiliations { justify-content: center; } }
     .about__description a, .qualification__description a, .qualification__place a {
       color: var(--c-accent); text-decoration: underline;
       text-decoration-color: rgba(61, 180, 242, 0.4); text-underline-offset: 0.2em;
@@ -376,22 +368,6 @@
     .about__mentor a { color: var(--c-accent); text-decoration: underline; text-underline-offset: 0.2em; }
     .about__mentor a:hover { color: var(--c-white); }
     .about__mentor-links a { display: inline-flex; align-items: center; gap: 0.3rem; font-size: var(--fs-sm); font-weight: 600; }
-
-    /*================ Undergraduate thesis ================*/
-    .project__media--thesis {
-      display: flex; flex-direction: column; justify-content: space-between;
-      padding: 2.2rem; border-bottom: 1px solid var(--c-border);
-      background: radial-gradient(22rem 15rem at 80% 25%, rgba(61, 180, 242, 0.22), transparent 75%),
-                  linear-gradient(140deg, #09251f, #131e2e);
-    }
-    .project__media-kicker { color: #a4f4d7; font: 600 var(--fs-xs) var(--ff-mono); letter-spacing: 0.08em; text-transform: uppercase; }
-    .project__media--thesis i { align-self: center; color: var(--c-primary); font-size: 5rem; transition: transform 0.45s ease; }
-    .project__content:hover .project__media--thesis i { transform: scale(1.08); }
-    .js .project__content.is-visible:hover { transform: translateY(-8px); }
-    .project__media-caption { color: var(--c-white); font-size: var(--fs-md); font-weight: 700; }
-    .project__attribution { color: var(--c-subtext); font-size: var(--fs-xs); line-height: 1.7; margin-bottom: 1.6rem; }
-    .project__attribution a { color: var(--c-accent); text-decoration: underline; text-underline-offset: 0.2em; }
-    .project__attribution a:hover { color: var(--c-white); }
     @media screen and (max-width: 600px) { .about__mentor { padding: 1.8rem; } }
 
     /*================ About ================*/
@@ -806,6 +782,7 @@
     .project__wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr)); gap: 2.4rem; }
     .project__content { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
     .project__content:hover { transform: translateY(-8px); border-color: var(--c-primary); box-shadow: var(--shadow-lg); }
+    .js .project__content.is-visible:hover { transform: translateY(-8px); }
     .project__media { overflow: hidden; aspect-ratio: 16 / 10; }
     .project__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     .project__content:hover .project__img { transform: scale(1.07); }
@@ -860,7 +837,7 @@
     .footer__links { display: grid; gap: 1.1rem; }
     .footer__links a { font-size: var(--fs-sm); color: var(--c-text); }
     .footer__links a:hover { color: var(--c-primary); padding-left: 0.4rem; }
-    .footer__contact { color: var(--c-primary); font-weight: var(--fw-medium); font-size: var(--fs-sm); display: block; margin-bottom: 1rem; }
+    .footer__contact { color: var(--c-primary); font-weight: var(--fw-medium); font-size: var(--fs-sm); display: block; margin-bottom: 1rem; overflow-wrap: anywhere; }
     .footer__contact:hover { text-decoration: underline; }
 
     .footer__social-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.4rem; }
@@ -1008,12 +985,6 @@
               turning raw industrial signals into reliable decisions.
             </p>
             <span class="hero__credential"><i class="ri-shield-check-line" aria-hidden="true"></i> PEC Registered Engineer</span>
-            <div class="hero__affiliations" aria-label="Academic links">
-              <a href="https://english.ulsan.ac.kr/english" target="_blank" rel="noopener">University of Ulsan <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
-              <a href="https://uiai.ulsan.ac.kr/" target="_blank" rel="noopener">UIAI Lab <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
-              <a href="https://www.uetpeshawar.edu.pk/" target="_blank" rel="noopener">UET Peshawar <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
-              <a href="#deepfake-thesis">BS thesis <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-            </div>
 
             <div class="hero__buttons">
               <a href="#contact" class="btn btn--primary">Get in touch <i class="ri-arrow-right-up-line"></i></a>
@@ -1749,7 +1720,7 @@
                 <span class="qualification__date">2019 — 2023</span>
                 <h3 class="qualification__title">BS, Computer Systems Engineering</h3>
                 <p class="qualification__place"><a href="https://www.uetpeshawar.edu.pk/" target="_blank" rel="noopener">UET Peshawar</a>, Pakistan</p>
-                <p class="qualification__description">Final year project and thesis: <a href="#deepfake-thesis">Deepfake Video Detection</a>, supervised by <a href="https://www.uetpeshawar.edu.pk/instructor/dr-muniba-ashfaq/" target="_blank" rel="noopener">Dr. Muniba Ashfaq</a>, Lecturer in Computer Systems Engineering.</p>
+                <p class="qualification__description">Final year project and thesis: Deepfake Video Detection, supervised by <a href="https://www.uetpeshawar.edu.pk/instructor/dr-muniba-ashfaq/" target="_blank" rel="noopener">Dr. Muniba Ashfaq</a>, Lecturer in Computer Systems Engineering.</p>
               </div>
               <div class="qualification__item">
                 <span class="qualification__date">2017 — 2019</span>
@@ -1932,21 +1903,6 @@
         </div>
 
         <div class="project__wrapper">
-          <article id="deepfake-thesis" class="project__content reveal">
-            <div class="project__media project__media--thesis" aria-hidden="true">
-              <span class="project__media-kicker">BS Thesis · UET Peshawar</span>
-              <i class="ri-video-line"></i>
-              <span class="project__media-caption">Authentic / Manipulated</span>
-            </div>
-            <div class="project__body">
-              <span class="project__tag">BS Final Year Project &amp; Thesis</span>
-              <h3 class="project__title">Deepfake Video Detection</h3>
-              <p class="project__description">Developed a deep learning system to detect deepfake videos through frame-level analysis and facial inconsistencies. Combined CNN and temporal models to classify authentic and manipulated content.</p>
-              <p class="project__attribution">Associated with <a href="https://www.uetpeshawar.edu.pk/" target="_blank" rel="noopener">University of Engineering &amp; Technology Peshawar</a><br>BS supervisor: <a href="https://www.uetpeshawar.edu.pk/instructor/dr-muniba-ashfaq/" target="_blank" rel="noopener">Dr. Muniba Ashfaq</a>, Lecturer</p>
-              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-            </div>
-          </article>
-
           <div class="project__content reveal">
             <div class="project__media"><img src="assets/img/p2.jpg" alt="Acoustic emission fault diagnosis" class="project__img" loading="lazy"></div>
             <div class="project__body">
@@ -1977,7 +1933,7 @@
             </div>
           </div>
 
-          <div class="project__content reveal" data-delay="1">
+          <div class="project__content reveal">
             <div class="project__media"><img src="assets/img/3.png" alt="3D terrain game" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Unity · 3D</span>
@@ -1987,7 +1943,7 @@
             </div>
           </div>
 
-          <div class="project__content reveal" data-delay="2">
+          <div class="project__content reveal" data-delay="1">
             <div class="project__media"><img src="assets/img/3.jpeg" alt="City character game" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Unity3D · Game AI</span>
@@ -1997,7 +1953,7 @@
             </div>
           </div>
 
-          <div class="project__content reveal">
+          <div class="project__content reveal" data-delay="2">
             <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">NLP · Dialogflow</span>
@@ -2025,6 +1981,7 @@
           </div>
           <div class="contact__btn">
             <a href="mailto:mmumar1758@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Email me</a>
+            <a href="mailto:muhammadumar@mail.ulsan.ac.kr" class="btn btn--secondary"><i class="ri-building-4-line"></i> University email</a>
             <a href="https://www.linkedin.com/in/engineermuhammadumar/" target="_blank" rel="noopener" class="btn btn--secondary"><i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn</a>
           </div>
         </div>
@@ -2076,6 +2033,7 @@
         <div class="footer__column">
           <h4 class="footer__title">Get in touch</h4>
           <a href="mailto:mmumar1758@gmail.com" class="footer__contact">mmumar1758@gmail.com</a>
+          <a href="mailto:muhammadumar@mail.ulsan.ac.kr" class="footer__contact">muhammadumar@mail.ulsan.ac.kr</a>
           <a href="tel:+821099316639" class="footer__contact">+82-10-9931-6639</a>
         </div>
       </div>
