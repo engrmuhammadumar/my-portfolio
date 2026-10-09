@@ -787,6 +787,39 @@
       .award-card__body { padding: 2rem 1.8rem; }
     }
 
+    /*================ Conference presentations ================*/
+    .present__wrapper { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.4rem; }
+    .present-card {
+      display: flex; flex-direction: column; overflow: hidden; text-align: left;
+      background: linear-gradient(160deg, var(--c-surface), var(--c-bg-2));
+      border: 1px solid var(--c-border); border-radius: var(--radius); transition: var(--transition);
+    }
+    .present-card:hover { transform: translateY(-6px); border-color: rgba(32, 201, 151, 0.45); box-shadow: var(--shadow-lg); }
+    .present-card__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-surface-2); border-bottom: 1px solid var(--c-border); }
+    .present-card__media a { display: block; width: 100%; height: 100%; }
+    .present-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+    .present-card:hover .present-card__media img { transform: scale(1.045); }
+    .present-card__step {
+      position: absolute; left: 1.2rem; top: 1.2rem; padding: 0.35rem 1rem; border-radius: 4rem;
+      background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--c-white); font-family: var(--ff-mono); font-size: var(--fs-xs);
+    }
+    .present-card__body { display: flex; flex-direction: column; flex: 1; padding: 2.4rem; }
+    .present-card__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1.2rem; }
+    .present-card__conf { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-primary); letter-spacing: 0.08em; text-transform: uppercase; }
+    .present-card__date { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-accent); }
+    .present-card__title { font-size: var(--fs-md); line-height: 1.4; margin-bottom: 0.8rem; }
+    .present-card__place { font-size: var(--fs-sm); color: var(--c-subtext); margin-bottom: 1.4rem; }
+    .present-card__paper { font-size: var(--fs-sm); color: var(--c-text); line-height: 1.65; margin-bottom: 1.6rem; }
+    .present-card__paper span { color: var(--c-subtext); }
+    .present-card__award {
+      align-self: flex-start; margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1rem; border-radius: 4rem; color: var(--c-warning); background: rgba(243, 156, 18, 0.13);
+      font-family: var(--ff-mono); font-size: 1.05rem; letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    @media screen and (max-width: 1000px) { .present__wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media screen and (max-width: 640px) { .present__wrapper { grid-template-columns: 1fr; } }
+
     /*================ Qualification ================*/
     .qualification__wrapper { margin-bottom: 6rem; }
     .qualification__wrapper:last-child { margin-bottom: 0; }
@@ -988,6 +1021,7 @@
           <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
           <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
           <li class="nav__item"><a href="#awards" class="nav__link">Awards</a></li>
+          <li class="nav__item"><a href="#presentations" class="nav__link">Presentations</a></li>
           <li class="nav__item"><a href="#service" class="nav__link">Talks &amp; Service</a></li>
           <li class="nav__item"><a href="#qualification" class="nav__link">Experience</a></li>
           <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
@@ -1673,7 +1707,81 @@
   </div>
 </section>
 
-    <!--=================== 6. Talks & Academic Service ====================-->
+    <!--=================== 6. Conference Presentations ====================-->
+    <section id="presentations" class="section presentations">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">On stage</span>
+          <h2 class="section__title">Conference <span class="accent">presentations</span></h2>
+          <span class="section__subtitle">Papers I presented in person at international conferences</span>
+        </div>
+
+        <div class="present__wrapper">
+
+          <!-- 1. ICCIIoT 2024 -->
+          <article class="present-card reveal">
+            <div class="present-card__media">
+              <a href="assets/img/icciiot.jpg" target="_blank" rel="noopener" aria-label="Open ICCIIoT 2024 photo">
+                <img src="assets/img/icciiot.jpg" alt="Muhammad Umar presenting a pipeline leak detection method at ICCIIoT 2024" loading="lazy">
+              </a>
+              <span class="present-card__step">01</span>
+            </div>
+            <div class="present-card__body">
+              <div class="present-card__top">
+                <span class="present-card__conf">ICCIIoT 2024</span>
+                <span class="present-card__date">2024</span>
+              </div>
+              <h3 class="present-card__title">International Conference on Computational Intelligence &amp; IoT</h3>
+              <p class="present-card__place">UET, Pakistan</p>
+              <p class="present-card__paper"><span>Presented:</span> Stockwell Transform and CNN-Based Pipeline Leak Detection Using Sobel-Filtered Acoustic Emission Signals</p>
+            </div>
+          </article>
+
+          <!-- 2. FICTA 2025 -->
+          <article class="present-card reveal" data-delay="1">
+            <div class="present-card__media">
+              <a href="assets/img/ficta.jpg" target="_blank" rel="noopener" aria-label="Open FICTA 2025 photo">
+                <img src="assets/img/ficta.jpg" alt="Muhammad Umar at the 13th FICTA conference, London Metropolitan University, June 2025" loading="lazy">
+              </a>
+              <span class="present-card__step">02</span>
+            </div>
+            <div class="present-card__body">
+              <div class="present-card__top">
+                <span class="present-card__conf">FICTA 2025</span>
+                <span class="present-card__date">6–7 June 2025</span>
+              </div>
+              <h3 class="present-card__title">13th International Conference on Frontiers of Intelligent Computing: Theory and Applications</h3>
+              <p class="present-card__place">London Metropolitan University, London, United Kingdom</p>
+              <p class="present-card__paper"><span>Presented:</span> An Interpretable Lightweight CNN Framework for Fault Diagnosis in Centrifugal Pumps Using Time-Frequency Scalograms</p>
+              <span class="present-card__award"><i class="ri-trophy-fill" aria-hidden="true"></i> Best Paper Award</span>
+            </div>
+          </article>
+
+          <!-- 3. MLMI 2026 -->
+          <article class="present-card reveal" data-delay="2">
+            <div class="present-card__media">
+              <a href="assets/img/mlmi.jpg" target="_blank" rel="noopener" aria-label="Open MLMI 2026 photo">
+                <img src="assets/img/mlmi.jpg" alt="Muhammad Umar receiving the Best Presentation Award certificate at MLMI 2026 in Tokyo" loading="lazy">
+              </a>
+              <span class="present-card__step">03</span>
+            </div>
+            <div class="present-card__body">
+              <div class="present-card__top">
+                <span class="present-card__conf">MLMI 2026</span>
+                <span class="present-card__date">July 2026</span>
+              </div>
+              <h3 class="present-card__title">International Conference on Machine Learning and Machine Intelligence</h3>
+              <p class="present-card__place">Tokyo, Japan</p>
+              <p class="present-card__paper"><span>Presented:</span> A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines</p>
+              <span class="present-card__award"><i class="ri-award-fill" aria-hidden="true"></i> Best Presentation Award</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!--=================== 7. Talks & Academic Service ====================-->
     <section id="service" class="section service" aria-labelledby="service-title">
       <div class="container">
         <div class="section__header reveal">
@@ -2121,6 +2229,7 @@
             <a href="#research">Research</a>
             <a href="#publications">Publications</a>
             <a href="#awards">Awards &amp; Honors</a>
+            <a href="#presentations">Presentations</a>
             <a href="#service">Talks &amp; Service</a>
             <a href="#qualification">Experience</a>
             <a href="#contact">Contact</a>
