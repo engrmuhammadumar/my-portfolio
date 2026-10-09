@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!-- Complete updated portfolio: academic service (incl. invited Namal University talk), Google Scholar metrics, 2025 journal metrics, PEC registration, university and lab links, supervisors, and university email. -->
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Muhammad Umar - PhD student &amp; ML engineer (University of Ulsan) specializing in fault diagnosis, acoustic emission signal processing, and remaining useful life (RUL) prognostics. 25+ peer-reviewed papers." />
+  <meta name="description" content="Muhammad Umar - MS-PhD student at the University of Ulsan (UIAI Lab) working on machine fault diagnosis, acoustic emission signal processing and remaining useful life (RUL) prediction. 25+ peer-reviewed papers." />
   <meta name="keywords" content="AI Researcher, Machine Learning Engineer, Fault Diagnosis, Prognostics, RUL Prediction, Acoustic Emission, Signal Processing, Digital Image Processing, PEC Registered Engineer, PhD Student, Muhammad Umar, University of Ulsan, UET Peshawar" />
   <meta name="author" content="Muhammad Umar" />
   <title>Muhammad Umar | AI Researcher &amp; ML Engineer</title>
@@ -21,8 +20,7 @@
 
   <style>
     /*==============================================================
-      Muhammad Umar — Portfolio (v2)
-      Theme: "Signal & Degradation" — deep midnight base, teal/cyan
+      Muhammad Umar — Portfolio
     ==============================================================*/
 
     :root {
@@ -446,8 +444,8 @@
     /*================ Google Scholar metrics ================*/
     .scholar {
       display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; gap: 3rem;
-      margin-bottom: 6rem; padding: 2.8rem 3rem; position: relative; overflow: hidden;
-      background: linear-gradient(135deg, rgba(32, 201, 151, 0.09), var(--c-surface) 45%, rgba(61, 180, 242, 0.07));
+      margin: 0 auto 6rem; padding: 2.8rem 3rem; position: relative; overflow: hidden;
+      background: var(--c-surface);
       border: 1px solid var(--c-border); border-radius: var(--radius); box-shadow: var(--shadow-soft);
     }
     .scholar__head { display: flex; align-items: center; gap: 1.6rem; text-align: left; }
@@ -462,12 +460,13 @@
     .scholar__link:hover i { transform: translate(0.25rem, -0.25rem); }
     .scholar__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
     .scholar__stat {
-      text-align: center; padding: 2rem 1.2rem; background: rgba(12, 12, 12, 0.55);
+      text-align: center; padding: 2rem 1.2rem; background: var(--c-bg-2);
       border: 1px solid var(--c-border); border-radius: var(--radius-sm); transition: var(--transition);
     }
     .scholar__stat:hover { border-color: var(--c-primary); transform: translateY(-4px); }
     .scholar__num { font-size: clamp(2.6rem, 2vw + 1.8rem, 3.6rem); font-weight: var(--fw-bold); color: var(--c-white); line-height: 1; }
     .scholar__lbl { margin-top: 0.8rem; font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-subtext); letter-spacing: 0.04em; }
+    .scholar__since { margin-top: 0.3rem; font-family: var(--ff-mono); font-size: 1.1rem; color: var(--c-faint); }
     @media screen and (max-width: 900px) {
       .scholar { grid-template-columns: 1fr; }
       .scholar__head { justify-content: center; }
@@ -529,8 +528,6 @@
       .publications__wrapper { grid-template-columns: minmax(0, 1fr); }
     }
 
-
-
     /*================ Journal metrics ================*/
     .pub__metrics { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1rem; }
     .pub__metric {
@@ -540,6 +537,7 @@
       font-family: var(--ff-mono); font-size: 1.2rem; font-weight: 600; line-height: 1.35;
     }
     .pub__metric--quartile { border-color: rgba(32, 201, 151, 0.3); background: rgba(32, 201, 151, 0.1); color: #86efc7; }
+    .pub__metric--award { border-color: rgba(243, 156, 18, 0.35); background: rgba(243, 156, 18, 0.12); color: #f7c873; }
     .js .publications__card.is-visible .pub__metric { animation: metric-appear 0.55s both; animation-delay: 0.15s; }
     .js .publications__card.is-visible .pub__metric:nth-child(2) { animation-delay: 0.25s; }
     @keyframes metric-appear {
@@ -606,7 +604,7 @@
     }
     .talk::before {
       content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
-      background: linear-gradient(90deg, var(--c-warning), var(--c-primary), var(--c-accent));
+      background: var(--grad-signal);
     }
     .talk:hover { border-color: rgba(32, 201, 151, 0.45); box-shadow: var(--shadow-lg); }
     .talk__media {
@@ -631,7 +629,7 @@
       color: var(--c-warning); background: rgba(243, 156, 18, 0.13);
       font-family: var(--ff-mono); font-size: 1.05rem; letter-spacing: 0.07em; text-transform: uppercase;
     }
-    .talk__desc { font-size: var(--fs-sm); line-height: 1.8; color: var(--c-text); margin-bottom: 1.4rem; }
+    .talk__desc { font-size: var(--fs-sm); line-height: 1.75; color: var(--c-text); margin-bottom: 1.4rem; }
     .talk__thanks { font-size: var(--fs-sm); line-height: 1.7; color: var(--c-subtext); margin-bottom: 2.2rem; }
     .talk__tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2.6rem; }
     .talk__tags li {
@@ -711,33 +709,6 @@
     }
 
     .award-card:hover .award-card__media img { transform: scale(1.045); }
-
-    .award-card__placeholder {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 2rem;
-      text-align: center;
-      background:
-        radial-gradient(circle at top right, rgba(61, 180, 242, 0.13), transparent 45%),
-        radial-gradient(circle at bottom left, rgba(243, 156, 18, 0.12), transparent 45%),
-        var(--c-surface-2);
-    }
-
-    .award-card__placeholder i {
-      display: block;
-      margin-bottom: 1rem;
-      font-size: 5rem;
-      color: var(--c-warning);
-    }
-
-    .award-card__placeholder span {
-      display: block;
-      font-family: var(--ff-mono);
-      font-size: var(--fs-xs);
-      color: var(--c-subtext);
-    }
 
     .award-card__body {
       display: flex;
@@ -853,13 +824,6 @@
     .gallery__item:nth-child(3n+1) { grid-row: span 2; }
     .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .gallery__item:hover img { transform: scale(1.08); }
-    .gallery__caption {
-      position: absolute; inset: auto 0 0 0; padding: 1.6rem;
-      background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent);
-      opacity: 0; transform: translateY(0.6rem); transition: var(--transition);
-    }
-    .gallery__item:hover .gallery__caption { opacity: 1; transform: translateY(0); }
-    .gallery__caption span { font-size: var(--fs-xs); font-family: var(--ff-mono); color: var(--c-white); }
 
     @media screen and (max-width: 700px) { .gallery__item:nth-child(3n+1) { grid-row: span 1; } .gallery__wrapper { grid-auto-rows: 20rem; } }
 
@@ -938,7 +902,6 @@
       padding-top: 2.4rem; font-size: var(--fs-sm); color: var(--c-subtext);
       width: 92%; max-width: var(--width-container); margin-inline: auto;
     }
-    .footer__bottom i { color: var(--c-danger); }
 
     @media screen and (max-width: 768px) {
       .footer__top { grid-template-columns: 1fr; gap: 2.4rem; text-align: center; }
@@ -1022,15 +985,15 @@
         <ul class="nav__list">
           <li class="nav__item"><a href="#hero" class="nav__link">Home</a></li>
           <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
           <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
           <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
-          <li class="nav__item"><a href="#service" class="nav__link">Service</a></li>
           <li class="nav__item"><a href="#awards" class="nav__link">Awards</a></li>
-          <li class="nav__item"><a href="#qualification" class="nav__link">Journey</a></li>
+          <li class="nav__item"><a href="#service" class="nav__link">Talks &amp; Service</a></li>
+          <li class="nav__item"><a href="#qualification" class="nav__link">Experience</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+          <li class="nav__item"><a href="#project" class="nav__link">Projects</a></li>
           <li class="nav__item"><a href="#certificates" class="nav__link">Certificates</a></li>
           <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
-          <li class="nav__item"><a href="#project" class="nav__link">Projects</a></li>
           <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
         <button class="nav__close" id="nav-close" type="button" aria-label="Close menu" aria-controls="nav-menu">
@@ -1047,14 +1010,14 @@
   <!--=================== Main ====================-->
   <main id="main-content">
 
-    <!--=================== Hero ====================-->
+    <!--=================== 1. Hero ====================-->
     <section id="hero" class="hero">
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__wrapper">
           <div class="hero__content">
             <span class="hero__status">
-              <span class="dot"></span> Open to Research &amp; Collaborations
+              <span class="dot"></span> Open to postdoc &amp; research positions
             </span>
 
             <h1 class="hero__title">
@@ -1065,9 +1028,9 @@
 
             <p class="hero__description">
               Combined MS&ndash;PhD student in Artificial Intelligence &amp; Computer Engineering at the
-              University of Ulsan, South Korea. I build interpretable, physics-aware deep learning for
-              fault diagnosis, predictive maintenance, and remaining useful life (RUL) estimation —
-              turning raw industrial signals into reliable decisions.
+              University of Ulsan, South Korea. I work on fault diagnosis, predictive maintenance and
+              remaining useful life (RUL) prediction for industrial machines, using acoustic emission and
+              vibration signals with signal processing and deep learning.
             </p>
             <span class="hero__credential"><i class="ri-shield-check-line" aria-hidden="true"></i> PEC Registered Engineer</span>
 
@@ -1080,15 +1043,15 @@
             <div class="hero__info">
               <div class="hero__info-wrapper">
                 <p class="hero__info-number"><span data-count="25">0</span><span class="suffix">+</span></p>
-                <h2 class="hero__info-title">Publications<br>&amp; papers</h2>
+                <h2 class="hero__info-title">Peer-reviewed<br>papers</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number"><span data-count="5">0</span></p>
-                <h2 class="hero__info-title">Research awards<br>&amp; honors</h2>
+                <p class="hero__info-number"><span data-count="423">0</span></p>
+                <h2 class="hero__info-title">Google Scholar<br>citations</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number"><span data-count="3">0</span></p>
-                <h2 class="hero__info-title">International<br>conference awards</h2>
+                <p class="hero__info-number"><span data-count="11">0</span></p>
+                <h2 class="hero__info-title">h-index<br>(i10-index 12)</h2>
               </div>
             </div>
           </div>
@@ -1100,13 +1063,13 @@
       </div>
     </section>
 
-    <!--=================== About ====================-->
+    <!--=================== 2. About ====================-->
     <section id="about" class="section about">
       <div class="container">
         <div class="section__header reveal">
           <span class="eyebrow">About me</span>
-          <h2 class="section__title">Bridging research &amp; <span class="accent">real machines</span></h2>
-          <span class="section__subtitle">Who I am and how I work</span>
+          <h2 class="section__title">About <span class="accent">me</span></h2>
+          <span class="section__subtitle">Background, research focus and supervisor</span>
         </div>
 
         <div class="d-grid about__wrapper">
@@ -1122,22 +1085,21 @@
           </div>
 
           <div class="about__content reveal" data-delay="1">
-            <h3 class="about__title">AI Researcher | Machine Learning Engineer | Advanced Signal Processing</h3>
+            <h3 class="about__title">AI Researcher | Machine Learning Engineer | Signal Processing</h3>
             <p class="about__lead">// Prognostics &amp; Health Management (PHM)</p>
             <p class="about__description">
-              I didn't start out chasing bearings, pipelines, and milling cutters — I started out curious
-              about why machines fail quietly before they fail loudly, and whether the right signal, read
-              the right way, could give an engineer enough warning to act. That question is still what gets
-              me into the lab every morning.
+              I am a combined MS&ndash;PhD student and BK21 research fellow in the Ulsan Industrial
+              Artificial Intelligence (UIAI) Lab at the <a href="https://english.ulsan.ac.kr/english" target="_blank" rel="noopener">University of Ulsan</a>, South Korea, supervised by
+              <a href="https://uiai.ulsan.ac.kr/professor/" target="_blank" rel="noopener">Prof. Jong-Myon Kim</a>. I joined the lab in March 2024, after completing a BS in Computer Systems
+              Engineering at <a href="https://www.uetpeshawar.edu.pk/" target="_blank" rel="noopener">UET Peshawar</a> in 2023.
             </p>
             <p class="about__description">
-              Today I'm a combined MS&ndash;PhD student and BK21 research fellow in the Ulsan Industrial
-              Artificial Intelligence (UIAI) Lab at the <a href="https://english.ulsan.ac.kr/english" target="_blank" rel="noopener">University of Ulsan</a>, South Korea, working under
-              <a href="https://uiai.ulsan.ac.kr/professor/" target="_blank" rel="noopener">Prof. Jong-Myon Kim</a>. I earned my bachelor's in Computer Systems Engineering from <a href="https://www.uetpeshawar.edu.pk/" target="_blank" rel="noopener">UET Peshawar</a>
-              in 2023, and since joining UIAI in March 2024 I've spent my time listening to machines —
-              literally. I work with acoustic emission signals, vibration data, and time-frequency
-              representations to catch degradation early, model how it evolves, and predict how much useful
-              life a component has left.
+              My research is on condition monitoring of milling machines, bearings, centrifugal pumps and
+              pipelines. I mainly work with acoustic emission and vibration data, combining time-frequency
+              methods (FFT, STFT, wavelets, Koopman and spectral methods) with deep learning models such as
+              Vision Transformers to detect faults early, track degradation and estimate remaining useful life.
+              Since these models are meant to support maintenance decisions, a large part of my work is on
+              uncertainty quantification, explainability and domain adaptation.
             </p>
             <aside class="about__mentor reveal" aria-label="PhD supervisor and research laboratory">
               <span class="about__mentor-label">PhD supervisor &amp; laboratory</span>
@@ -1149,20 +1111,14 @@
               </div>
             </aside>
             <p class="about__description">
-              What I enjoy most is the meeting point between classical signal processing — FFT, STFT,
-              wavelets, Koopman and spectral methods — and modern deep learning, including Vision
-              Transformers, conformal prediction, and domain adaptation. I care less about chasing the
-              flashiest architecture and more about building models that an engineer on a factory floor
-              could actually trust. That mindset has led to 25+ peer-reviewed papers in venues like IEEE
-              Access, Scientific Reports, Engineering Failure Analysis, and MDPI Sensors. My work has
-              received two Best Paper Awards, a Best Presentation Award, and two Editor's Choice
-              recognitions from MDPI Sensors.
+              This work has led to 25+ peer-reviewed papers in journals including Engineering Failure
+              Analysis, Scientific Reports, IEEE Access and MDPI Sensors, cited 423 times on Google Scholar.
+              It has received two Best Paper Awards, a Best Presentation Award and two Editor's Choice
+              selections in MDPI Sensors.
             </p>
             <p class="about__description">
-              I'm now looking for my next challenge: a postdoctoral position, industry role, or research
-              collaboration — in Saudi Arabia, Europe, or elsewhere — where I can push trustworthy,
-              deployable prognostics for safety-critical industrial systems out of the lab and into the
-              real world.
+              I am looking for a postdoctoral position, an industry research role or research collaborations
+              in prognostics and health management, in Saudi Arabia, Europe or elsewhere.
             </p>
             <p class="about__signature">— Muhammad Umar, Ulsan, South Korea</p>
             <ul class="about__highlights">
@@ -1171,7 +1127,7 @@
               <li><i class="ri-line-chart-line"></i> RUL &amp; degradation modeling</li>
               <li><i class="ri-git-merge-line"></i> Domain adaptation &amp; transfer learning</li>
               <li><i class="ri-shield-check-line"></i> <a href="https://www.pec.org.pk/engineers-registration/" target="_blank" rel="noopener">PEC Registered Engineer</a></li>
-              <li><i class="ri-presentation-line"></i> <a href="#service">Invited speaker — Namal University</a></li>
+              <li><i class="ri-presentation-line"></i> <a href="#service">Invited speaker, Namal University</a></li>
             </ul>
             <a href="#publications" class="btn btn--primary">See my publications <i class="ri-arrow-right-line"></i></a>
           </div>
@@ -1183,141 +1139,81 @@
             <p class="lbl">Peer-reviewed papers</p>
           </div>
           <div class="metric-card">
-            <p class="num"><span data-count="15">0</span><span class="suffix">+</span></p>
+            <p class="num"><span data-count="16">0</span></p>
             <p class="lbl">Published journal articles</p>
+          </div>
+          <div class="metric-card">
+            <p class="num"><span data-count="10">0</span></p>
+            <p class="lbl">Conference papers</p>
           </div>
           <div class="metric-card">
             <p class="num"><span data-count="5">0</span></p>
             <p class="lbl">Research awards &amp; honors</p>
           </div>
-          <div class="metric-card">
-            <p class="num"><span data-count="10">0</span><span class="suffix">+</span></p>
-            <p class="lbl">Conference papers</p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!--=================== Skills ====================-->
-    <section id="skills" class="section skills">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="eyebrow">Toolbox</span>
-          <h2 class="section__title">Technical <span class="accent">skills</span></h2>
-          <span class="section__subtitle">Tools, frameworks &amp; expertise — from research to real deployment</span>
-        </div>
-
-        <div class="skills__wrapper">
-          <div class="skills__card reveal">
-            <span class="skills__icon"><i class="ri-brain-line"></i></span>
-            <h3 class="skills__subtitle">AI &amp; Machine Learning</h3>
-            <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> CNNs, RNNs, LSTMs, Transformers</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Autoencoders &amp; XAI (Grad-CAM, SHAP)</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> PyTorch, TensorFlow, scikit-learn, Hugging Face</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Few-shot, meta &amp; self-supervised learning</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Graph Neural Networks &amp; physics-informed models</li>
-            </ul>
-          </div>
-
-          <div class="skills__card reveal" data-delay="1">
-            <span class="skills__icon"><i class="ri-pulse-line"></i></span>
-            <h3 class="skills__subtitle">Signal Processing &amp; Analysis</h3>
-            <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> FFT, STFT, CWT &amp; AE analysis</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Time-frequency feature extraction</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Koopman &amp; spectral methods</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> MATLAB, Python, Power BI</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Sensor fusion &amp; multi-domain analysis</li>
-            </ul>
-          </div>
-
-          <div class="skills__card reveal" data-delay="2">
-            <span class="skills__icon"><i class="ri-tools-line"></i></span>
-            <h3 class="skills__subtitle">Development &amp; Research</h3>
-            <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Git, LaTeX, MLflow, Weights &amp; Biases</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Jupyter, Colab, CUDA / GPU training</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Conformal prediction &amp; uncertainty quantification</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Research writing, peer review &amp; grant proposals</li>
-            </ul>
-          </div>
-
-          <div class="skills__card reveal" data-delay="1">
-            <span class="skills__icon"><i class="ri-cloud-line"></i></span>
-            <h3 class="skills__subtitle">Deployment, Industry &amp; Collaboration</h3>
-            <ul class="skills__list">
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Docker &amp; cloud compute (AWS / GCP) for scalable pipelines</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Edge AI &amp; on-device deployment for industrial IoT</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Digital twins &amp; predictive-maintenance systems design</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Cross-disciplinary project management &amp; team collaboration</li>
-              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Technical documentation &amp; stakeholder communication</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--=================== Research Interests ====================-->
+    <!--=================== 3. Research Interests ====================-->
     <section id="research" class="section research">
       <div class="container">
         <div class="section__header reveal">
           <span class="eyebrow">Focus areas</span>
           <h2 class="section__title">Research <span class="accent">interests</span></h2>
-          <span class="section__subtitle">Where curiosity meets industrial impact</span>
+          <span class="section__subtitle">Prognostics and health management of industrial machinery</span>
         </div>
 
         <div class="research__grid">
           <div class="research__card reveal">
             <i class="ri-cpu-line research__icon"></i>
-            <h3>Intelligent systems that don't need perfect data</h3>
-            <p>Robust, data-efficient, generalizable deep learning for industrial and healthcare applications — built to work in the messy conditions of the real world, not just the lab.</p>
+            <h3>Fault diagnosis with limited data</h3>
+            <p>Deep learning models that stay accurate with small, imbalanced or partly labelled datasets, for industrial and healthcare applications.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
             <i class="ri-bar-chart-box-line research__icon"></i>
-            <h3>Listening to machines in every domain</h3>
-            <p>Physics-aware representation learning with FFT, STFT, wavelets and adaptive transforms — turning raw vibration and acoustic signals into machinery-health intelligence.</p>
+            <h3>Signal processing for condition monitoring</h3>
+            <p>Time-frequency analysis of acoustic emission and vibration signals using FFT, STFT, wavelets and adaptive transforms.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-settings-3-line research__icon"></i>
-            <h3>Catching failure before it happens</h3>
-            <p>Interpretable, domain-adaptive approaches for early fault detection, degradation modeling and predictive maintenance across critical machinery.</p>
+            <h3>Degradation modeling &amp; RUL prediction</h3>
+            <p>Early fault detection, degradation modeling and remaining useful life estimation for machining tools and rotating machinery.</p>
           </div>
           <div class="research__card reveal">
             <i class="ri-shield-check-line research__icon"></i>
-            <h3>AI an engineer can actually trust</h3>
-            <p>Transparency, reliability assessment, uncertainty quantification and human-centric explainability for AI deployed in safety-critical environments.</p>
+            <h3>Uncertainty &amp; explainability</h3>
+            <p>Conformal prediction, calibrated uncertainty and explainability methods (Grad-CAM, SHAP) for safety-critical use.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
-            <i class="ri-focus-2-line research__icon"></i>
-            <h3>Beyond CNNs: the next generation of models</h3>
-            <p>Vision transformers, multimodal models and generative approaches applied to industrial inspection and biomedical imaging.</p>
+            <i class="ri-git-merge-line research__icon"></i>
+            <h3>Domain adaptation &amp; transfer learning</h3>
+            <p>Models that generalize across machines, rotational speeds and operating conditions.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-node-tree research__icon"></i>
-            <h3>Teaching models the physics they're missing</h3>
-            <p>Integrating domain knowledge, physical constraints and graph neural networks for smarter sensing in complex, interconnected systems.</p>
+            <h3>Physics-guided &amp; graph-based models</h3>
+            <p>Using domain knowledge, physical constraints and graph neural networks inside the learning process.</p>
           </div>
           <div class="research__card reveal">
             <i class="ri-stack-line research__icon"></i>
-            <h3>Learning more from less</h3>
-            <p>Self-supervised, few-shot and cross-modal learning that keeps monitoring systems scalable even when labeled data is scarce.</p>
+            <h3>Self-supervised &amp; few-shot learning</h3>
+            <p>Learning useful representations when labelled fault data is scarce.</p>
           </div>
           <div class="research__card reveal" data-delay="1">
-            <i class="ri-cloud-line research__icon"></i>
-            <h3>Intelligence that fits on the factory floor</h3>
-            <p>Lightweight models, on-device intelligence and efficient deployment strategies built for real industrial IoT constraints.</p>
+            <i class="ri-focus-2-line research__icon"></i>
+            <h3>Vision transformers</h3>
+            <p>Transformer and multimodal models for industrial inspection and biomedical imaging.</p>
           </div>
           <div class="research__card reveal" data-delay="2">
             <i class="ri-database-2-line research__icon"></i>
-            <h3>A living model of every machine</h3>
-            <p>AI-enabled digital twins for continuous health awareness, reliability optimization and lifecycle management at scale.</p>
+            <h3>Edge deployment &amp; digital twins</h3>
+            <p>Lightweight on-device models for industrial IoT, and digital twins for continuous asset health monitoring.</p>
           </div>
         </div>
       </div>
     </section>
 
-   <!--=================== Publications ====================-->
+   <!--=================== 4. Publications ====================-->
     <section id="publications" class="section publications">
       <div class="container">
         <div class="section__header reveal">
@@ -1326,110 +1222,46 @@
           <span class="section__subtitle">Peer-reviewed journals &amp; international conferences</span>
         </div>
 
-        <!-- ===== GOOGLE SCHOLAR METRICS =====
-             UPDATE HERE: put your current numbers from Google Scholar into the three
-             data-count="" attributes below (citations, h-index, i10-index), and update
-             the "Updated ..." month. Leave a value empty to show a dash. -->
+        <!-- ===== GOOGLE SCHOLAR METRICS (update these numbers from your Scholar profile) ===== -->
         <div class="scholar reveal" aria-label="Google Scholar citation metrics">
           <div class="scholar__head">
             <span class="scholar__icon" aria-hidden="true"><i class="ri-graduation-cap-line"></i></span>
             <div>
               <h3 class="scholar__title">Google Scholar metrics</h3>
-              <p class="scholar__note">All-time · Updated October 2026</p>
+              <p class="scholar__note">As of October 2026</p>
               <a class="scholar__link" href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener">View Scholar profile <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
             </div>
           </div>
           <div class="scholar__stats">
             <div class="scholar__stat">
-              <p class="scholar__num"><span data-count="">&ndash;</span></p>
+              <p class="scholar__num"><span data-count="423">0</span></p>
               <p class="scholar__lbl">Citations</p>
+              <p class="scholar__since">422 since 2021</p>
             </div>
             <div class="scholar__stat">
-              <p class="scholar__num"><span data-count="">&ndash;</span></p>
+              <p class="scholar__num"><span data-count="11">0</span></p>
               <p class="scholar__lbl">h-index</p>
+              <p class="scholar__since">11 since 2021</p>
             </div>
             <div class="scholar__stat">
-              <p class="scholar__num"><span data-count="">&ndash;</span></p>
+              <p class="scholar__num"><span data-count="12">0</span></p>
               <p class="scholar__lbl">i10-index</p>
+              <p class="scholar__since">12 since 2021</p>
             </div>
           </div>
         </div>
 
         <!-- ===== JOURNAL ARTICLES ===== -->
         <div class="pub__group">
-          <h3 class="pub__group-title reveal"><i class="ri-book-open-line"></i> Journal Articles <span class="count">(15 published · 4 under review)</span></h3>
+          <h3 class="pub__group-title reveal"><i class="ri-book-open-line"></i> Journal Articles <span class="count">(16 published · 3 under review)</span></h3>
           <div class="publications__wrapper">
 
             <div class="publications__card reveal">
               <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using Acoustic Emission and Transfer Learning</h4>
-              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Zahoor Ahmad, Saif Ullah, Faisal Saleem, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">IEEE Access</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Electrical &amp; Electronic">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.2</span></div></div>
-              <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Milling Machine Fault Diagnosis Using Acoustic Emission and Hybrid Deep Learning with Feature Optimization</h4>
-              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Niamat Ullah, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Applied Sciences (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Multidisciplinary">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 2.9</span></div></div>
-              <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Advanced Bearing-Fault Diagnosis and Classification Using Mel-Scalograms and FOX-Optimized ANN</h4>
-              <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, Saif Ullah, <span class="me">Muhammad Umar</span>, Faisal Saleem, Dongkoo Shon, Tae Hyun Yoon, Dae-Seung Yoo, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
-              <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Enhanced Fault Diagnosis in Milling Machines Using CWT Image Augmentation and Ant Colony Optimized AlexNet</h4>
-              <p class="pub__authors">Niamat Ullah, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
-              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized 1D DenseNet</h4>
-              <p class="pub__authors">Faisal Saleem, Zahoor Ahmad, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
-              <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">A Hybrid Deep Learning Approach for Bearing Fault Diagnosis Using CWT and Attention-Enhanced Spatiotemporal Feature Extraction</h4>
-              <p class="pub__authors">Muhammad Farooq Siddique, Faisal Saleem, <span class="me">Muhammad Umar</span>, Cheol Hong Kim, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
-              <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines</h4>
-              <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
-              <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">An Optimized Few-Shot Learning Framework for Fault Diagnosis in Milling Machines</h4>
-              <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 3.0</span></div></div>
-              <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Cutting Tools Using Vision Transformers with Semi-Supervised Learning and Uncertainty Quantification</h4>
-              <p class="pub__authors">Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Wasim Ahmad, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Multidisciplinary Sciences">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.9</span></div></div>
-              <a href="https://www.nature.com/articles/s41598-025-26550-8" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+              <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and Remaining Useful Life in Machining Systems</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
+              <a href="https://www.sciencedirect.com/science/article/abs/pii/S1350630726002268" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
             <div class="publications__card reveal">
@@ -1438,14 +1270,6 @@
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
               <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
               <a href="https://doi.org/10.1016/j.engfailanal.2025.110373" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and Remaining Useful Life in Machining Systems</h4>
-              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
-              <a href="https://www.sciencedirect.com/science/article/abs/pii/S1350630726002268" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
             <div class="publications__card reveal">
@@ -1474,10 +1298,90 @@
 
             <div class="publications__card reveal">
               <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Cutting Tools Using Vision Transformers with Semi-Supervised Learning and Uncertainty Quantification</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Wasim Ahmad, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Scientific Reports</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Multidisciplinary Sciences">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.9</span></div></div>
+              <a href="https://www.nature.com/articles/s41598-025-26550-8" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Advanced Fault Diagnosis in Milling Machines Using Acoustic Emission and Transfer Learning</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Zahoor Ahmad, Saif Ullah, Faisal Saleem, Muhammad Farooq Siddique, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">IEEE Access</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Electrical &amp; Electronic">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.2</span></div></div>
+              <a href="https://ieeexplore.ieee.org/document/11028988" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Milling Machine Fault Diagnosis Using Acoustic Emission and Hybrid Deep Learning with Feature Optimization</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Niamat Ullah, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Applied Sciences (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Multidisciplinary">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 2.9</span></div></div>
+              <a href="https://www.mdpi.com/2076-3417/14/22/10404" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">A Hybrid Deep Learning Approach for Bearing Fault Diagnosis Using CWT and Attention-Enhanced Spatiotemporal Feature Extraction</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Faisal Saleem, <span class="me">Muhammad Umar</span>, Cheol Hong Kim, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
+              <a href="https://www.mdpi.com/1424-8220/25/9/2712" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized 1D DenseNet</h4>
+              <p class="pub__authors">Faisal Saleem, Zahoor Ahmad, Muhammad Farooq Siddique, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span><span class="pub__metric pub__metric--award">Editor's Choice</span></div></div>
+              <a href="https://www.mdpi.com/1424-8220/25/4/1112" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span><span class="pub__metric pub__metric--award">Editor's Choice</span></div></div>
+              <a href="https://www.mdpi.com/1424-8220/25/18/5866" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Advanced Bearing-Fault Diagnosis and Classification Using Mel-Scalograms and FOX-Optimized ANN</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Wasim Zaman, Saif Ullah, <span class="me">Muhammad Umar</span>, Faisal Saleem, Dongkoo Shon, Tae Hyun Yoon, Dae-Seung Yoo, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
+              <a href="https://www.mdpi.com/1424-8220/24/22/7303" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">Enhanced Fault Diagnosis in Milling Machines Using CWT Image Augmentation and Ant Colony Optimized AlexNet</h4>
+              <p class="pub__authors">Niamat Ullah, <span class="me">Muhammad Umar</span>, Jae-Young Kim, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Sensors (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Instruments &amp; Instrumentation">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.0</span></div></div>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11644436/" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
               <h4 class="publications__title">Uncertainty-Calibrated Residual Conformal Monitoring of Wind Turbine SCADA Data for Cross-Asset Anomaly Detection Under Distribution Shift</h4>
               <p class="pub__authors">Zalan Haneef, <span class="me">Muhammad Umar</span>, Faisal Saleem, Ikram Ullah, Kamran Aqeel, Muhammad Farooq Siddique</p>
               <div class="pub__venue"><span class="publications__journal">Information (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Computer Science, Information Systems">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.3</span></div></div>
               <a href="https://www.mdpi.com/2078-2489/17/9/930" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">A Physics-Guided Statistical Framework for Bearing Fault Diagnosis Under Unit Variability and Rotational Speed Uncertainty</h4>
+              <p class="pub__authors">Muhammad Farooq Siddique, Muhammad Wisal, <span class="me">Muhammad Umar</span>, Saad Ali, Muhammad Mansoor Janjua, Haris Khalid, Zalan Haneef, Nasir Akhtar</p>
+              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 3.0</span></div></div>
+              <a href="https://www.mdpi.com/2075-1702/14/10/1140" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Published</span>
+              <h4 class="publications__title">An Optimized Few-Shot Learning Framework for Fault Diagnosis in Milling Machines</h4>
+              <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 3.0</span></div></div>
+              <a href="https://www.mdpi.com/2075-1702/13/11/1010" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
             </div>
 
             <div class="publications__card reveal">
@@ -1504,14 +1408,6 @@
               <span class="publications__link disabled">Under review</span>
             </div>
 
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Published</span>
-              <h4 class="publications__title">A Physics-Guided Statistical Framework for Bearing Fault Diagnosis Under Unit Variability and Rotational Speed Uncertainty</h4>
-              <p class="pub__authors">Muhammad Farooq Siddique, Muhammad Wisal, <span class="me">Muhammad Umar</span>, Saad Ali, Muhammad Mansoor Janjua, Haris Khalid, Zalan Haneef, Nasir Akhtar</p>
-              <div class="pub__venue"><span class="publications__journal">Machines (MDPI)</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Computer Science, Information Systems">JCR Q2</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 4.3</span></div></div>
-              <a href="https://www.mdpi.com/2075-1702/14/10/1140" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-
           </div>
 
           <details class="pub__sources reveal">
@@ -1535,11 +1431,43 @@
           <div class="publications__wrapper">
 
             <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--bestpaper"> <i class="ri-award-line"></i> Best Presentation · MLMI '26</span>
+              <h4 class="publications__title">A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines</h4>
+              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Faisal Saleem, and Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--bestpaper"><i class="ri-trophy-line"></i> Best Paper · ICRAI &rsquo;26</span>
+              <h4 class="publications__title">Selective Kernel Domain Adaptation with LMMD Alignment for Milling Machine Fault Diagnosis</h4>
+              <p class="pub__authors"> Saif Ullah, <span class="me">Muhammad Umar</span>, Jong-Myon Kim </p>
+              <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
+              <a href="https://ieeexplore.ieee.org/document/11551900" target="_blank" rel="noopener" class="publications__link"> View Paper <i class="ri-external-link-line"></i> </a>
+            </div>
+
+            <div class="publications__card reveal">
               <span class="pub__badge pub__badge--bestpaper"> <i class="ri-trophy-line"></i> Best Paper · FICTA ’25 </span>
               <h4 class="publications__title">An Interpretable Lightweight CNN Framework for Fault Diagnosis in Centrifugal Pumps Using Time-Frequency Scalograms</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Faisal Saleem, Jaeyoung Kim, Jong-Myon Kim</p>
               <div class="pub__venue"><span class="publications__journal">FICTA 2025 — United Kingdom</span></div>
               <a href="https://link.springer.com/chapter/10.1007/978-3-032-18849-6_11" target="_blank" rel="noopener" class="publications__link"> View Paper <i class="ri-external-link-line"></i> </a>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Fault Diagnosis of Centrifugal Pumps Using Adaptive Spectral-Temporal Transformer Learning</h4>
+              <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, and Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Bearing Fault Diagnosis: Class-Conditional Deep Domain Adaptation for Generalization Across Machines</h4>
+              <p class="pub__authors"> Muhammad Farooq Siddique, Abdrabbi Bourezg, Muhammad Wisal, Saad Ali, <span class="me">Muhammad Umar</span>, Faisal Saleem, Muhammad Mansoor Janjua </p>
+              <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
+              <a href="https://ieeexplore.ieee.org/document/11551958" target="_blank" rel="noopener" class="publications__link"> View Paper <i class="ri-external-link-line"></i> </a>
             </div>
 
             <div class="publications__card reveal">
@@ -1560,6 +1488,14 @@
 
             <div class="publications__card reveal">
               <span class="pub__badge pub__badge--published">Conference</span>
+              <h4 class="publications__title">Attention-Guided Dual Feature Extractor for Bearing Fault Diagnosis from Vibration Data</h4>
+              <p class="pub__authors">Saif Ullah, <span class="me">Muhammad Umar</span>, and Jong-Myon Kim</p>
+              <div class="pub__venue"><span class="publications__journal">CSCI 2025 — United States</span></div>
+              <span class="publications__link disabled">Proceedings soon</span>
+            </div>
+
+            <div class="publications__card reveal">
+              <span class="pub__badge pub__badge--published">Conference</span>
               <h4 class="publications__title">Stockwell Transform and CNN-Based Pipeline Leak Detection Using Sobel-Filtered Acoustic Emission Signals</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Faisal Saleem, Wasim Zaman, and Jong-Myon Kim</p>
               <div class="pub__venue"><span class="publications__journal">ICCIIoT 2024 — UET, Pakistan</span></div>
@@ -1574,60 +1510,175 @@
               <span class="publications__link disabled">Proceedings soon</span>
             </div>
 
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Conference</span>
-              <h4 class="publications__title">Attention-Guided Dual Feature Extractor for Bearing Fault Diagnosis from Vibration Data</h4>
-              <p class="pub__authors">Saif Ullah, <span class="me">Muhammad Umar</span>, and Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">CSCI 2025 — United States</span></div>
-              <span class="publications__link disabled">Proceedings soon</span>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--bestpaper"> <i class="ri-award-line"></i> Best Presentation · MLMI '26</span>
-              <h4 class="publications__title">A Self-Supervised Event-Based Learning Framework for Acoustic Emission-Based Fault Identification in Milling Machines</h4>
-              <p class="pub__authors"><span class="me">Muhammad Umar</span>, Faisal Saleem, and Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
-              <span class="publications__link disabled">Proceedings soon</span>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Conference</span>
-              <h4 class="publications__title">Fault Diagnosis of Centrifugal Pumps Using Adaptive Spectral-Temporal Transformer Learning</h4>
-              <p class="pub__authors">Faisal Saleem, <span class="me">Muhammad Umar</span>, and Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">MLMI 2026 — Japan</span></div>
-              <span class="publications__link disabled">Proceedings soon</span>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--bestpaper"><i class="ri-trophy-line"></i> Best Paper · ICRAI &rsquo;26</span>
-              <h4 class="publications__title">Selective Kernel Domain Adaptation with LMMD Alignment for Milling Machine Fault Diagnosis</h4>
-              <p class="pub__authors"> Saif Ullah, <span class="me">Muhammad Umar</span>, Jong-Myon Kim </p>
-              <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
-              <a href="https://ieeexplore.ieee.org/document/11551900" target="_blank" rel="noopener" class="publications__link"> View Paper <i class="ri-external-link-line"></i> </a>
-            </div>
-
-            <div class="publications__card reveal">
-              <span class="pub__badge pub__badge--published">Conference</span>
-              <h4 class="publications__title">Bearing Fault Diagnosis: Class-Conditional Deep Domain Adaptation for Generalization Across Machines</h4>
-              <p class="pub__authors"> Muhammad Farooq Siddique, Abdrabbi Bourezg, Muhammad Wisal, Saad Ali, <span class="me">Muhammad Umar</span>, Faisal Saleem, Muhammad Mansoor Janjua </p>
-              <div class="pub__venue"><span class="publications__journal">ICRAI 2026 — NUST, Pakistan</span></div>
-              <a href="https://ieeexplore.ieee.org/document/11551958" target="_blank" rel="noopener" class="publications__link"> View Paper <i class="ri-external-link-line"></i> </a>
-            </div>
-
           </div>
         </div>
 
       </div>
     </section>
 
+<!--=================== 5. Awards & Honors ====================-->
+<section id="awards" class="section awards">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="eyebrow">Recognition</span>
+      <h2 class="section__title">Awards &amp; <span class="accent">honors</span></h2>
+      <span class="section__subtitle">
+        International conference awards and editorial recognition
+      </span>
+    </div>
 
+    <div class="awards__wrapper">
 
-    <!--=================== Academic Service ====================-->
+      <!-- Best Presentation -->
+      <article class="award-card reveal">
+        <div class="award-card__media">
+          <img src="assets/awards/umar-best-presentation-award.jpeg"
+               alt="Best Presentation Award certificate — MLMI 2026"
+               loading="lazy">
+        </div>
+        <div class="award-card__body">
+          <div class="award-card__topline">
+            <span class="award-card__badge"><i class="ri-award-fill"></i> Best Presentation</span>
+            <span class="award-card__date">July 2026</span>
+          </div>
+          <h3 class="award-card__title">Best Presentation Award — MLMI 2026</h3>
+          <p class="award-card__issuer">
+            International Conference on Machine Learning and Machine Intelligence · Tokyo, Japan
+          </p>
+          <p class="award-card__description">
+            For presenting a self-supervised event-based learning framework for acoustic-emission-based fault identification in milling machines.
+          </p>
+          <a href="assets/awards/umar-best-presentation-award.jpeg"
+             target="_blank"
+             rel="noopener"
+             class="award-card__link">
+            View certificate <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Editor's Choice 2026 -->
+      <article class="award-card reveal" data-delay="1">
+        <div class="award-card__media">
+          <iframe src="assets/awards/Editor%20Choice%20Article.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
+                  title="Editor's Choice Article recognition — MDPI Sensors, June 2026"
+                  loading="lazy">
+          </iframe>
+        </div>
+        <div class="award-card__body">
+          <div class="award-card__topline">
+            <span class="award-card__badge"><i class="ri-star-fill"></i> Editor's Choice</span>
+            <span class="award-card__date">June 2026</span>
+          </div>
+          <h3 class="award-card__title">Editor's Choice Article — MDPI Sensors</h3>
+          <p class="award-card__issuer">Sensors · MDPI</p>
+          <p class="award-card__description">
+            Editorial selection for "A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines."
+          </p>
+          <a href="assets/awards/Editor%20Choice%20Article.pdf"
+             target="_blank"
+             rel="noopener"
+             class="award-card__link">
+            View recognition <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Best Paper 2026 -->
+      <article class="award-card reveal" data-delay="2">
+        <div class="award-card__media">
+          <iframe src="assets/awards/Best%20Paper%20Award.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
+                  title="Best Paper Award certificate — ICRAI 2026"
+                  loading="lazy">
+          </iframe>
+        </div>
+        <div class="award-card__body">
+          <div class="award-card__topline">
+            <span class="award-card__badge"><i class="ri-trophy-fill"></i> Best Paper</span>
+            <span class="award-card__date">May 2026</span>
+          </div>
+          <h3 class="award-card__title">Best Paper Award — ICRAI 2026</h3>
+          <p class="award-card__issuer">
+            International Conference on Robotics and Artificial Intelligence · NUST, Islamabad, Pakistan
+          </p>
+          <p class="award-card__description">
+            For research on selective-kernel domain adaptation with LMMD alignment for milling-machine fault diagnosis.
+          </p>
+          <a href="assets/awards/Best%20Paper%20Award.pdf"
+             target="_blank"
+             rel="noopener"
+             class="award-card__link">
+            View certificate <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Editor's Choice 2025 -->
+      <article class="award-card reveal">
+        <div class="award-card__media">
+          <iframe src="assets/awards/Editor%20Choice%20Article_i.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
+                  title="Editor's Choice Article recognition — MDPI Sensors, December 2025"
+                  loading="lazy">
+          </iframe>
+        </div>
+        <div class="award-card__body">
+          <div class="award-card__topline">
+            <span class="award-card__badge"><i class="ri-star-fill"></i> Editor's Choice</span>
+            <span class="award-card__date">December 2025</span>
+          </div>
+          <h3 class="award-card__title">Editor's Choice Article — MDPI Sensors</h3>
+          <p class="award-card__issuer">Sensors · MDPI</p>
+          <p class="award-card__description">
+            Editorial selection for "Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized One-Dimensional DenseNet."
+          </p>
+          <a href="assets/awards/Editor%20Choice%20Article_i.pdf"
+             target="_blank"
+             rel="noopener"
+             class="award-card__link">
+            View recognition <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Best Paper 2025 -->
+      <article class="award-card reveal" data-delay="1">
+        <div class="award-card__media">
+          <iframe src="assets/awards/BPA_138.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
+                  title="Best Paper Award certificate — FICTA 2025"
+                  loading="lazy">
+          </iframe>
+        </div>
+        <div class="award-card__body">
+          <div class="award-card__topline">
+            <span class="award-card__badge"><i class="ri-trophy-fill"></i> Best Paper</span>
+            <span class="award-card__date">June 2025</span>
+          </div>
+          <h3 class="award-card__title">Best Paper Award — FICTA 2025</h3>
+          <p class="award-card__issuer">
+            International Conference on Frontiers of Intelligent Computing: Theory and Applications · London Metropolitan University, United Kingdom
+          </p>
+          <p class="award-card__description">
+            For an interpretable lightweight CNN framework for centrifugal-pump fault diagnosis using time-frequency scalograms.
+          </p>
+          <a href="assets/awards/BPA_138.pdf"
+             target="_blank"
+             rel="noopener"
+             class="award-card__link">
+            View certificate <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    <!--=================== 6. Talks & Academic Service ====================-->
     <section id="service" class="section service" aria-labelledby="service-title">
       <div class="container">
         <div class="section__header reveal">
-          <span class="eyebrow">Community contributions</span>
-          <h2 id="service-title" class="section__title">Academic <span class="accent">service</span></h2>
+          <span class="eyebrow">Teaching &amp; service</span>
+          <h2 id="service-title" class="section__title">Talks &amp; <span class="accent">service</span></h2>
           <span class="section__subtitle">Invited teaching, conference committee work and peer review</span>
         </div>
 
@@ -1657,11 +1708,10 @@
             <p class="service__meta">Department of Computer Science · Namal University, Mianwali, Pakistan</p>
             <p class="talk__desc">
               Delivered an invited two-session online module on Digital Image Processing for final-year
-              Computer Science students, covering the fundamental image-processing concepts that underpin
-              modern computer vision.
+              Computer Science students, covering the fundamental concepts of image processing.
             </p>
             <p class="talk__thanks">
-              Sincere thanks to the Department of Computer Science for the invitation, and to the ITSC team
+              My thanks to the Department of Computer Science for the invitation, and to the ITSC team
               for coordinating and supporting the sessions.
             </p>
             <ul class="talk__tags" aria-label="Session details">
@@ -1698,174 +1748,53 @@
       </div>
     </section>
 
-<!--=================== Awards & Honors ====================-->
-<section id="awards" class="section awards">
-  <div class="container">
-    <div class="section__header reveal">
-      <span class="eyebrow">Recognition</span>
-      <h2 class="section__title">Awards &amp; <span class="accent">honors</span></h2>
-      <span class="section__subtitle">
-        International conference awards and editorial recognition for research excellence
-      </span>
-    </div>
-
-    <div class="awards__wrapper">
-
-      <!-- Best Presentation -->
-      <article class="award-card reveal">
-        <div class="award-card__media">
-          <img src="assets/awards/umar-best-presentation-award.jpeg"
-               alt="Best Presentation Award certificate — MLMI 2026"
-               loading="lazy">
-        </div>
-        <div class="award-card__body">
-          <div class="award-card__topline">
-            <span class="award-card__badge"><i class="ri-award-fill"></i> Best Presentation</span>
-            <span class="award-card__date">July 2026</span>
-          </div>
-          <h3 class="award-card__title">Best Presentation Award — MLMI 2026</h3>
-          <p class="award-card__issuer">
-            International Conference on Machine Learning and Machine Intelligence · Tokyo, Japan
-          </p>
-          <p class="award-card__description">
-            Recognized for presenting a self-supervised event-based learning framework for acoustic-emission-based fault identification in milling machines.
-          </p>
-          <a href="assets/awards/umar-best-presentation-award.jpeg"
-             target="_blank"
-             rel="noopener"
-             class="award-card__link">
-            View certificate <i class="ri-arrow-right-up-line"></i>
-          </a>
-        </div>
-      </article>
-
-      <!-- Editor's Choice 2026 -->
-      <article class="award-card reveal" data-delay="1">
-        <div class="award-card__media">
-          <iframe src="assets/awards/Editor%20Choice%20Article.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
-                  title="Editor's Choice Article recognition — MDPI Sensors, June 2026"
-                  loading="lazy">
-          </iframe>
-        </div>
-        <div class="award-card__body">
-          <div class="award-card__topline">
-            <span class="award-card__badge"><i class="ri-star-fill"></i> Editor's Choice</span>
-            <span class="award-card__date">June 2026</span>
-          </div>
-          <h3 class="award-card__title">Editor's Choice Article — MDPI Sensors</h3>
-          <p class="award-card__issuer">Sensors · MDPI</p>
-          <p class="award-card__description">
-            Editorial recognition for "A Hybrid Deep Learning Framework for Fault Diagnosis in Milling Machines."
-          </p>
-          <a href="assets/awards/Editor%20Choice%20Article.pdf"
-             target="_blank"
-             rel="noopener"
-             class="award-card__link">
-            View recognition <i class="ri-arrow-right-up-line"></i>
-          </a>
-        </div>
-      </article>
-
-      <!-- Best Paper 2026 -->
-      <article class="award-card reveal" data-delay="2">
-        <div class="award-card__media">
-          <iframe src="assets/awards/Best%20Paper%20Award.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
-                  title="Best Paper Award certificate — ICRAI 2026"
-                  loading="lazy">
-          </iframe>
-        </div>
-        <div class="award-card__body">
-          <div class="award-card__topline">
-            <span class="award-card__badge"><i class="ri-trophy-fill"></i> Best Paper</span>
-            <span class="award-card__date">May 2026</span>
-          </div>
-          <h3 class="award-card__title">Best Paper Award — ICRAI 2026</h3>
-          <p class="award-card__issuer">
-            International Conference on Robotics and Artificial Intelligence · NUST, Islamabad, Pakistan
-          </p>
-          <p class="award-card__description">
-            Awarded for research on selective-kernel domain adaptation with LMMD alignment for milling-machine fault diagnosis.
-          </p>
-          <a href="assets/awards/Best%20Paper%20Award.pdf"
-             target="_blank"
-             rel="noopener"
-             class="award-card__link">
-            View certificate <i class="ri-arrow-right-up-line"></i>
-          </a>
-        </div>
-      </article>
-
-      <!-- Editor's Choice 2025 -->
-      <article class="award-card reveal">
-        <div class="award-card__media">
-          <iframe src="assets/awards/Editor%20Choice%20Article_i.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
-                  title="Editor's Choice Article recognition — MDPI Sensors, December 2025"
-                  loading="lazy">
-          </iframe>
-        </div>
-        <div class="award-card__body">
-          <div class="award-card__topline">
-            <span class="award-card__badge"><i class="ri-star-fill"></i> Editor's Choice</span>
-            <span class="award-card__date">December 2025</span>
-          </div>
-          <h3 class="award-card__title">Editor's Choice Article — MDPI Sensors</h3>
-          <p class="award-card__issuer">Sensors · MDPI</p>
-          <p class="award-card__description">
-            Editorial recognition for "Acoustic Emission-Based Pipeline Leak Detection and Size Identification Using a Customized One-Dimensional DenseNet."
-          </p>
-          <a href="assets/awards/Editor%20Choice%20Article_i.pdf"
-             target="_blank"
-             rel="noopener"
-             class="award-card__link">
-            View recognition <i class="ri-arrow-right-up-line"></i>
-          </a>
-        </div>
-      </article>
-
-      <!-- Best Paper 2025 -->
-      <article class="award-card reveal" data-delay="1">
-        <div class="award-card__media">
-          <iframe src="assets/awards/BPA_138.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
-                  title="Best Paper Award certificate — FICTA 2025"
-                  loading="lazy">
-          </iframe>
-        </div>
-        <div class="award-card__body">
-          <div class="award-card__topline">
-            <span class="award-card__badge"><i class="ri-trophy-fill"></i> Best Paper</span>
-            <span class="award-card__date">June 2025</span>
-          </div>
-          <h3 class="award-card__title">Best Paper Award — FICTA 2025</h3>
-          <p class="award-card__issuer">
-            International Conference on Frontiers of Intelligent Computing: Theory and Applications · London Metropolitan University, United Kingdom
-          </p>
-          <p class="award-card__description">
-            Awarded for an interpretable lightweight CNN framework for centrifugal-pump fault diagnosis using time-frequency scalograms.
-          </p>
-          <a href="assets/awards/BPA_138.pdf"
-             target="_blank"
-             rel="noopener"
-             class="award-card__link">
-            View certificate <i class="ri-arrow-right-up-line"></i>
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-    <!--=================== Qualification ====================-->
+    <!--=================== 7. Experience & Education ====================-->
     <section id="qualification" class="section qualification">
       <div class="container">
         <div class="section__header reveal">
           <span class="eyebrow">Timeline</span>
-          <h2 class="section__title">Education &amp; <span class="accent">experience</span></h2>
-          <span class="section__subtitle">The path so far</span>
+          <h2 class="section__title">Experience &amp; <span class="accent">education</span></h2>
+          <span class="section__subtitle">Work, teaching and studies</span>
         </div>
 
         <div class="qualification__columns">
           <div class="qualification__wrapper reveal">
+            <h3 class="qualification__name"><i class="ri-briefcase-fill"></i> Experience</h3>
+            <div class="qualification__timeline">
+              <div class="qualification__item">
+                <span class="qualification__date">2026</span>
+                <h3 class="qualification__title">Invited Speaker — Namal University</h3>
+                <p class="qualification__description">Two-session online module on Digital Image Processing for final-year Computer Science students, Mianwali, Pakistan.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Mar 2024 — Present</span>
+                <h3 class="qualification__title">Graduate Research Assistant — Ulsan Industrial AI Lab</h3>
+                <p class="qualification__description">Fault diagnosis, degradation modeling and RUL prediction using acoustic emission and vibration data.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Sep 2023 — Apr 2024</span>
+                <h3 class="qualification__title">ML Engineer — Ayass BioScience</h3>
+                <p class="qualification__description">Disease-prediction models using image segmentation (U-Net) and deep learning for clinical decision support.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Dec 2022 — Jan 2023</span>
+                <h3 class="qualification__title">AI Intern — AI in Healthcare</h3>
+                <p class="qualification__description">RBC detection and disease prediction using U-Net and Fast R-CNN architectures.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Jul 2022 — Oct 2022</span>
+                <h3 class="qualification__title">Software Developer — ERISP</h3>
+                <p class="qualification__description">Customized ERP modules in the Odoo framework using Python &amp; XML; debugging and module testing.</p>
+              </div>
+              <div class="qualification__item">
+                <span class="qualification__date">Feb 2022 — Feb 2023</span>
+                <h3 class="qualification__title">Teaching Assistant — UET Peshawar</h3>
+                <p class="qualification__description">Lab sessions, tutorials and grading for undergraduate courses.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="qualification__wrapper reveal" data-delay="1">
             <h3 class="qualification__name"><i class="ri-booklet-fill"></i> Education</h3>
             <div class="qualification__timeline">
               <div class="qualification__item">
@@ -1892,177 +1821,77 @@
               </div>
             </div>
           </div>
-
-          <div class="qualification__wrapper reveal" data-delay="1">
-            <h3 class="qualification__name"><i class="ri-briefcase-fill"></i> Experience</h3>
-            <div class="qualification__timeline">
-              <div class="qualification__item">
-                <span class="qualification__date">2026</span>
-                <h3 class="qualification__title">Invited Speaker — Namal University</h3>
-                <p class="qualification__description">Two-session online module on Digital Image Processing for final-year Computer Science students, Department of Computer Science, Mianwali.</p>
-              </div>
-              <div class="qualification__item">
-                <span class="qualification__date">Mar 2024 — Present</span>
-                <h3 class="qualification__title">Research Student — Ulsan Industrial AI Lab</h3>
-                <p class="qualification__description">Research on intelligent systems, fault diagnosis and predictive maintenance using AI, ML and signal processing.</p>
-              </div>
-              <div class="qualification__item">
-                <span class="qualification__date">Sep 2023 — Apr 2024</span>
-                <h3 class="qualification__title">ML Engineer — Ayass BioScience</h3>
-                <p class="qualification__description">Disease-prediction models using image segmentation (U-Net) and deep learning for clinical decision support.</p>
-              </div>
-              <div class="qualification__item">
-                <span class="qualification__date">Feb 2022 — Feb 2023</span>
-                <h3 class="qualification__title">Teaching Assistant — UET Peshawar</h3>
-                <p class="qualification__description">Teaching, grading and mentoring undergraduates with hands-on lab and tutorial support.</p>
-              </div>
-              <div class="qualification__item">
-                <span class="qualification__date">Dec 2022 — Jan 2023</span>
-                <h3 class="qualification__title">AI Intern — AI in Healthcare</h3>
-                <p class="qualification__description">RBC detection and disease prediction using U-Net and Fast R-CNN architectures.</p>
-              </div>
-              <div class="qualification__item">
-                <span class="qualification__date">Jul 2022 — Oct 2022</span>
-                <h3 class="qualification__title">Software Developer — ERISP</h3>
-                <p class="qualification__description">Customized ERP modules in the Odoo framework using Python &amp; XML; debugging and module testing.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!--=================== Certificates ====================-->
-    <section id="certificates" class="section certificates">
+    <!--=================== 8. Skills ====================-->
+    <section id="skills" class="section skills">
       <div class="container">
         <div class="section__header reveal">
-          <span class="eyebrow">Credentials</span>
-          <h2 class="section__title">Certificates &amp; <span class="accent">courses</span></h2>
-          <span class="section__subtitle">Professional certifications</span>
+          <span class="eyebrow">Toolbox</span>
+          <h2 class="section__title">Technical <span class="accent">skills</span></h2>
+          <span class="section__subtitle">Methods and tools I use regularly</span>
         </div>
 
-        <div class="certificates__wrapper">
-          <div class="card reveal">
-            <i class="ri-award-line card__icon"></i>
-            <h3 class="card__title">Deep Learning A&ndash;Z 2024</h3>
-            <p class="card__desc">Neural Networks, AI &amp; ChatGPT</p>
-            <a href="https://www.udemy.com/certificate/UC-3ba4b85a-c854-4e8c-84a1-8ddf29600126/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+        <div class="skills__wrapper">
+          <div class="skills__card reveal">
+            <span class="skills__icon"><i class="ri-brain-line"></i></span>
+            <h3 class="skills__subtitle">AI &amp; Machine Learning</h3>
+            <ul class="skills__list">
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> CNNs, RNNs, LSTMs, Transformers</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Autoencoders &amp; XAI (Grad-CAM, SHAP)</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> PyTorch, TensorFlow, scikit-learn, Hugging Face</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Few-shot, meta &amp; self-supervised learning</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Graph Neural Networks &amp; physics-informed models</li>
+            </ul>
           </div>
-          <div class="card reveal" data-delay="1">
-            <i class="ri-functions card__icon"></i>
-            <h3 class="card__title">Math for ML &amp; Data Science</h3>
-            <p class="card__desc">Coursera Specialization</p>
-            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/23TGHMGJPWYJ" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+
+          <div class="skills__card reveal" data-delay="1">
+            <span class="skills__icon"><i class="ri-pulse-line"></i></span>
+            <h3 class="skills__subtitle">Signal Processing &amp; Analysis</h3>
+            <ul class="skills__list">
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> FFT, STFT, CWT &amp; AE analysis</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Time-frequency feature extraction</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Koopman &amp; spectral methods</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> MATLAB, Python, Power BI</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Sensor fusion &amp; multi-domain analysis</li>
+            </ul>
           </div>
-          <div class="card reveal" data-delay="2">
-            <i class="ri-pulse-line card__icon"></i>
-            <h3 class="card__title">Signal Processing Onramp</h3>
-            <p class="card__desc">MathWorks</p>
-            <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=f9afc0f6-edb7-4cf4-9f5b-f6a828ad5872" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+
+          <div class="skills__card reveal" data-delay="2">
+            <span class="skills__icon"><i class="ri-tools-line"></i></span>
+            <h3 class="skills__subtitle">Development &amp; Research</h3>
+            <ul class="skills__list">
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Git, LaTeX, MLflow, Weights &amp; Biases</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Jupyter, Colab, CUDA / GPU training</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Conformal prediction &amp; uncertainty quantification</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Research writing, peer review &amp; teaching</li>
+            </ul>
           </div>
-          <div class="card reveal">
-            <i class="ri-camera-lens-line card__icon"></i>
-            <h3 class="card__title">Computer Vision &amp; OpenCV</h3>
-            <p class="card__desc">Python, DL, OpenCV</p>
-            <a href="https://www.udemy.com/certificate/UC-1a97125b-4e54-4a9f-ae54-7072c820070b/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal" data-delay="1">
-            <i class="ri-line-chart-line card__icon"></i>
-            <h3 class="card__title">Supervised ML: Regression</h3>
-            <p class="card__desc">Coursera</p>
-            <a href="https://www.coursera.org/account/accomplishments/certificate/FLAP6PFWWPEL" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal" data-delay="2">
-            <i class="ri-terminal-box-line card__icon"></i>
-            <h3 class="card__title">Python for DS, AI &amp; Dev</h3>
-            <p class="card__desc">IBM</p>
-            <a href="https://www.coursera.org/account/accomplishments/certificate/JT2S426REPL9" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal">
-            <i class="ri-code-s-slash-line card__icon"></i>
-            <h3 class="card__title">Programming with Python</h3>
-            <p class="card__desc">University of Michigan</p>
-            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal" data-delay="1">
-            <i class="ri-graduation-cap-line card__icon"></i>
-            <h3 class="card__title">Programming for Everybody</h3>
-            <p class="card__desc">University of Michigan</p>
-            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal" data-delay="2">
-            <i class="ri-gamepad-line card__icon"></i>
-            <h3 class="card__title">Complete C# for Unity Game Development</h3>
-            <p class="card__desc">Unity C# Scripting</p>
-            <a href="https://www.udemy.com/certificate/UC-fa80cedd-5869-49e2-94c0-d7618a94928a/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal">
-            <i class="ri-briefcase-4-line card__icon"></i>
-            <h3 class="card__title">Foundations of Project Management</h3>
-            <p class="card__desc">Google / Coursera</p>
-            <a href="https://www.coursera.org/account/accomplishments/verify/XLXQBP94EZQA" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal" data-delay="1">
-            <i class="ri-javascript-line card__icon"></i>
-            <h3 class="card__title">Programming with JavaScript</h3>
-            <p class="card__desc">Meta / Coursera</p>
-            <a href="https://www.coursera.org/account/accomplishments/certificate/GA6AZJEF3WMG" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
-          </div>
-          <div class="card reveal" data-delay="2">
-            <i class="ri-code-s-slash-line card__icon"></i>
-            <h3 class="card__title">Python for Computer Vision with OpenCV</h3>
-            <p class="card__desc">Udemy</p>
-            <a href="https://www.udemy.com/certificate/UC-1a97125b-4e54-4a9f-ae54-7072c820070b/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+
+          <div class="skills__card reveal" data-delay="1">
+            <span class="skills__icon"><i class="ri-cloud-line"></i></span>
+            <h3 class="skills__subtitle">Deployment &amp; Collaboration</h3>
+            <ul class="skills__list">
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Docker &amp; cloud compute (AWS / GCP)</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Edge deployment for industrial IoT</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Digital twins &amp; predictive-maintenance system design</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Cross-disciplinary project management</li>
+              <li class="skills__item"><i class="ri-arrow-right-s-line"></i> Technical documentation</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!--=================== Gallery ====================-->
-    <section id="gallery" class="section gallery">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="eyebrow">Behind the research</span>
-          <h2 class="section__title">A quick <span class="accent">gallery</span></h2>
-          <span class="section__subtitle">Lab work, conferences &amp; life in Ulsan</span>
-        </div>
-
-        <div class="gallery__wrapper">
-          <div class="gallery__item reveal">
-            <img src="assets/img/g%20(1).jpg" alt="Research and conference gallery photo 1" loading="lazy">
-            <div class="gallery__caption"><span></span></div>
-          </div>
-          <div class="gallery__item reveal" data-delay="1">
-            <img src="assets/img/g%20(2).jpg" alt="Research and conference gallery photo 2" loading="lazy">
-            <div class="gallery__caption"><span></span></div>
-          </div>
-          <div class="gallery__item reveal" data-delay="2">
-            <img src="assets/img/g%20(3).jpg" alt="Research and conference gallery photo 3" loading="lazy">
-            <div class="gallery__caption"><span></span></div>
-          </div>
-          <div class="gallery__item reveal">
-            <img src="assets/img/g%20(4).jpg" alt="Research and conference gallery photo 4" loading="lazy">
-            <div class="gallery__caption"><span></span></div>
-          </div>
-          <div class="gallery__item reveal" data-delay="1">
-            <img src="assets/img/g%20(1).jfif" alt="Research and conference gallery photo 5" loading="lazy">
-            <div class="gallery__caption"><span></span></div>
-          </div>
-          <div class="gallery__item reveal" data-delay="2">
-            <img src="assets/img/g%20(5).jpg" alt="Research and conference gallery photo 6" loading="lazy">
-            <div class="gallery__caption"><span></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--=================== Projects ====================-->
+    <!--=================== 9. Projects ====================-->
     <section id="project" class="section project">
       <div class="container">
         <div class="section__header reveal">
           <span class="eyebrow">Hands-on</span>
           <h2 class="section__title">Featured <span class="accent">projects</span></h2>
-          <span class="section__subtitle">Recent work in research &amp; engineering</span>
+          <span class="section__subtitle">Research projects and earlier engineering work</span>
         </div>
 
         <div class="project__wrapper">
@@ -2097,6 +1926,16 @@
           </div>
 
           <div class="project__content reveal">
+            <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img" loading="lazy"></div>
+            <div class="project__body">
+              <span class="project__tag">NLP · Dialogflow</span>
+              <h3 class="project__title">Smart University Chatbot</h3>
+              <p class="project__description">A Dialogflow chatbot answering student questions using data from the prospectus and university websites.</p>
+              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+
+          <div class="project__content reveal" data-delay="1">
             <div class="project__media"><img src="assets/img/3.png" alt="3D terrain game" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Unity · 3D</span>
@@ -2106,7 +1945,7 @@
             </div>
           </div>
 
-          <div class="project__content reveal" data-delay="1">
+          <div class="project__content reveal" data-delay="2">
             <div class="project__media"><img src="assets/img/3.jpeg" alt="City character game" class="project__img" loading="lazy"></div>
             <div class="project__body">
               <span class="project__tag">Unity3D · Game AI</span>
@@ -2115,31 +1954,126 @@
               <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="project__content reveal" data-delay="2">
-            <div class="project__media"><img src="assets/img/p4.webp" alt="University chatbot" class="project__img" loading="lazy"></div>
-            <div class="project__body">
-              <span class="project__tag">NLP · Dialogflow</span>
-              <h3 class="project__title">Smart University Chatbot</h3>
-              <p class="project__description">A Dialogflow chatbot assisting students using data extracted from prospectus and university sites.</p>
-              <a href="#contact" class="project__link">Discuss this project <i class="ri-arrow-right-line"></i></a>
-            </div>
+    <!--=================== 10. Certificates ====================-->
+    <section id="certificates" class="section certificates">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Credentials</span>
+          <h2 class="section__title">Certificates &amp; <span class="accent">courses</span></h2>
+          <span class="section__subtitle">Professional certifications</span>
+        </div>
+
+        <div class="certificates__wrapper">
+          <div class="card reveal">
+            <i class="ri-award-line card__icon"></i>
+            <h3 class="card__title">Deep Learning A&ndash;Z 2024</h3>
+            <p class="card__desc">Neural Networks, AI &amp; ChatGPT · Udemy</p>
+            <a href="https://www.udemy.com/certificate/UC-3ba4b85a-c854-4e8c-84a1-8ddf29600126/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <i class="ri-functions card__icon"></i>
+            <h3 class="card__title">Math for ML &amp; Data Science</h3>
+            <p class="card__desc">Coursera Specialization</p>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/23TGHMGJPWYJ" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <i class="ri-pulse-line card__icon"></i>
+            <h3 class="card__title">Signal Processing Onramp</h3>
+            <p class="card__desc">MathWorks</p>
+            <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=f9afc0f6-edb7-4cf4-9f5b-f6a828ad5872" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal">
+            <i class="ri-camera-lens-line card__icon"></i>
+            <h3 class="card__title">Python for Computer Vision with OpenCV</h3>
+            <p class="card__desc">Python, Deep Learning, OpenCV · Udemy</p>
+            <a href="https://www.udemy.com/certificate/UC-1a97125b-4e54-4a9f-ae54-7072c820070b/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <i class="ri-line-chart-line card__icon"></i>
+            <h3 class="card__title">Supervised ML: Regression</h3>
+            <p class="card__desc">Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/FLAP6PFWWPEL" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <i class="ri-terminal-box-line card__icon"></i>
+            <h3 class="card__title">Python for DS, AI &amp; Dev</h3>
+            <p class="card__desc">IBM</p>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/JT2S426REPL9" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal">
+            <i class="ri-graduation-cap-line card__icon"></i>
+            <h3 class="card__title">Programming for Everybody (Python)</h3>
+            <p class="card__desc">University of Michigan</p>
+            <a href="https://www.coursera.org/verify/REKJTHCXHQCN" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <i class="ri-briefcase-4-line card__icon"></i>
+            <h3 class="card__title">Foundations of Project Management</h3>
+            <p class="card__desc">Google / Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/verify/XLXQBP94EZQA" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <i class="ri-javascript-line card__icon"></i>
+            <h3 class="card__title">Programming with JavaScript</h3>
+            <p class="card__desc">Meta / Coursera</p>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/GA6AZJEF3WMG" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+          <div class="card reveal">
+            <i class="ri-gamepad-line card__icon"></i>
+            <h3 class="card__title">Complete C# for Unity Game Development</h3>
+            <p class="card__desc">Unity C# Scripting · Udemy</p>
+            <a href="https://www.udemy.com/certificate/UC-fa80cedd-5869-49e2-94c0-d7618a94928a/" class="card__link" target="_blank" rel="noopener">View certificate <i class="ri-arrow-right-up-line"></i></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!--=================== Contact ====================-->
+    <!--=================== 11. Gallery ====================-->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Behind the research</span>
+          <h2 class="section__title">A quick <span class="accent">gallery</span></h2>
+          <span class="section__subtitle">Lab work, conferences &amp; life in Ulsan</span>
+        </div>
+
+        <div class="gallery__wrapper">
+          <div class="gallery__item reveal">
+            <img src="assets/img/g%20(1).jpg" alt="Research and conference gallery photo 1" loading="lazy">
+          </div>
+          <div class="gallery__item reveal" data-delay="1">
+            <img src="assets/img/g%20(2).jpg" alt="Research and conference gallery photo 2" loading="lazy">
+          </div>
+          <div class="gallery__item reveal" data-delay="2">
+            <img src="assets/img/g%20(3).jpg" alt="Research and conference gallery photo 3" loading="lazy">
+          </div>
+          <div class="gallery__item reveal">
+            <img src="assets/img/g%20(4).jpg" alt="Research and conference gallery photo 4" loading="lazy">
+          </div>
+          <div class="gallery__item reveal" data-delay="1">
+            <img src="assets/img/g%20(1).jfif" alt="Research and conference gallery photo 5" loading="lazy">
+          </div>
+          <div class="gallery__item reveal" data-delay="2">
+            <img src="assets/img/g%20(5).jpg" alt="Research and conference gallery photo 6" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=================== 12. Contact ====================-->
     <section id="contact" class="section contact">
       <div class="container">
         <div class="contact__wrapper reveal">
           <div class="contact__content">
             <span class="eyebrow">Get in touch</span>
-            <h2 class="contact__title">Let's collaborate</h2>
+            <h2 class="contact__title">Contact</h2>
             <p class="contact__description">
-              Have a research idea, a dataset, a guest-lecture invitation, or a postdoctoral / research-collaboration
-              opportunity in fault diagnosis and prognostics? I'm always open to collaborations — reach out and I'll get
-              back to you soon.
+              I am happy to hear about postdoctoral and research positions, collaborations, datasets, or
+              invitations to teach or give talks on fault diagnosis and prognostics.
             </p>
           </div>
           <div class="contact__btn">
@@ -2155,9 +2089,9 @@
   <!--=================== Footer ====================-->
   <footer id="footer" class="footer">
     <div class="footer__cta reveal">
-      <h3>Let's build something reliable together</h3>
-      <p>Whether it's a postdoctoral position, a research collaboration, or an industry project in fault diagnosis and predictive maintenance — I'd love to hear from you.</p>
-      <a href="mailto:mmumar1758@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Start a conversation</a>
+      <h3>Open to postdoc and research positions</h3>
+      <p>If you are working on fault diagnosis, prognostics or predictive maintenance and looking for a collaborator, please get in touch.</p>
+      <a href="mailto:mmumar1758@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Send an email</a>
     </div>
 
     <div class="container">
@@ -2165,8 +2099,8 @@
         <div class="footer__column">
           <h4 class="footer__brand-title">Muhammad Umar</h4>
           <p class="footer__brand-text">
-            PhD student &amp; ML engineer working on fault diagnosis, signal processing and RUL
-            prognostics at the University of Ulsan.
+            MS&ndash;PhD student working on fault diagnosis, signal processing and RUL
+            prediction at the University of Ulsan.
           </p>
           <ul class="footer__social-list">
             <li><a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><i class="ri-graduation-cap-fill" aria-hidden="true"></i></a></li>
@@ -2184,11 +2118,11 @@
           <h4 class="footer__title">Quick links</h4>
           <div class="footer__links">
             <a href="#about">About</a>
+            <a href="#research">Research</a>
             <a href="#publications">Publications</a>
-            <a href="#service">Academic Service &amp; Talks</a>
             <a href="#awards">Awards &amp; Honors</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#project">Projects</a>
+            <a href="#service">Talks &amp; Service</a>
+            <a href="#qualification">Experience</a>
             <a href="#contact">Contact</a>
           </div>
         </div>
@@ -2202,8 +2136,8 @@
       </div>
 
       <div class="footer__bottom">
-        <p>Made with <i class="ri-heart-fill"></i> by Umar</p>
-        <p>&copy; <span id="currentYear"></span> Muhammad Umar — All rights reserved</p>
+        <p>UIAI Lab, University of Ulsan, South Korea</p>
+        <p>&copy; <span id="currentYear"></span> Muhammad Umar</p>
       </div>
     </div>
   </footer>
@@ -2272,24 +2206,20 @@
       revealEls.forEach(function (el) { io.observe(el); });
     }
 
-    /* Animated counters (elements with an empty data-count keep their placeholder text) */
-    var counters = Array.prototype.filter.call(document.querySelectorAll("[data-count]"), function (el) {
-      return /^\d+$/.test((el.dataset.count || "").trim());
-    });
-    function formatNum(n) { return n.toLocaleString("en-US"); }
+    /* Animated counters */
+    var counters = document.querySelectorAll("[data-count]");
     function runCounter(el) {
       var target = +el.dataset.count, dur = 1400, start = performance.now();
       function tick(now) {
         var p = Math.min((now - start) / dur, 1);
-        el.textContent = formatNum(Math.round((1 - Math.pow(1 - p, 3)) * target));
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
         if (p < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
     }
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      counters.forEach(function (el) { el.textContent = formatNum(+el.dataset.count); });
+      counters.forEach(function (el) { el.textContent = el.dataset.count; });
     } else {
-      counters.forEach(function (el) { el.textContent = "0"; });
       var co = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) { runCounter(e.target); co.unobserve(e.target); } });
       }, { threshold: 0.6 });
@@ -2300,7 +2230,7 @@
     (function () {
       var el = document.getElementById("typed-role");
       if (!el) return;
-      var roles = ["PHM & Fault Diagnosis Researcher", "Acoustic Emission Signal Specialist", "RUL & Prognostics Engineer", "Deep Learning Engineer"];
+      var roles = ["Fault Diagnosis Researcher", "Acoustic Emission Signal Processing", "RUL & Prognostics", "Deep Learning Engineer"];
       var cursor = '<span class="cursor">|</span>';
       if (reduceMotion) { el.innerHTML = roles[0] + cursor; return; }
       var r = 0, c = 0, deleting = false;
