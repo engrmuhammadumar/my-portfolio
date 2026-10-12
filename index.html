@@ -591,6 +591,36 @@
     .service__link { display: inline-flex; align-items: center; gap: 0.7rem; align-self: flex-start; margin-top: auto; color: var(--c-accent); font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
     .service__link i { transition: transform 0.25s ease; }
     .service__link:hover i { transform: translate(0.25rem, -0.25rem); }
+
+    /* Professional memberships */
+    .member__title { display: flex; align-items: center; gap: 1.2rem; font-size: var(--fs-lg); margin: 4.8rem 0 2.4rem; }
+    .member__title i { color: var(--c-primary); font-size: 2.2rem; }
+    .member__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; }
+    .member__card {
+      display: flex; gap: 1.8rem; align-items: flex-start; padding: 2.6rem; text-align: left;
+      background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .member__card:hover { border-color: rgba(32, 201, 151, 0.45); transform: translateY(-4px); }
+    .member__logo {
+      display: grid; place-items: center; flex: none; width: 5.6rem; height: 5.6rem; border-radius: 1.2rem;
+      background: rgba(32, 201, 151, 0.12); color: var(--c-primary);
+      font-family: var(--ff-mono); font-size: 1.3rem; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .member__name { font-size: var(--fs-md); margin-bottom: 0.3rem; }
+    .member__grade { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .member__info { font-size: var(--fs-sm); color: var(--c-subtext); line-height: 1.65; margin-bottom: 1.2rem; }
+    .member__tags { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.4rem; }
+    .member__tags li {
+      padding: 0.3rem 1rem; border: 1px solid rgba(61, 180, 242, 0.28); border-radius: 4rem;
+      background: rgba(61, 180, 242, 0.08); color: #b8e6ff; font-family: var(--ff-mono); font-size: var(--fs-xs);
+    }
+    .member__link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--c-accent); font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+    .hero__credentials { display: flex; flex-wrap: wrap; gap: 1rem; margin: -0.5rem 0 2.4rem; }
+    .hero__credentials .hero__credential { margin: 0; }
+    @media screen and (max-width: 992px) { .hero__credentials { justify-content: center; } }
+    @media screen and (max-width: 760px) { .member__grid { grid-template-columns: 1fr; } }
+    @media screen and (max-width: 480px) { .member__card { padding: 2rem 1.8rem; flex-direction: column; } }
     @media screen and (max-width: 760px) { .service__grid { grid-template-columns: 1fr; } }
     @media screen and (max-width: 480px) { .service__card { padding: 2.2rem; } }
 
@@ -1066,11 +1096,14 @@
               remaining useful life (RUL) prediction for industrial machines, using acoustic emission and
               vibration signals with signal processing and deep learning.
             </p>
-            <span class="hero__credential"><i class="ri-shield-check-line" aria-hidden="true"></i> PEC Registered Engineer</span>
+            <div class="hero__credentials">
+              <span class="hero__credential"><i class="ri-shield-check-line" aria-hidden="true"></i> PEC Registered Engineer</span>
+              <span class="hero__credential"><i class="ri-team-line" aria-hidden="true"></i> IEEE Graduate Student Member</span>
+            </div>
 
             <div class="hero__buttons">
               <a href="#contact" class="btn btn--primary">Get in touch <i class="ri-arrow-right-up-line"></i></a>
-              <a href="Muhamamd_Umar.pdf" class="btn btn--secondary" download><i class="ri-download-line"></i> Download CV</a>
+              <a href="Umar__CV.pdf" class="btn btn--secondary" download><i class="ri-download-line"></i> Download CV</a>
               <a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="btn btn--secondary"><i class="ri-graduation-cap-line"></i> Google Scholar</a>
             </div>
 
@@ -1161,6 +1194,7 @@
               <li><i class="ri-line-chart-line"></i> RUL &amp; degradation modeling</li>
               <li><i class="ri-git-merge-line"></i> Domain adaptation &amp; transfer learning</li>
               <li><i class="ri-shield-check-line"></i> <a href="https://www.pec.org.pk/engineers-registration/" target="_blank" rel="noopener">PEC Registered Engineer</a></li>
+              <li><i class="ri-team-line"></i> <a href="#memberships">IEEE Graduate Student Member</a></li>
               <li><i class="ri-presentation-line"></i> <a href="#service">Invited speaker, Namal University</a></li>
             </ul>
             <a href="#publications" class="btn btn--primary">See my publications <i class="ri-arrow-right-line"></i></a>
@@ -1787,7 +1821,7 @@
         <div class="section__header reveal">
           <span class="eyebrow">Teaching &amp; service</span>
           <h2 id="service-title" class="section__title">Talks &amp; <span class="accent">service</span></h2>
-          <span class="section__subtitle">Invited teaching, conference committee work and peer review</span>
+          <span class="section__subtitle">Invited teaching, committee work, peer review and professional memberships</span>
         </div>
 
         <!-- Invited talk: Namal University -->
@@ -1851,6 +1885,34 @@
             <h3 class="service__title">NeurIPS 2026 Workshop on Foundation Models for Temporal Systems (FMTS)</h3>
             <p class="service__meta">NeurIPS 2026 workshop · Sydney, Australia</p>
             <a class="service__link" href="https://fmts-workshop.github.io/" target="_blank" rel="noopener">Workshop website <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+          </article>
+        </div>
+
+        <!-- Professional memberships -->
+        <h3 id="memberships" class="member__title reveal"><i class="ri-team-line" aria-hidden="true"></i> Professional memberships</h3>
+        <div class="member__grid">
+          <article class="member__card reveal">
+            <span class="member__logo" aria-hidden="true">IEEE</span>
+            <div>
+              <h4 class="member__name">Institute of Electrical and Electronics Engineers (IEEE)</h4>
+              <p class="member__grade">Graduate Student Member · Since 2025</p>
+              <p class="member__info">Seoul Section, Region 10. Member of the IEEE Sensors Council and IEEE Young Professionals.</p>
+              <ul class="member__tags" aria-label="IEEE affiliations">
+                <li>Seoul Section</li>
+                <li>Sensors Council</li>
+                <li>Young Professionals</li>
+              </ul>
+              <a class="member__link" href="https://www.ieee.org/" target="_blank" rel="noopener">ieee.org <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="member__card reveal" data-delay="1">
+            <span class="member__logo" aria-hidden="true">PEC</span>
+            <div>
+              <h4 class="member__name">Pakistan Engineering Council (PEC)</h4>
+              <p class="member__grade">Registered Engineer</p>
+              <p class="member__info">Registered with the national regulatory body for the engineering profession in Pakistan.</p>
+              <a class="member__link" href="https://www.pec.org.pk/engineers-registration/" target="_blank" rel="noopener">About PEC registration <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+            </div>
           </article>
         </div>
       </div>
