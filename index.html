@@ -592,6 +592,26 @@
     .service__link i { transition: transform 0.25s ease; }
     .service__link:hover i { transform: translate(0.25rem, -0.25rem); }
 
+    /* Publication links row */
+    .pub__links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.8rem; }
+
+    /*================ News ================*/
+    .news__list {
+      max-width: 88rem; margin: 0 auto; background: var(--c-surface);
+      border: 1px solid var(--c-border); border-radius: var(--radius); padding: 1rem 3rem;
+    }
+    .news__item { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid var(--c-border-soft); text-align: left; }
+    .news__item:last-child { border-bottom: 0; }
+    .news__date { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-accent); padding-top: 0.2rem; }
+    .news__text { font-size: var(--fs-sm); line-height: 1.7; color: var(--c-text); }
+    .news__text strong { color: var(--c-white); font-weight: var(--fw-semibold); }
+    .news__text a { color: var(--c-primary); }
+    .news__text a:hover { text-decoration: underline; }
+    @media screen and (max-width: 560px) {
+      .news__list { padding: 0.6rem 1.8rem; }
+      .news__item { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+
     /* Professional memberships */
     .member__title { display: flex; align-items: center; gap: 1.2rem; font-size: var(--fs-lg); margin: 4.8rem 0 2.4rem; }
     .member__title i { color: var(--c-primary); font-size: 2.2rem; }
@@ -1048,6 +1068,7 @@
         <ul class="nav__list">
           <li class="nav__item"><a href="#hero" class="nav__link">Home</a></li>
           <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#news" class="nav__link">News</a></li>
           <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
           <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
           <li class="nav__item"><a href="#awards" class="nav__link">Awards</a></li>
@@ -1103,7 +1124,7 @@
 
             <div class="hero__buttons">
               <a href="#contact" class="btn btn--primary">Get in touch <i class="ri-arrow-right-up-line"></i></a>
-              <a href="Umar__CV.pdf" class="btn btn--secondary" download><i class="ri-download-line"></i> Download CV</a>
+              <a href="Muhammad_Umar.pdf" class="btn btn--secondary" download><i class="ri-download-line"></i> Download CV</a>
               <a href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="btn btn--secondary"><i class="ri-graduation-cap-line"></i> Google Scholar</a>
             </div>
 
@@ -1113,12 +1134,12 @@
                 <h2 class="hero__info-title">Peer-reviewed<br>papers</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number"><span data-count="425">0</span></p>
+                <p class="hero__info-number"><span data-count="436" data-scholar="citations">0</span></p>
                 <h2 class="hero__info-title">Google Scholar<br>citations</h2>
               </div>
               <div class="hero__info-wrapper">
-                <p class="hero__info-number"><span data-count="11">0</span></p>
-                <h2 class="hero__info-title">h-index<br>(i10-index 12)</h2>
+                <p class="hero__info-number"><span data-count="11" data-scholar="hindex">0</span></p>
+                <h2 class="hero__info-title">h-index<br>(i10-index <span data-scholar="i10index">12</span>)</h2>
               </div>
             </div>
           </div>
@@ -1179,7 +1200,7 @@
             </aside>
             <p class="about__description">
               This work has led to 25+ peer-reviewed papers in journals including Engineering Failure
-              Analysis, Scientific Reports, IEEE Access and MDPI Sensors, cited 425 times on Google Scholar.
+              Analysis, Scientific Reports, IEEE Access and MDPI Sensors, cited <span data-scholar="citations">436</span> times on Google Scholar.
               It has received two Best Paper Awards, a Best Presentation Award and two Editor's Choice
               selections in MDPI Sensors.
             </p>
@@ -1219,6 +1240,48 @@
             <p class="lbl">Research awards &amp; honors</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!--=================== News ====================-->
+    <section id="news" class="section news">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="eyebrow">Recent updates</span>
+          <h2 class="section__title">Latest <span class="accent">news</span></h2>
+          <span class="section__subtitle">New papers, awards and talks</span>
+        </div>
+
+        <ul class="news__list reveal">
+          <li class="news__item">
+            <span class="news__date">Oct 2026</span>
+            <p class="news__text">Paper published in <strong>Machines (MDPI)</strong>: a physics-guided statistical framework for bearing fault diagnosis under unit variability and speed uncertainty. <a href="https://www.mdpi.com/2075-1702/14/10/1140" target="_blank" rel="noopener">Read</a></p>
+          </li>
+          <li class="news__item">
+            <span class="news__date">2026</span>
+            <p class="news__text">Delivered an invited two-session online module on <strong>Digital Image Processing</strong> for final-year CS students at Namal University, Mianwali. <a href="#service">More</a></p>
+          </li>
+          <li class="news__item">
+            <span class="news__date">2026</span>
+            <p class="news__text">CSCI 2025 paper on attention-guided dual feature extraction for bearing fault diagnosis is now online in <strong>Springer</strong>. <a href="https://link.springer.com/chapter/10.1007/978-3-032-28472-3_15" target="_blank" rel="noopener">Read</a></p>
+          </li>
+          <li class="news__item">
+            <span class="news__date">Sep 2026</span>
+            <p class="news__text">Paper published in <strong>Information (MDPI)</strong> on uncertainty-calibrated conformal monitoring of wind turbine SCADA data. <a href="https://www.mdpi.com/2078-2489/17/9/930" target="_blank" rel="noopener">Read</a></p>
+          </li>
+          <li class="news__item">
+            <span class="news__date">Jul 2026</span>
+            <p class="news__text">Received the <strong>Best Presentation Award</strong> at MLMI 2026, Tokyo, Japan. <a href="#presentations">More</a></p>
+          </li>
+          <li class="news__item">
+            <span class="news__date">Jul 2026</span>
+            <p class="news__text">Paper published in <strong>Scientific Reports</strong> on a wavelet coherence-aware deep ensemble for centrifugal pump fault identification. <a href="https://www.nature.com/articles/s41598-026-62260-5" target="_blank" rel="noopener">Read</a></p>
+          </li>
+          <li class="news__item">
+            <span class="news__date">May 2026</span>
+            <p class="news__text">Received the <strong>Best Paper Award</strong> at ICRAI 2026, NUST, Islamabad. <a href="#awards">More</a></p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -1296,25 +1359,22 @@
             <span class="scholar__icon" aria-hidden="true"><i class="ri-graduation-cap-line"></i></span>
             <div>
               <h3 class="scholar__title">Google Scholar metrics</h3>
-              <p class="scholar__note">As of October 2026</p>
+              <p class="scholar__note">As of <span id="scholar-updated">October 2026</span></p>
               <a class="scholar__link" href="https://scholar.google.com/citations?user=CiLrxdcAAAAJ&amp;hl=en" target="_blank" rel="noopener">View Scholar profile <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
             </div>
           </div>
           <div class="scholar__stats">
             <div class="scholar__stat">
-              <p class="scholar__num"><span data-count="425">0</span></p>
+              <p class="scholar__num"><span data-count="436" data-scholar="citations">0</span></p>
               <p class="scholar__lbl">Citations</p>
-              <p class="scholar__since">422 since 2021</p>
             </div>
             <div class="scholar__stat">
-              <p class="scholar__num"><span data-count="11">0</span></p>
+              <p class="scholar__num"><span data-count="11" data-scholar="hindex">0</span></p>
               <p class="scholar__lbl">h-index</p>
-              <p class="scholar__since">11 since 2021</p>
             </div>
             <div class="scholar__stat">
-              <p class="scholar__num"><span data-count="12">0</span></p>
+              <p class="scholar__num"><span data-count="12" data-scholar="i10index">0</span></p>
               <p class="scholar__lbl">i10-index</p>
-              <p class="scholar__since">12 since 2021</p>
             </div>
           </div>
         </div>
@@ -1329,7 +1389,10 @@
               <h4 class="publications__title">Failure-Consistent Degradation State-Space Modeling of Tool Wear Evolution and Remaining Useful Life in Machining Systems</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
               <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
-              <a href="https://www.sciencedirect.com/science/article/abs/pii/S1350630726002268" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+              <div class="pub__links">
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S1350630726002268" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+                <a href="https://github.com/engrmuhammadumar/Physics-Guided-Degradation-State-Space-Modeling-for-Tool-Wear-Failure-Analysis" target="_blank" rel="noopener" class="publications__link"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+              </div>
             </div>
 
             <div class="publications__card reveal">
@@ -1337,7 +1400,10 @@
               <h4 class="publications__title">Burst-Informed Acoustic Emission Framework for Explainable Failure Diagnosis in Milling Machines</h4>
               <p class="pub__authors"><span class="me">Muhammad Umar</span>, Muhammad Farooq Siddique, Jong-Myon Kim</p>
               <div class="pub__venue"><span class="publications__journal">Engineering Failure Analysis</span><div class="pub__metrics" aria-label="2025 journal metrics"><span class="pub__metric pub__metric--quartile" title="2025 JCR: Engineering, Mechanical">JCR Q1</span><span class="pub__metric pub__metric--impact" title="2025 Journal Impact Factor">IF 7.0</span></div></div>
-              <a href="https://doi.org/10.1016/j.engfailanal.2025.110373" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+              <div class="pub__links">
+                <a href="https://doi.org/10.1016/j.engfailanal.2025.110373" target="_blank" rel="noopener" class="publications__link">View paper <i class="ri-arrow-right-up-line"></i></a>
+                <a href="https://github.com/engrmuhammadumar/burst-informed-ae-framework" target="_blank" rel="noopener" class="publications__link"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+              </div>
             </div>
 
             <div class="publications__card reveal">
@@ -1558,8 +1624,8 @@
               <span class="pub__badge pub__badge--published">Conference</span>
               <h4 class="publications__title">Attention-Guided Dual Feature Extractor for Bearing Fault Diagnosis from Vibration Data</h4>
               <p class="pub__authors">Saif Ullah, <span class="me">Muhammad Umar</span>, and Jong-Myon Kim</p>
-              <div class="pub__venue"><span class="publications__journal">CSCI 2025 — United States</span></div>
-              <span class="publications__link disabled">Proceedings soon</span>
+              <div class="pub__venue"><span class="publications__journal">CSCI 2025 — United States · Springer</span></div>
+              <a href="https://link.springer.com/chapter/10.1007/978-3-032-28472-3_15" target="_blank" rel="noopener" class="publications__link"> View Paper <i class="ri-external-link-line"></i> </a>
             </div>
 
             <div class="publications__card reveal">
@@ -2250,6 +2316,7 @@
             <a href="mailto:mmumar1758@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Email me</a>
             <a href="mailto:muhammadumar@mail.ulsan.ac.kr" class="btn btn--secondary"><i class="ri-building-4-line"></i> University email</a>
             <a href="https://www.linkedin.com/in/engineermuhammadumar/" target="_blank" rel="noopener" class="btn btn--secondary"><i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn</a>
+            <a href="https://github.com/engrmuhammadumar" target="_blank" rel="noopener" class="btn btn--secondary"><i class="fa-brands fa-github"></i> Code on GitHub</a>
           </div>
         </div>
       </div>
@@ -2288,6 +2355,7 @@
           <h4 class="footer__title">Quick links</h4>
           <div class="footer__links">
             <a href="#about">About</a>
+            <a href="#news">News</a>
             <a href="#research">Research</a>
             <a href="#publications">Publications</a>
             <a href="#awards">Awards &amp; Honors</a>
@@ -2380,10 +2448,10 @@
     /* Animated counters */
     var counters = document.querySelectorAll("[data-count]");
     function runCounter(el) {
-      var target = +el.dataset.count, dur = 1400, start = performance.now();
+      var dur = 1400, start = performance.now();
       function tick(now) {
         var p = Math.min((now - start) / dur, 1);
-        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * +el.dataset.count);
         if (p < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
@@ -2396,6 +2464,30 @@
       }, { threshold: 0.6 });
       counters.forEach(function (el) { co.observe(el); });
     }
+
+    /* Google Scholar metrics: load data/scholar.json (kept up to date by a GitHub Action).
+       If the file is missing or unreadable, the numbers written in the HTML stay as they are. */
+    (function () {
+      if (!window.fetch) return;
+      fetch("data/scholar.json", { cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (d) {
+          ["citations", "hindex", "i10index"].forEach(function (key) {
+            var v = parseInt(d[key], 10);
+            if (!(v > 0)) return;
+            document.querySelectorAll('[data-scholar="' + key + '"]').forEach(function (el) {
+              if (el.hasAttribute("data-count")) el.dataset.count = v;
+              el.textContent = v;
+            });
+          });
+          if (d.updated) {
+            var u = document.getElementById("scholar-updated");
+            var dt = new Date(d.updated);
+            if (u && !isNaN(dt)) u.textContent = dt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+          }
+        })
+        .catch(function () {});
+    })();
 
     /* Typing role */
     (function () {
