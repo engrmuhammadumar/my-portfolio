@@ -1,0 +1,50 @@
+# Updates data/scholar.json with your latest Google Scholar numbers.
+# Runs every Monday, and can also be started by hand from the "Actions" tab.
+name: Update Google Scholar metrics
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"   # Mondays 03:00 UTC (12:00 Korea time)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install scholarly
+        run: pip install scholarly==1.7.11
+
+      - name: Fetch metrics
+        run: python scripts/update_scholar.py
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/scholar.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Update Google Scholar metrics"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A commit made by this workflow does not start other workflows on its own,
+      # so start the GitHub Pages deployment (static.yml) so the new numbers go live.
+      - name: Redeploy the website
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run static.yml --ref main
